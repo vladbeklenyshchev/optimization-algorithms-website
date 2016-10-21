@@ -1,68 +1,722 @@
-﻿<html>
-<head>
-	<meta charset="utf-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>Методы оптимизации</title>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-	<style>
-		body{
-			background-color: #388E3C;
-            		font-family: "Arial", sans-serif;
-		}
-		header{
-			text-align: center;
-			background-color: white;
-			padding: 10px;
-			padding-left: 20px;
-			margin-left: 20%;
-			margin-right: 20%;
-			margin-top: 50px;
-            border-right : 3px solid black;
-            border-top: 2px solid black;
-            border-top-left-radius:5px;
-            border-top-right-radius:5px;
-		}
-		section{
-			background-color: white;
-			padding: 10px;
-			padding-left: 20px;
-			margin-left: 20%;
-			margin-right: 20%;
-			margin-top: 5px;
-            border-right : 3px solid black;
-		}
-		footer{
-			background-color: white;
-			padding: 10px;
-			padding-left: 20px;
-			margin-left: 20%;
-			margin-right: 20%;
-			margin-top: 5px;
-            border-right : 3px solid black;
-		}
-    	code{
-        		white-space: normal;
-        		font-family: Consolas, Monaco, monospace;
-        		margin-top: 10px;
-    	}
-    	li{
-        		margin-bottom: 10px;
-    	}
-        </style>
-</head>
-<body>
-<header>
-	<h1>Методы оптимизации</h1>
+<!DOCTYPE html>
+<!-- saved from url=(0054)file:///C:/Users/Tanchik/Desktop/DesignSite/index.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  		<title>Methods optimization</title>
+  		
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<!-- Add Bootstrap CDN and a link to jQuery and put HTML elements inside a container. -->
+  		<link rel="stylesheet" href="./css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  		<script src="./js/bootstrap.min.js"></script>
 
-</header>
-<section>
-
-</section>
-<footer>
-	Copyright &copy 2016 DNU
-</footer>
-</body>
-</html>
+  		<!-- 1. Add a custom class (.bg-1) to the container to add a background color. -->
+		<!-- 2. Add the .text-center class to center the text inside the container. -->
+  		<style>
+			.bg-1 
+			{ 
+    			background-color: #1abc9c; /* Green */
+    			color: #ffffff;
+			}
+			.bg-2 
+			{ 
+    			background-color: #ADD8E6; /* LightBlue */
+    			color: #000080;
+			}
+		</style>
+	</head>
+	<body class="">
+		<div class="container-fluid bg-1 text-center">
+			<center> <h1>Численные методы поиска безусловного экстремума</h1> </center>
+			<p></p>
+			<img src="./images/mo_logo.jpg" class="img-circle" alt="logo">
+			<center> <h2>Методы первого порядка</h2> </center>
+			<div class="panel-group" id="accordion">
+				  <!-- 1 панель -->
+				  <div class="panel panel-default">
+				    <!-- Заголовок 1 панели -->
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="file:///C:/Users/Tanchik/Desktop/DesignSite/index.html#collapseOne">1. Метод градиентного спуска с постоянным шагом</a>
+				      </h4>
+				    </div>
+				    <div id="collapseOne" class="panel-collapse collapse in">
+				      <!-- Содержимое 1 панели -->
+				      <div class="panel-body bg-2">
+				        <img src="./images/M_1_1.jpg" alt="Method_1">
+				        <p></p>
+				        <img src="./images/M_1_2.jpg" alt="Method_1">
+							<!-- Форма для ввода информации для вычислений -->
+							<p></p>
+								<form class="form-horizontal">
+				 					<div class="form-group">
+				  						<label for="text" class="col-sm-3 control-label">Начальная точка X0 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="number" class="form-control" id="text" placeholder="Начальная точка X0">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E1 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E1">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E2 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E2">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Предельное число итераций М = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Предельное число итераций М">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<div class="col-sm-offset-1 col-sm-10">
+									   		<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Вычислить</button>
+									   		  <!-- Modal -->
+										  	<div class="modal fade" id="myModal" role="dialog" style="display: none;">
+										    	<div class="modal-dialog">   
+										      	<!-- Modal content-->
+										      		<div class="modal-content">
+										       	 		<div class="modal-header">
+										          			<button type="button" class="close" data-dismiss="modal">×</button>
+										          			<h4 class="text-info">Решение методом градиентного спуска с постоянным шагом</h4>
+										        		</div>
+										        		<div class="modal-body">
+										          			<p class="text-info">Градиент функции = </p>
+										        		</div>
+										        		<div class="modal-footer">
+										          			<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+										        		</div>
+										      		</div>     
+										    	</div>
+										  	</div>
+									  	</div>
+									</div>
+								</form>
+				      </div>
+				    </div>
+				  </div>
+				  <!-- 2 панель -->
+				  <div class="panel panel-default">
+				    <!-- Заголовок 2 панели -->
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="file:///C:/Users/Tanchik/Desktop/DesignSite/index.html#collapseTwo">2. Метод найскорейшего градиентного спуска</a>
+				      </h4>
+				    </div>
+				    <div id="collapseTwo" class="panel-collapse collapse">
+				      <!-- Содержимое 2 панели -->
+				      <div class="panel-body bg-2">
+				        <img src="./images/M_2.jpg" alt="Method_2">
+				        <!-- Форма для ввода информации для вычислений -->
+							<p></p>
+								<form class="form-horizontal">
+				 					<div class="form-group">
+				  						<label for="text" class="col-sm-3 control-label">Начальная точка X0 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="number" class="form-control" id="text" placeholder="Начальная точка X0">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E1 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E1">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E2 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E2">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Предельное число итераций М = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Предельное число итераций М">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<div class="col-sm-offset-1 col-sm-10">
+									   		<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Вычислить</button>
+									   		  <!-- Modal -->
+										  	<div class="modal fade" id="myModal" role="dialog">
+										    	<div class="modal-dialog">   
+										      	<!-- Modal content-->
+										      		<div class="modal-content">
+										       	 		<div class="modal-header">
+										          			<button type="button" class="close" data-dismiss="modal">×</button>
+										          			<h4 class="text-info">Решение методом найскорейшего градиентного спуска</h4>
+										        		</div>
+										        		<div class="modal-body">
+										          			<p class="text-info">Градиент функции = </p>
+										        		</div>
+										        		<div class="modal-footer">
+										          			<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+										        		</div>
+										      		</div>     
+										    	</div>
+										  	</div>
+									  	</div>
+									</div>
+								</form>
+				      </div>
+				    </div>
+				  </div>
+				  <!-- 3 панель -->
+				  <div class="panel panel-default">
+				    <!-- Заголовок 3 панели -->
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="file:///C:/Users/Tanchik/Desktop/DesignSite/index.html#collapseThree">3. Метод покоординатного спуска</a>
+				      </h4>
+				    </div>
+				    <div id="collapseThree" class="panel-collapse collapse">
+				      <!-- Содержимое 3 панели -->
+				      <div class="panel-body bg-2">
+				        <img src="./images/M_3.jpg" alt="Method_3">
+				        <!-- Форма для ввода информации для вычислений -->
+							<p></p>
+								<form class="form-horizontal">
+				 					<div class="form-group">
+				  						<label for="text" class="col-sm-3 control-label">Начальная точка X00 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="number" class="form-control" id="text" placeholder="Начальная точка X0">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E1 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E1">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E2 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E2">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Предельное число циклов счета М = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Предельное число циклов счета М">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<div class="col-sm-offset-1 col-sm-10">
+									   		<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Вычислить</button>
+									   		  <!-- Modal -->
+										  	<div class="modal fade" id="myModal" role="dialog">
+										    	<div class="modal-dialog">   
+										      	<!-- Modal content-->
+										      		<div class="modal-content">
+										       	 		<div class="modal-header">
+										          			<button type="button" class="close" data-dismiss="modal">×</button>
+										          			<h4 class="text-info">Решение методом покоординатного спуска</h4>
+										        		</div>
+										        		<div class="modal-body">
+										          			<p class="text-info">Градиент функции = </p>
+										        		</div>
+										        		<div class="modal-footer">
+										          			<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+										        		</div>
+										      		</div>     
+										    	</div>
+										  	</div>
+									  	</div>
+									</div>
+								</form>
+				      </div>
+				    </div>
+				  </div>
+				  <!-- 4 панель -->
+				  <div class="panel panel-default">
+				    <!-- Заголовок 4 панели -->
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="file:///C:/Users/Tanchik/Desktop/DesignSite/index.html#collapseFour">4. Метод Гаусса-Зейделя</a>
+				      </h4>
+				    </div>
+				    <div id="collapseFour" class="panel-collapse collapse">
+				      <!-- Содержимое 4 панели -->
+				      <div class="panel-body bg-2">
+				        <img src="./images/M_4_1.jpg" alt="Method_4">
+							<p></p>
+						<img src="./images/M_4_2.jpg" alt="Method_4">
+						<!-- Форма для ввода информации для вычислений -->
+							<p></p>
+								<form class="form-horizontal">
+				 					<div class="form-group">
+				  						<label for="text" class="col-sm-3 control-label">Начальная точка X00 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="number" class="form-control" id="text" placeholder="Начальная точка X0">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E1 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E1">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E2 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E2">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Предельное число циклов счета М = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Предельное число циклов счета М">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<div class="col-sm-offset-1 col-sm-10">
+									   		<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Вычислить</button>
+									   		  <!-- Modal -->
+										  	<div class="modal fade" id="myModal" role="dialog">
+										    	<div class="modal-dialog">   
+										      	<!-- Modal content-->
+										      		<div class="modal-content">
+										       	 		<div class="modal-header">
+										          			<button type="button" class="close" data-dismiss="modal">×</button>
+										          			<h4 class="text-info">Решение методом Гаусса-Зейделя</h4>
+										        		</div>
+										        		<div class="modal-body">
+										          			<p class="text-info">Градиент функции = </p>
+										        		</div>
+										        		<div class="modal-footer">
+										          			<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+										        		</div>
+										      		</div>     
+										    	</div>
+										  	</div>
+									  	</div>
+									</div>
+								</form>
+				      </div>
+				    </div>
+				  </div>
+				  <!-- 5 панель -->
+				  <div class="panel panel-default">
+				    <!-- Заголовок 5 панели -->
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="file:///C:/Users/Tanchik/Desktop/DesignSite/index.html#collapseFive">5. Метод Флетчера-Ривса</a>
+				      </h4>
+				    </div>
+				    <div id="collapseFive" class="panel-collapse collapse">
+				      <!-- Содержимое 5 панели -->
+				      <div class="panel-body bg-2">
+				        <img src="./images/M_5_1.jpg" alt="Method_5">
+				        <p></p>
+				        <img src="./images/M_5_2.jpg" alt="Method_5">
+				        <!-- Форма для ввода информации для вычислений -->
+							<p></p>
+								<form class="form-horizontal">
+				 					<div class="form-group">
+				  						<label for="text" class="col-sm-3 control-label">Начальная точка X0 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="number" class="form-control" id="text" placeholder="Начальная точка X0">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E1 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E1">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E2 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E2">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Предельное число итераций М = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Предельное число итераций М">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<div class="col-sm-offset-1 col-sm-10">
+									   		<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Вычислить</button>
+									   		  <!-- Modal -->
+										  	<div class="modal fade" id="myModal" role="dialog">
+										    	<div class="modal-dialog">   
+										      	<!-- Modal content-->
+										      		<div class="modal-content">
+										       	 		<div class="modal-header">
+										          			<button type="button" class="close" data-dismiss="modal">×</button>
+										          			<h4 class="text-info">Решение методом Флетчера-Ривса</h4>
+										        		</div>
+										        		<div class="modal-body">
+										          			<p class="text-info">Градиент функции = </p>
+										        		</div>
+										        		<div class="modal-footer">
+										          			<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+										        		</div>
+										      		</div>     
+										    	</div>
+										  	</div>
+									  	</div>
+									</div>
+								</form>
+				      </div>
+				    </div>
+				  </div>
+				  <!-- 6 панель -->
+				  <div class="panel panel-default">
+				    <!-- Заголовок 6 панели -->
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="file:///C:/Users/Tanchik/Desktop/DesignSite/index.html#collapseSix">6. Метод Дэвидона-Флетчера-Пауэлла</a>
+				      </h4>
+				    </div>
+				    <div id="collapseSix" class="panel-collapse collapse">
+				      <!-- Содержимое 6 панели -->
+				      <div class="panel-body bg-2">
+				        <img src="./images/M_6_1.jpg" alt="Method_6">
+							<p></p>
+						<img src="./images/M_6_2.jpg" alt="Method_6">
+						<!-- Форма для ввода информации для вычислений -->
+							<p></p>
+								<form class="form-horizontal">
+				 					<div class="form-group">
+				  						<label for="text" class="col-sm-3 control-label">Начальная точка X0 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="number" class="form-control" id="text" placeholder="Начальная точка X0">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E1 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E1">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E2 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E2">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Предельное число итераций М = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Предельное число итераций М">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<div class="col-sm-offset-1 col-sm-10">
+									   		<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Вычислить</button>
+									   		  <!-- Modal -->
+										  	<div class="modal fade" id="myModal" role="dialog">
+										    	<div class="modal-dialog">   
+										      	<!-- Modal content-->
+										      		<div class="modal-content">
+										       	 		<div class="modal-header">
+										          			<button type="button" class="close" data-dismiss="modal">×</button>
+										          			<h4 class="text-info">Решение методом Дэвидона-Флетчера-Пауэлла</h4>
+										        		</div>
+										        		<div class="modal-body">
+										          			<p class="text-info">Градиент функции = </p>
+										        		</div>
+										        		<div class="modal-footer">
+										          			<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+										        		</div>
+										      		</div>     
+										    	</div>
+										  	</div>
+									  	</div>
+									</div>
+								</form>
+				      </div>
+				    </div>
+				  </div>
+				  <!-- 7 панель -->
+				  <div class="panel panel-default">
+				    <!-- Заголовок 7 панели -->
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="file:///C:/Users/Tanchik/Desktop/DesignSite/index.html#collapseSeven">7. Метод кубической интерполяции</a>
+				      </h4>
+				    </div>
+				    <div id="collapseSeven" class="panel-collapse collapse">
+				      <!-- Содержимое 7 панели -->
+				      <div class="panel-body bg-2">
+							<img src="./images/M_7_1.jpg" alt="Method_7">
+							<p></p>
+							<img src="./images/M_7_2.jpg" alt="Method_7">
+							<!-- Форма для ввода информации для вычислений -->
+							<p></p>
+								<form class="form-horizontal">
+				 					<div class="form-group">
+				  						<label for="text" class="col-sm-3 control-label">Начальная точка X0 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="number" class="form-control" id="text" placeholder="Начальная точка X0">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E1 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E1">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E2 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E2">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Шаг = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Шаг">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<div class="col-sm-offset-1 col-sm-10">
+									   		<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Вычислить</button>
+									   		  <!-- Modal -->
+										  	<div class="modal fade" id="myModal" role="dialog">
+										    	<div class="modal-dialog">   
+										      	<!-- Modal content-->
+										      		<div class="modal-content">
+										       	 		<div class="modal-header">
+										          			<button type="button" class="close" data-dismiss="modal">×</button>
+										          			<h4 class="text-info">Решение методом кубической интерполяции</h4>
+										        		</div>
+										        		<div class="modal-body">
+										          			<p class="text-info">Градиент функции = </p>
+										        		</div>
+										        		<div class="modal-footer">
+										          			<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+										        		</div>
+										      		</div>     
+										    	</div>
+										  	</div>
+									  	</div>
+									</div>
+								</form>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			<center> <h2>Методы второго порядка</h2> </center>
+<div class="panel-group" id="accordion">
+				  <!-- 1 панель -->
+				  <div class="panel panel-default">
+				    <!-- Заголовок 1 панели -->
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="file:///C:/Users/Tanchik/Desktop/DesignSite/index.html#collapseOne2">1. Метод Ньютона</a>
+				      </h4>
+				    </div>
+				    <div id="collapseOne2" class="panel-collapse collapse">
+				      <!-- Содержимое 1 панели -->
+				      <div class="panel-body bg-2">
+				        <img src="./images/M2_1_1.jpg" alt="Method2_1">
+				        <p></p>
+				        <img src="./images/M2_1_2.jpg" alt="Method2_1">
+				        <!-- Форма для ввода информации для вычислений -->
+							<p></p>
+								<form class="form-horizontal">
+				 					<div class="form-group">
+				  						<label for="text" class="col-sm-3 control-label">Начальная точка X0 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="number" class="form-control" id="text" placeholder="Начальная точка X0">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E1 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E1">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E2 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E2">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Предельное число итераций М = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Предельное число итераций М">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<div class="col-sm-offset-1 col-sm-10">
+									   		<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Вычислить</button>
+									   		  <!-- Modal -->
+										  	<div class="modal fade" id="myModal" role="dialog">
+										    	<div class="modal-dialog">   
+										      	<!-- Modal content-->
+										      		<div class="modal-content">
+										       	 		<div class="modal-header">
+										          			<button type="button" class="close" data-dismiss="modal">×</button>
+										          			<h4 class="text-info">Решение методом Ньютона</h4>
+										        		</div>
+										        		<div class="modal-body">
+										          			<p class="text-info">Градиент функции = .</p>
+										          			<p class="text-info">Матрица Гессе = .</p>
+										        		</div>
+										        		<div class="modal-footer">
+										          			<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+										        		</div>
+										      		</div>     
+										    	</div>
+										  	</div>
+									  	</div>
+									</div>
+								</form>
+				      </div>
+				    </div>
+				  </div>
+				  <!-- 2 панель -->
+				  <div class="panel panel-default">
+				    <!-- Заголовок 2 панели -->
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="file:///C:/Users/Tanchik/Desktop/DesignSite/index.html#collapseTwo2">2. Метод Ньютона-Рафсона</a>
+				      </h4>
+				    </div>
+				    <div id="collapseTwo2" class="panel-collapse collapse">
+				      <!-- Содержимое 2 панели -->
+				      <div class="panel-body bg-2">
+				        <img src="./images/M2_2.jpg" alt="Method2_2">
+				        <!-- Форма для ввода информации для вычислений -->
+							<p></p>
+								<form class="form-horizontal">
+				 					<div class="form-group">
+				  						<label for="text" class="col-sm-3 control-label">Начальная точка X0 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="number" class="form-control" id="text" placeholder="Начальная точка X0">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E1 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E1">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E2 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E2">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Предельное число итераций М = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Предельное число итераций М">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<div class="col-sm-offset-1 col-sm-10">
+									   		<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Вычислить</button>
+									   		  <!-- Modal -->
+										  	<div class="modal fade" id="myModal" role="dialog">
+										    	<div class="modal-dialog">   
+										      	<!-- Modal content-->
+										      		<div class="modal-content">
+										       	 		<div class="modal-header">
+										          			<button type="button" class="close" data-dismiss="modal">×</button>
+										          			<h4 class="text-info">Решение методом Ньютона-Рафсона</h4>
+										        		</div>
+										        		<div class="modal-body">
+										          			<p class="text-info">Градиент функции = </p>
+										          			<p class="text-info">Матрица Гессе = .</p>
+										        		</div>
+										        		<div class="modal-footer">
+										          			<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+										        		</div>
+										      		</div>     
+										    	</div>
+										  	</div>
+									  	</div>
+									</div>
+								</form>
+				      </div>
+				    </div>
+				  </div>
+				  <!-- 3 панель -->
+				  <div class="panel panel-default">
+				    <!-- Заголовок 3 панели -->
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="file:///C:/Users/Tanchik/Desktop/DesignSite/index.html#collapseThree2">3. Метод Марквардта</a>
+				      </h4>
+				    </div>
+				    <div id="collapseThree2" class="panel-collapse collapse">
+				      <!-- Содержимое 3 панели -->
+				      <div class="panel-body bg-2">
+				        <img src="./images/M2_3_1.jpg" alt="Method2_3">
+				        <p></p>
+				        <img src="./images/M2_3_2.jpg" alt="Method2_3">
+				        <!-- Форма для ввода информации для вычислений -->
+							<p></p>
+								<form class="form-horizontal">
+				 					<div class="form-group">
+				  						<label for="text" class="col-sm-3 control-label">Начальная точка X0 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="number" class="form-control" id="text" placeholder="Начальная точка X0">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Малое положительное число E1 = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Малое положительное число E1">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<label for="text" class="col-sm-3 control-label">Предельное число итераций М = </label>
+									  	<div class="col-sm-8">
+									   		<input type="text" class="form-control" id="text" placeholder="Предельное число итераций М">
+									  	</div>
+									</div>
+									<div class="form-group">
+									  	<div class="col-sm-offset-1 col-sm-10">
+									   		<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Вычислить</button>
+									   		  <!-- Modal -->
+										  	<div class="modal fade" id="myModal" role="dialog">
+										    	<div class="modal-dialog">   
+										      	<!-- Modal content-->
+										      		<div class="modal-content">
+										       	 		<div class="modal-header">
+										          			<button type="button" class="close" data-dismiss="modal">×</button>
+										          			<h4 class="text-info">Решение методом Марквардта</h4>
+										        		</div>
+										        		<div class="modal-body">
+										          			<p class="text-info">Градиент функции = </p>
+										          			<p class="text-info">Матрица Гессе = .</p>
+										        		</div>
+										        		<div class="modal-footer">
+										          			<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+										        		</div>
+										      		</div>     
+										    	</div>
+										  	</div>
+									  	</div>
+									</div>
+								</form>
+				      </div>
+				    </div>
+				  </div>
+		</div>
+	
+</div></body></html>
