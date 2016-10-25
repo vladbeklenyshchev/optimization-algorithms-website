@@ -1,6 +1,5 @@
 //test - calcGradientDescentWithStaticStep([0.5, 1], 0.1, 0.15, 10)
  var calcGradientDescentWithStaticStep = function(x0, eps1, eps2, M){
-	// x0 - vector
 	var x = [x0];
 	k = 0
 	grad_val = [0,0];
