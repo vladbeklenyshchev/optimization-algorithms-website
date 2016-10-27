@@ -8,8 +8,7 @@ var abs = function(a){
 	return 2*x1*x1 + x1*x2 + x2*x2;
 };
 
-
-  var grad_f_x = function(x1, x2){
+ var grad_f_x = function(x1, x2){
 	arr_grad = [0,0];
 	arr_grad[0] = 4 * x1 + x2;
 	arr_grad[1] = x1 + 2 * x2;
@@ -23,5 +22,6 @@ var norm1 = function(item1, item2) {
 
  // norm2 for two vectors with two elements
 var norm2 = function(x1, x2) {
-	return Math.sqrt((x2[0] - x1[0]) * (x2[0] - x1[0])+ (x2[1] - x1[1]) * (x2[1] - x1[1]));
+	return Math.sqrt((x2[0] - x1[0]) * (x2[0] - x1[0])
+		+(x2[1] - x1[1]) * (x2[1] - x1[1]));
 };
