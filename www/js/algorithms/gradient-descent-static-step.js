@@ -29,12 +29,16 @@ var calcGradientDescentWithStaticStep = function(x0, eps1, eps2, M) {
 		item = next_item;
 		x.push(item);
 		k = k + 1;
-
+	
+		// used only one stop condition
+		// additional: abs(f_x(next_item[0], next_item[1]) - 
+		// 	f_x(item[0], item[1])) > eps2)
 	} while(norm2(x[k-1],x[k]) > eps2);
 
 	return x[k];
 };
 
+// perform next iteration for the method
 var action = function(x, grad, alpha) {
 	var y = [0, 0];
 	y[0] = x[0] - alpha * grad[0];
