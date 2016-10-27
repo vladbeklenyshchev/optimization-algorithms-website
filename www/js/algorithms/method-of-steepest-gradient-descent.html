@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title> Test</title>
+		<script src = "method_of_steepest_gradient_descent.js"></script>
+	</head>
+	<body>
+		<h1>
+			<div id="one">Вычисление точки минимума для заданной функции (МНГС)</div>	
+		</h1>
+		<h2>
+			<div id="third">
+				<form name="main_form">
+				Введите начальный вектор X0:<br>
+				Первая координата:
+				<input type="text" size="10" name="x0" value="0.5" onFocus="this.value=''" onBlur="if (this.value==''){this.value='0.5'}"> <br>
+				Вторая координата:
+				<input type="text" size="10" name="y0" value="1" onFocus="this.value=''" onBlur="if (this.value==''){this.value='1'}"> <br>
+				Введите малое положительное число E1:
+				<input type="text" size="10" name="e1" value="0.1" onFocus="this.value=''" onBlur="if (this.value==''){this.value='0.1'}"> <br>
+				Введите малое положительное число E2:
+				<input type="text" size="10" name="e2" value="0.15" onFocus="this.value=''" onBlur="if (this.value==''){this.value='0.15'}"> <br>
+				Предельное число итераций М:
+				<input type="text" size="10" name="m" value="10" onFocus="this.value=''" onBlur="if (this.value==''){this.value='10'}"> <br>
+				<input type="button" value="Вычислить локальный минимум функции 2x^2+xy+y^2" onClick="method_2(main_form);">
+				<input type="reset" value="Отменить"><hr>
+			</div>
+		</h2>
+	</body>
+	</html>
+	
