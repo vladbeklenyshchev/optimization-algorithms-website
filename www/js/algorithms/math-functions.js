@@ -38,3 +38,9 @@ var matrixArray = function (rows,columns) {
   }
   return arr;
 }
+
+function step(x, y, k) {
+    return (Math.pow(4*x + y, 2) + Math.pow(x + 2*y, 2) ) / 
+    (4*Math.pow(4*x + y, 2) + 2*(4*x + y)*(x + 2*y) + 
+    	2* Math.pow(x + 2*y, 2));
+};
