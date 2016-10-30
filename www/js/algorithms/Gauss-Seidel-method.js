@@ -20,6 +20,7 @@ function method_2(obj)
     	var norm_difference_f_x = 100;
         var result = new Array(2);
         var result_function = 0;
+        var e = [0, 0];
         // ГЛАВНЫЙ ЦИКЛ
     	while(norm >= e1 || norm_difference >= e2 || norm_difference_f_x >= e2) {
     		// ПРОВЕРЯЕМ УСЛОВИЕ j>=M
@@ -44,15 +45,15 @@ function method_2(obj)
 		        	} else {
 		        		// ВЫЧИСЛЯЕМ ШАГ t*
 		        		if (k == 0) {
-		        			t = step1(x0[0], grad);
+		        			e = [1, 0];
+		        			t = step(x0[0], grad, e);
 		        			x1 = [0, 0];
-	                    	var e_1 = [1, 0];
 		        			x1[0] = x0[0] - grad[0]*t*e[0];
 		        			x1[1] = x0[1] - grad[1]*t*e[1];
 		        		} else if (k == 1) {
-		        			t = step2(x0[0], grad);
+		        			e = [0, 1];
+		        			t = step(x0[0], grad, e);
 		        			x1 = [0, 0];
-		                    var e_2 = [0, 1];
 			        		x1[0] = x0[0] - grad[0]*t*e[0];
 			        		x1[1] = x0[1] - grad[1]*t*e[1];
 		        		}
@@ -86,22 +87,17 @@ function method_2(obj)
         // alert("точка минимума = [" + result[1].toFixed(5)+", " + result[1].toFixed(5) +"], значение функции в этой точке " + result_function.toFixed(5));
     }
 
-    function step1(x, grad) { // шаг
+	function step(x, grad, e) { // шаг
 		var step = 0;
-		var fi_x = 0;
-		fi_x = 2 * Math.pow((x[0] - grad[0] * step), 2) + (x[0] - grad[0] * step) * 1 + Math.pow(1, 2);
-		var fi_x_po_dx = 0;
-		fi_x_po_dx = 4 * (x[0] - grad[0] * step) * (- grad[0]) - grad[0];
-    	step = (4 * (- grad[0]) * (- grad[0])) / (4 * x[0] * (- grad[0]) - grad[0]); // Формулу пока ещё не знаю как выразить...нужно подумать =(
-  		return step;
-	}
-
-	function step2(x, grad) { // шаг
-		var step = 0;
-		var fi_x = 0;
-		fi_x = 2 * Math.pow(x[0], 2) + x[0] * (x[1] - grad[1] * step) + Math.pow((x[1] - grad[1] * step), 2);
-		var fi_x_po_dx = 0;
-		fi_x_po_dx = 2 * Math.pow(grad[1], 2) * step - Math.pow(grad[1], 2);
-    	step = Math.pow(grad[1], 2) / (2 * Math.pow(grad[1], 2)); // Формулу пока ещё не знаю как выразить...нужно подумать =(
+    	step = (-2 * Math.pow(x[0], 2) - 
+    			x[0] * x[1] - 
+    			Math.pow(x[1], 2) + 
+    			4 * x[0] * grad[0] * e[0] + 
+    			x[0] * grad[1] * e[1] + 
+    			x[1] * grad[0] * e[0] + 
+    			2 * x[1] * grad[1] * e[1]) / 
+    			(4 * Math.pow(grad[0], 2) * Math.pow(e[0], 2) + 
+    			2 * grad[0] * grad[1] * e[0] * e[1] + 
+    			2 * Math.pow(grad[1], 2) * Math.pow(e[1], 2)); 
   		return step;
 	}
