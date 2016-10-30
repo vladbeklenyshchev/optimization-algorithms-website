@@ -23,7 +23,7 @@ var calcCoordinateDescent = function(x0, eps1, eps2, M) {
 			grad_val = grad_f_x(item[0], item[1]);
 			
 			if (norm1(grad_val[0], grad_val[1]) < eps1) {
-				return x[k];
+				return x[j*n+k];
 			}
 			
 			// so, we shall reconstruct tk step every k iteration
