@@ -43,7 +43,7 @@ var action = function(x, grad, k, dPrev, beta) {
 	dNew = [-grad[0] + beta * dPrev[0],
 		-grad[1] + beta * dPrev[1]];
 	
-	t = step(x[0], x[1], k);
+	t = getAppropriateStepValue(x[0], x[1], k);
 	// array for result x dot
 	xNew = [x[0] + t * dNew[0],
 		x[1] + t * dNew[1]];

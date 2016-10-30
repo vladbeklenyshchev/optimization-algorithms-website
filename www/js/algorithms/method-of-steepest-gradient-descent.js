@@ -47,7 +47,7 @@
 	        		var x1 = new Array(2);
 	        		var t = 0;
 	        		// ВЫЧИСЛЯЕМ НАИЛУЧШУЮ ВЕЛИЧИНУ ШАГА t
-	        		t = step(x0[0], x0[1], k);
+	        		t = getAppropriateStepValue(x0[0], x0[1], k);
                     x1 = [0, 0];
 	        		x1[0] = x0[0] - grad[0]*t;
 	        		x1[1] = x0[1] - grad[1]*t;
