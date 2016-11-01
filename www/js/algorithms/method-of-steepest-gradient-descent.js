@@ -47,7 +47,7 @@
 	        		var x1 = new Array(2);
 	        		var t = 0;
 	        		// ВЫЧИСЛЯЕМ НАИЛУЧШУЮ ВЕЛИЧИНУ ШАГА t
-	        		t = step(x0[0], x0[1], k);
+	        		t = getAppropriateStepValue(x0[0], x0[1], k);
                     x1 = [0, 0];
 	        		x1[0] = x0[0] - grad[0]*t;
 	        		x1[1] = x0[1] - grad[1]*t;
@@ -73,14 +73,3 @@
         }
         // alert("точка минимума = [" + result[1].toFixed(5)+", " + result[1].toFixed(5) +"], значение функции в этой точке " + result_function.toFixed(5));
     }
-
-function step(x, y, k) { // шаг
-	var step = 0;
-    step = ( Math.pow((4*Math.pow(x, k) + Math.pow(y, k)), 2) 
-				+ Math.pow((Math.pow(x, k) + 2*Math.pow(y, k)), 2) ) 
-				/ (4*Math.pow((4*Math.pow(x,k) + Math.pow(y, k)), 2) 
-				+ 2*(4*Math.pow(x, k) + Math.pow(y, k))
-				*(Math.pow(x, k) + 2*Math.pow(y, k)) 
-				+ 2* Math.pow((Math.pow(x, k) + 2*Math.pow(y, k)), 2));
-  	return step;
-}

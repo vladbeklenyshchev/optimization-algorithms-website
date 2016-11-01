@@ -1,3 +1,5 @@
+"use strict";
+
 var abs = function(a) {
 	if(a < 0) {
 		return -a;
@@ -26,4 +28,21 @@ var norm1 = function(item1, item2) {
 var norm2 = function(x1, x2) {
 	return Math.sqrt((x2[0] - x1[0]) * (x2[0] - x1[0]) + 
 		(x2[1] - x1[1]) * (x2[1] - x1[1]));
+};
+
+var matrixArray = function (rows,columns) {
+  var arr = new Array();
+  for(var i=0; i<columns; i++ ){
+	arr[i] = new Array();
+    for(var j=0; j<rows; j++) {
+      arr[i][j] = i+j+1;//вместо i+j+1 пишем любой наполнитель. В простейшем случае - null
+    }
+  }
+  return arr;
+}
+
+function getAppropriateStepValue(x, y, k) {
+    return (Math.pow(4*x + y, 2) + Math.pow(x + 2*y, 2) ) / 
+    (4*Math.pow(4*x + y, 2) + 2*(4*x + y)*(x + 2*y) + 
+    	2* Math.pow(x + 2*y, 2));
 };
