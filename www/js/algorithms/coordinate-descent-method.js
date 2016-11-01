@@ -1,13 +1,12 @@
+"use strict";
+
 //test - calcCoordinateDescent([0.5, 1], 0.1, 0.15, 10)
 var calcCoordinateDescent = function(x0, eps1, eps2, M) {
-	'use strict';
-
 	var x = [x0];
 	var k = 0;
 	var grad_val = [0,0];
 	var item = x0;
 	var next_item = [0,0];
-	var func_x = [0];
 	var tj = 0.5;
 	var tk = tj;
 	var n = 2;
@@ -45,8 +44,9 @@ var calcCoordinateDescent = function(x0, eps1, eps2, M) {
 			item = next_item;
 			x.push(item);
 			
-			// there is only one condition!
-			if (norm2(x[j*n+k],x[j*n+k+1]) < eps2) {
+			if (norm2(x[j*n+k],x[j*n+k+1]) < eps2 &&
+			 abs(f_x(x[j*n+k+1][0], x[j*n+k+1][1]) 
+			 	- f_x(x[j*n+k][0], x[j*n+k][1])) < eps2) {
 				// we want condition executed at 2 sequential J iterations
 				// for j-1 and j
 				if (!previousJIteration) {
