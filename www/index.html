@@ -7,14 +7,14 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1">
  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  		<script src="./js/bootstrap.min.js"></script>
   	<!-- scripts with methods-->
-  	<script src = "gradient-descent-static-step.js"></script>
-  	<script src = "method-of-steepest-gradient-descent.js"></script>
-  	<script src = "coordinate-descent-method.js"></script>
-  	<script src = "gauss-seidel-method.js"></script>
-  	<script src = "nonlinear-conjugate-gradient.js"></script>
-  	<script src = "method-devidon-fletcher-powell.js"></script>
+  	<script src = "./js/algorithms/gradient-descent-static-step.js"></script>
+  	<script src = "./js/algorithms/method-of-steepest-gradient-descent.js"></script>
+  	<script src = "./js/algorithms/coordinate-descent-method.js"></script>
+  	<script src = "./js/algorithms/gauss-seidel-method.js"></script>
+  	<script src = "./js/algorithms/nonlinear-conjugate-gradient.js"></script>
+  	<script src = "./js/algorithms/method-devidon-fletcher-powell.js"></script>
   	<!-- Add slyles -->
   	<style>
 		.bg-1 { 
@@ -43,7 +43,7 @@
     		padding-top: 10px;
     		padding-bottom: 20px;
 		}
-		.a {
+		a:link {
 			text-decoration: none;
 		}
 	</style>
@@ -53,44 +53,18 @@
 	<div class="container-fluid bg-1 text-center">
   		<h1>Численные методы поиска безусловного экстремума</h1>
 		<p> </p>
+		<h3>для функции f(x, y) = 2x<sup>2</sup> + xy + y<sup>2</sup></h3>
 		<div class="row">
     		<div class="clearfix"></div>
-    		<p></p>
-  		</div>
-  		<div class="row">
-    		<div class="clearfix"></div>
-    		<p></p>
-  		</div>
-  		<div class="row">
-    		<div class="clearfix"></div>
-    		<p></p>
-  		</div>
-  		<div class="row">
-    		<div class="clearfix"></div>
-    		<p></p>
-  		</div>
-  		<div class="row">
-    		<div class="clearfix"></div>
-    		<p></p>
-  		</div>
-  		<div class="row">
-    		<div class="clearfix"></div>
-    		<p></p>
-  		</div>
-  		<div class="row">
-    		<div class="clearfix"></div>
-    		<p></p>
-  		</div>
-  		<div class="row">
-    		<div class="clearfix"></div>
-    		<p></p>
-  		</div>
-  		<div class="row">
-    		<div class="clearfix"></div>
-    		<p></p>
-  		</div>
-  		<div class="row">
-    		<div class="clearfix"></div>
+    		<div class="row"><p></p></div>
+    		<div class="row"><p></p></div>
+    		<div class="row"><p></p></div>
+    		<div class="row"><p></p></div>
+    		<div class="row"><p></p></div>
+    		<div class="row"><p></p></div>
+    		<div class="row"><p></p></div>
+    		<div class="row"><p></p></div>
+    		<div class="row"><p></p></div>
     		<p></p>
   		</div>
 		<img src="./images/mo_logo.jpg" class="img-circle" alt="logo">
@@ -149,7 +123,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
-									<input type="button" class="btn btn-success btn-lg" value="Вычислить локальный минимум функции 2x^2+xy+y^2" onClick="method_1(main_form);">
+									<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_1(main_form);">
 								</div>
 							</div>
 						</form>
@@ -203,7 +177,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
-									<input type="button" class="btn btn-success btn-lg" value="Вычислить локальный минимум функции 2x^2+xy+y^2" onClick="method_2(main_form);">
+									<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_2(main_form);">
 								</div>
 							</div>
 						</form>
@@ -257,7 +231,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
-									<input type="button" class="btn btn-success btn-lg" value="Вычислить локальный минимум функции 2x^2+xy+y^2" onClick="method_3(main_form);">
+									<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_3(main_form);">
 								</div>
 							</div>
 						</form>
@@ -313,7 +287,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
-									<input type="button" class="btn btn-success btn-lg" value="Вычислить локальный минимум функции 2x^2+xy+y^2" onClick="method_4(main_form);">
+									<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_4(main_form);">
 								</div>
 							</div>
 						</form>
@@ -369,7 +343,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
-									<input type="button" class="btn btn-success btn-lg" value="Вычислить локальный минимум функции 2x^2+xy+y^2" onClick="method_5(main_form);">
+									<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_5(main_form);">
 								</div>
 							</div>
 						</form>
@@ -425,7 +399,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
-									<input type="button" class="btn btn-success btn-lg" value="Вычислить локальный минимум функции 2x^2+xy+y^2" onClick="method_6(main_form);">
+									<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_6(main_form);">
 								</div>
 							</div>
 						</form>
@@ -481,7 +455,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
-									<input type="button" class="btn btn-success btn-lg" value="Вычислить локальный минимум функции 2x^2+xy+y^2" onClick="method_7(main_form);">
+									<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_7(main_form);">
 								</div>
 							</div>
 						</form>
@@ -543,7 +517,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
-									<input type="button" class="btn btn-success btn-lg" value="Вычислить локальный минимум функции 2x^2+xy+y^2" onClick="method_8(main_form);">
+									<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_8(main_form);">
 								</div>
 							</div>
 						</form>
@@ -597,7 +571,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
-									<input type="button" class="btn btn-success btn-lg" value="Вычислить локальный минимум функции 2x^2+xy+y^2" onClick="method_9(main_form);">
+									<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_9(main_form);">
 								</div>
 							</div>
 						</form>
@@ -653,7 +627,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
-									<input type="button" class="btn btn-success btn-lg" value="Вычислить локальный минимум функции 2x^2+xy+y^2" onClick="method_10(main_form);">
+									<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_10(main_form);">
 								</div>
 							</div>
 						</form>
@@ -663,7 +637,7 @@
   		</div>
 	</div>
 </body>
-<footer class="container-fluid bg-4 text-center">
+<div class="container-fluid bg-4 text-center">
   	<p>Выполнили студенты 5 курса Бекленищев Владислав и Пилипенко Татьяна</p> 
-</footer>
+</div>
 </html>
