@@ -59,8 +59,19 @@ function method_6(obj)
 					        	delta_g[1] = grad2[1] - grad[1];
 					        	delta_x[0] = x1[0] - x0[0];
 					        	delta_x[1] = x1[1] - x0[1];
-					        	// !!!!!!!!!!!!!!!!!! ВЫЧИСЛЕНИЕ A_NEW
-					        	a_new = [[-0.625, -0.305], [-0.305, -0.134]];
+					        	// ВЫЧИСЛЕНИЕ A_NEW
+					        	var temp_1 = minuend_1(delta_x);
+					        	var temp_2 = minuend_2(delta_x, delta_g);
+					        	var temp_3 = subtrahend_1(a, delta_g);
+					        	var temp_4 = subtrahend_2(a, delta_g);
+					        	var temp_5 = multMatrixNumber(temp_4, temp_1);
+					        	var temp_6 = multMatrixNumber(temp_2, temp_3);
+					        	var temp_7 = temp_2 * temp_4;
+					        	var temp_8 = differenceMatrix(temp_5, temp_6);
+					        	a_new[0][0] = temp_8[0][0] / temp_7;
+					        	a_new[0][1] = temp_8[0][1] / temp_7;
+					        	a_new[1][0] = temp_8[1][0] / temp_7;
+					        	a_new[1][1] = temp_8[1][1] / temp_7;
 					        	a1 = [[0, 0], [0, 0]];
 					        	a1[0][0] = a[0][0] + a_new[0][0];
 					        	a1[0][1] = a[0][1] + a_new[0][1];
@@ -149,6 +160,16 @@ function method_6(obj)
 		    return B;
 		}
 
+		// Разность двух матриц
+		function differenceMatrix(matrix_1, matrix_2){
+			var difference = [[0, 0], [0, 0]];
+			difference[0][0] = (matrix_1[0][0] * matrix_2[0][0]);
+        	difference[0][1] = (matrix_1[0][1] * matrix_2[0][1]);
+        	difference[1][0] = (matrix_1[1][0] * matrix_2[1][0]);
+        	difference[1][1] = (matrix_1[1][1] * matrix_2[1][1]);
+			return difference;
+		}
+
 		function step(x, grad, k, d){
             var step = 0; 
             if (k == 0) {
@@ -169,4 +190,45 @@ function method_6(obj)
                     2 * Math.pow(d[1], 2));
             }
             return step;
+        }
+
+        function minuend_1(delta_x) {
+        	var temp_1 = [[0, 0], [0, 0]];
+        	temp_1[0][0] = (delta_x[0] * delta_x[0]);
+        	temp_1[0][1] = (delta_x[0] * delta_x[1]);
+        	temp_1[1][0] = (delta_x[1] * delta_x[0]);
+        	temp_1[1][1] = (delta_x[1] * delta_x[1]);
+        	return temp_1;
+        }
+
+        function minuend_2(delta_x, delta_g) {
+        	var temp_2 = 0;
+        	temp_2 = (delta_x[0] * delta_g[0]) + (delta_x[1] * delta_g[1]);
+        	return temp_2;
+        }
+
+        function subtrahend_1(a, delta_g) {
+        	var temp_1 = [[0, 0], [0, 0]];
+        	var temp_1_1 = [0, 0];
+        	var temp_1_1_1 = [[0, 0], [0, 0]];
+        	temp_1_1[0] = (a[0][0] * delta_g[0]) + (a[1][0] * delta_g[1]);
+        	temp_1_1[1] = (a[0][1] * delta_g[0]) + (a[1][1] * delta_g[1]);
+        	temp_1_1_1[0][0] = temp_1_1[0] * delta_g[0];
+        	temp_1_1_1[0][1] = temp_1_1[0] * delta_g[1];
+        	temp_1_1_1[1][0] = temp_1_1[1] * delta_g[0];
+        	temp_1_1_1[1][1] = temp_1_1[1] * delta_g[1];
+        	temp_1[0][0] = (temp_1_1_1[0][0] * a[0][0]) + (temp_1_1_1[0][1] * a[1][0]);
+        	temp_1[0][1] = (temp_1_1_1[0][0] * a[0][1]) + (temp_1_1_1[0][1] * a[1][1]);
+        	temp_1[1][0] = (temp_1_1_1[1][0] * a[0][0]) + (temp_1_1_1[1][1] * a[1][0]);
+        	temp_1[1][1] = (temp_1_1_1[1][0] * a[0][1]) + (temp_1_1_1[1][1] * a[1][1]);
+        	return temp_1;
+        }
+
+        function subtrahend_2(a, delta_g) {
+        	var temp_2 = 0;
+        	var temp_2_2 = [0, 0];
+        	temp_2_2[0] = (delta_g[0] * a[0][0]) + (delta_g[1] * a[1][0]);
+        	temp_2_2[1] = (delta_g[0] * a[0][1]) + (delta_g[1] * a[1][1]);
+        	temp_2 = (delta_g[0] * temp_2_2[0]) + (delta_g[1] * temp_2_2[1])
+        	return temp_2;
         }
