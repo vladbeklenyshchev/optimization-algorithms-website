@@ -95,13 +95,13 @@
             {
                 step = (4 * x[0] * grad[0] * e[0] +
                     x[1] * grad[0] * e[0]) /
-                    (4 * Math.Pow(grad[0], 2) * Math.Pow(e[0], 2));
+                    (4 * Math.pow(grad[0], 2) * Math.pow(e[0], 2));
             }
             else if (e[0] == 0)
             {
                 step = (x[0] * grad[1] * e[1] +
                     2 * x[1] * grad[1] * e[1]) /
-                    (2 * Math.Pow(grad[1], 2) * Math.Pow(e[1], 2));
+                    (2 * Math.pow(grad[1], 2) * Math.pow(e[1], 2));
             }
             return step;
         }
