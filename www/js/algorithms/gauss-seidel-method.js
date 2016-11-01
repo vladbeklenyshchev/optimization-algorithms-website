@@ -2,7 +2,7 @@
 // МЕТОД ГАУССА-ЗЕЙДЕЛЯ
 
 // Главная функция
-		function method_2(obj)
+		function method_4(obj)
         {
             // ЗАДАЕМ НАЧАЛЬНЫЕ ЗНАЧЕНИЯ
     	    var x0 = new Array(2);  //вектор из html-формы
@@ -44,7 +44,7 @@
 		        		    result[1] = x0[1];
 		                    result_function = 0;
 		        		    result_function = f_x(result[0], result[1]);
-		        		    break;
+		        		    return result;
 		        	    } else {
 		        		    // ВЫЧИСЛЯЕМ ШАГ t*
 		        		    if (k == 0) {
@@ -71,7 +71,7 @@
 		        			    result[1] = x1[1];
 	                            result_function = 0;
 		        			    result_function = f_x(result[0], result[1]);
-		        			    break;
+		        			    return result;
 		        		    } else {
 		        			    k++;
 		        			    // ВЫЧИСЛЯЕМ ГРАДИЕНТ В ТОЧКЕ Х0

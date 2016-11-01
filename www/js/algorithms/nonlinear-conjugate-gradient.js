@@ -1,4 +1,5 @@
 "use strict";
+
 //test - calcNonlinearConjugateGradient([0.5, 1], 0.1, 0.15, 10)
 var calcNonlinearConjugateGradient = function(x0, eps1, eps2, M) {
 	var x = [x0];
@@ -26,11 +27,10 @@ var calcNonlinearConjugateGradient = function(x0, eps1, eps2, M) {
 			d.push(result[0]);
 			x.push(result[1]);
 		}
+		
 		k = k + 1;
-		// used only one stop condition
-		// additional: abs(f_x(next_item[0], next_item[1]) - 
-		// 	f_x(item[0], item[1])) > eps2)
-	} while(norm2(x[k-1],x[k]) > eps2);
+	} while(norm2(x[k-1],x[k]) > eps2 || abs(f_x(x[k][0], x[k][1]) - 
+		f_x(x[k-1][0], x[k-1][1])) > eps2);
 
 	return x[k];
 };
