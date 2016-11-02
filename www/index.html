@@ -7,8 +7,12 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1">
  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  		<script src="./js/bootstrap.min.js"></script>
-  	<!-- scripts with methods-->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+  	<script src="./js/bootstrap.min.js"></script>
+  	<!-- script for katex generator -->
+  	<script async src = "./js/katex-algorithms-generator.js"></script>
+  	<!-- scripts with methods -->
   	<script src = "./js/algorithms/gradient-descent-static-step.js"></script>
   	<script src = "./js/algorithms/method-of-steepest-gradient-descent.js"></script>
   	<script src = "./js/algorithms/coordinate-descent-method.js"></script>
@@ -52,7 +56,8 @@
 	<!--Section_1 MAIN header+logo-->
 	<div class="container-fluid bg-1 text-center">
   		<h1>Численные методы поиска безусловного экстремума</h1>
-		<p> </p>
+		<p>
+		</p>
 		<h3>для функции f(x, y) = 2x<sup>2</sup> + xy + y<sup>2</sup></h3>
 		<div class="row">
     		<div class="clearfix"></div>
@@ -85,10 +90,36 @@
 				<div id="collapseOne" class="panel-collapse collapse">
 					<!-- Содержимое 1 панели -->
 				    <div class="panel-body">
-				    	<img src="./images/M_1_1.jpg" alt="Method_1">
-				        <p></p>
-				        <img src="./images/M_1_2.jpg" alt="Method_1">
-				        <p></p>
+				    	<p>
+				    		Шаг 1. Задать x<sup>0</sup>, 0 < &epsilon; < 1, &epsilon;<sub>1</sub>, &epsilon;<sub>2</sub>, M - предельное число итераций.,<br>
+				    		Найти градиент функции в произвольной точке 
+				    		<span id="method1_step_1" class="katex"></span>.<br>
+				    		Шаг 2. Положить k = 0. <br>
+				    		Шаг 3. Вычислить <span id="method1_step_3" class="katex"></span>.<br>
+				    		Шаг 4. Проверить выполнение критерия окончания :
+				    		<ol>
+				    			<li> если критерий выполнен, расчет закончен: x<sup>*</sup> = x<sup>k</sup>;
+				    			<li> если критерий не выполнен, то перейти к шагу 5.
+				    		</ol>
+				    		Шаг 5. Проверить выполнение неравенства k >= M :
+				    		<ol>
+				    			<li> если неравенство выполнено, расчет закончен: x<sup>*</sup> = x<sup>k</sup>;
+				    			<li> если нет, то перейти к шагу 6.
+				    		</ol>
+				    		Шаг 6. Задать величину шага t<sub>k</sub><br>
+				    		Шаг 7. Вычислить <span id="method1_step_7" class="katex"></span>.<br>
+				    		Шаг 8. Проверить выполнение условия:<br>
+				    		<span id="method1_step_8" class="katex"></span>:
+				    		<ol>
+				    			<li> если условие выполнено, то перейти к шагу 9;
+				    			<li> если условие не выполнено, то положить t<sub>k</sub> = t<sub>k</sub>/2 и перейти к шагу 7.
+				    		</ol>
+				    		Шаг 9. Проверить выполнение условий:<br>
+				    		<span id="method1_step_9" class="katex"></span>:
+				    		<ol>
+				    			<li> если оба условия выполнены при текущем значении k и k = k - 1, то расчет окончен, x<sup>*</sup> = x<sup>k+1</sup>;
+				    			<li> если хотя бы одно из условий не выполнено, положить k = k + 1 и перейти к шагу 3.
+				    		</ol>
 						<!-- Форма для ввода информации для вычислений -->
 						<form class="form-horizontal" name="main_form">
 							<div class="form-group">
