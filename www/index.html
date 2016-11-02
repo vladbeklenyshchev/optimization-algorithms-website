@@ -83,41 +83,47 @@
 					<!-- Содержимое 1 панели -->
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
-				    	<div class="col-sm-4">
-				    			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-						</div>
-				    	<p align=left>
+				    	
+						<div class="container-al1 text-left col-sm-offset-4">
 				    		<b>ШАГ 1.</b> Задать x<sup>0</sup>, 0 < &epsilon; < 1, &epsilon;<sub>1</sub>, &epsilon;<sub>2</sub>, M - предельное число итераций.,<br>
 				    		Найти градиент функции в произвольной точке 
 				    		<span id="method1_step_1" class="katex"></span>.<br>
 				    		<b>ШАГ 2.</b> Положить k = 0. <br>
 				    		<b>ШАГ 3.</b> Вычислить <span id="method1_step_3" class="katex"></span>.<br>
-				    		<b>ШАГ 4.</b> Проверить выполнение критерия окончания : </p>
-				    		<ol>
-				    			<li align=left> если критерий выполнен, расчет закончен: x<sup>*</sup> = x<sup>k</sup>;<br>
-				    			<li align=left> если критерий не выполнен, то перейти к шагу 5.<br>
-				    		</ol>
-				    	<p align=left> <b>ШАГ 5.</b> Проверить выполнение неравенства k >= M : </p>
-				    		<ol>
-				    			<li align=left> если неравенство выполнено, расчет закончен: x<sup>*</sup> = x<sup>k</sup>;
-				    			<li align=left> если нет, то перейти к шагу 6.
-				    		</ol>
-				    	<p align=left>	<b>ШАГ 6.</b> Задать величину шага t<sub>k</sub><br>
+				    		<b>ШАГ 4.</b> Проверить выполнение критерия окончания :
+				    		<div class="container-al11">
+				    			<ol>
+				    				<li align=left> если критерий выполнен, расчет закончен: x<sup>*</sup> = x<sup>k</sup>;<br>
+				    				<li align=left> если критерий не выполнен, то перейти к шагу 5.<br>
+				    			</ol>
+				    		</div>
+				    		<b>ШАГ 5.</b> Проверить выполнение неравенства k >= M :
+				    		<div class="container-al111">
+				    			<ol>
+				    				<li align=left> если неравенство выполнено, расчет закончен: x<sup>*</sup> = x<sup>k</sup>;
+				    				<li align=left> если нет, то перейти к шагу 6.
+				    			</ol>
+				    		</div>
 				    		<b>ШАГ 7.</b> Вычислить <span id="method1_step_7" class="katex"></span>.<br>
 				    		<b>ШАГ 8.</b> Проверить выполнение условия:<br>
-				    		<span id="method1_step_8" class="katex"></span>: </p>
-				    		<ol>
-				    			<li align=left> если условие выполнено, то перейти к шагу 9;<br>
-				    			<li align=left> если условие не выполнено, то положить t<sub>k</sub> = t<sub>k</sub>/2 и перейти к шагу 7.<br>
-				    		</ol>
-				    	<p align=left> <b>ШАГ 9.</b> Проверить выполнение условий:<br>
-				    		<span id="method1_step_9" class="katex"></span>: </p>
-				    		<ol>
-				    			<li align=left> если оба условия выполнены при текущем значении k и k = k - 1, то расчет окончен, x<sup>*</sup> = x<sup>k+1</sup>;
-				    			<li align=left> если хотя бы одно из условий не выполнено, положить k = k + 1 и перейти к шагу 3.
-				    		</ol>
-				    	</p>
+				    		<span id="method1_step_8" class="katex"></span>:
+				    		<div class="container-al1111">
+				    			<ol>
+				    				<li align=left> если условие выполнено, то перейти к шагу 9;<br>
+				    				<li align=left> если условие не выполнено, то положить t<sub>k</sub> = t<sub>k</sub>/2 и перейти к шагу 7.<br>
+				    			</ol>
+				    		</div>
+				    		<b>ШАГ 9.</b> Проверить выполнение условий:<br>
+				    		<span id="method1_step_9" class="katex"></span>:
+				    		<div class="container-al11111">
+				    			<ol>
+				    				<li align=left> если оба условия выполнены при текущем значении k и k = k - 1, то расчет окончен, x<sup>*</sup> = x<sup>k+1</sup>;
+				    				<li align=left> если хотя бы одно из условий не выполнено, положить k = k + 1 и перейти к шагу 3.
+				    			</ol>
+				    		</div>
+						</div>
 						<!-- Форма для ввода информации для вычислений -->
+						<br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<form class="form-horizontal" name="main_form">
 							<div class="form-group">
