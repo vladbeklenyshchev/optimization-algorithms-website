@@ -9,7 +9,7 @@ var abs = function(a) {
 };
 
 var f_x = function(x1, x2) {
-	return 2*x1*x1 + x1*x2 + x2*x2;
+	return 2 * x1 * x1 + x1 * x2 + x2 * x2;
 };
 
 var grad_f_x = function(x1, x2) {
@@ -17,6 +17,18 @@ var grad_f_x = function(x1, x2) {
 	arr_grad[0] = 4 * x1 + x2;
 	arr_grad[1] = x1 + 2 * x2;
 	return arr_grad;
+};
+
+var hessian = [[4, 1], [1, 2]];
+
+var invertable_hessian = function(x1, x2) {
+	var h = [[0, 0], [0, 0]];
+	var oneDividedByDet = 1 / (x1[0] * x2[1] - x1[1] * x2[0]);
+	h[0][0] = oneDividedByDet * x2[1];
+	h[0][1] = - oneDividedByDet * x1[1];
+	h[1][0] = - oneDividedByDet * x2[0];
+	h[1][1] = oneDividedByDet * x1[0];
+	return h;
 };
 
 // norm1 for one vector with two elements
