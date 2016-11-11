@@ -12,13 +12,11 @@ var calcSecondOrderNewtonRaphsonMethod = function(x0, eps1, eps2, M) {
 	
 	do{
 		grad_values[k] = grad_f_x(x[k][0], x[k][1]);
-		debugger;
 		if (norm1(grad_values[k][0], grad_values[k][1]) < eps1) {
 			return x[k];
 		} else if(k >= M) {
 			return x[k];
 		} else {
-			debugger;
 			var invH = getInvertableHessian(hessian[0], hessian[1]);
 
 			if (applySylvesterCriterionForQuadraticMatrix(invH[0], invH[1])) {
@@ -26,14 +24,11 @@ var calcSecondOrderNewtonRaphsonMethod = function(x0, eps1, eps2, M) {
 						[-grad_values[k][0], -grad_values[k][1]]
 					)
 				);
-				//t = 1.0;
-				//x.push([x[k][0] + t * d[k][0], x[k][1] + t * d[k][1]]);
 			} else {
 				d.push([-grad_values[k][0], -grad_values[k][1]]);
-				//t = getAppropriateStepValue(x[k][0], x[k][1], k);
-				//x.push([x[k][0] + t * d[k][0], x[k][1] + t * d[k][1]]);
 			}
-			t = getAppropriateStepValue(x[k][0], x[k][1], k);
+			// only to func 2x^2 + xy + y^2 (see Panteleev, Letova book)
+			t = 1; 
 			x.push([x[k][0] + t * d[k][0], x[k][1] + t * d[k][1]]);
 		}
 		debugger;
