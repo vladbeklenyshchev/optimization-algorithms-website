@@ -36,7 +36,7 @@ var calcNonlinearConjugateGradient = function(x0, eps1, eps2, M) {
 };
 
 // to perform next iteration for the method
-var action = function(x, grad, k, dPrev, beta) {
+function action(x, grad, k, dPrev, beta) {
 	var dNew = [], xNew = [];
 	var t = 0;
 	// array for d values
