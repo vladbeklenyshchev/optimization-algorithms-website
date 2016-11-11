@@ -25,14 +25,14 @@ var quadraticDeterminant = function(x1, x2) {
 	return (x1[0] * x2[1] - x1[1] * x2[0]);
 };
 
-var getInvertableHessian = function(x1, x2) {
-	var h = [[0, 0], [0, 0]];
+var getInvertableMatrix = function(x1, x2) {
+	var matrix = [[0, 0], [0, 0]];
 	var oneDividedByDet = 1 / quadraticDeterminant(x1, x2);
-	h[0][0] = oneDividedByDet * x2[1];
-	h[0][1] = - oneDividedByDet * x1[1];
-	h[1][0] = - oneDividedByDet * x2[0];
-	h[1][1] = oneDividedByDet * x1[0];
-	return h;
+	matrix[0][0] = oneDividedByDet * x2[1];
+	matrix[0][1] = - oneDividedByDet * x1[1];
+	matrix[1][0] = - oneDividedByDet * x2[0];
+	matrix[1][1] = oneDividedByDet * x1[0];
+	return matrix;
 };
 
 var applySylvesterCriterionForQuadraticMatrix = function(x1, x2) {
