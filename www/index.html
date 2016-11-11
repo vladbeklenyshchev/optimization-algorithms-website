@@ -60,9 +60,9 @@
 <body>
 	<!--Section_1 MAIN header+logo-->
 	<div class="container-fluid bg-1 text-center">
-  		<h1>Численные методы поиска безусловного экстремума</h1><br>
-		<h3>для функции f(x, y) = 2x<sup>2</sup> + xy + y<sup>2</sup></h3><br><br>
-		<img src="./images/mo_logo.png" class="img-circle" alt="logo"><br>
+  		<h1 id = "header1">Численные методы поиска безусловного экстремума</h1><br>
+		<h3 id = "header2">для функции f(x, y) = 2x<sup>2</sup> + xy + y<sup>2</sup></h3><br><br>
+		<img src="./images/mo_logo.png" class="img-circle" alt="logo" id = "logo"><br>
 	</div>
 	<!--Section_2 methods first-order-->
 	<div class="container-fluid bg-2 text-center">
@@ -847,10 +847,46 @@
 				<div id="collapseEight" class="panel-collapse collapse">
 					<!-- Содержимое 1 панели -->
 				    <div class="panel-body">
-				    	<img src="./images/M2_1_1.jpg" alt="Method2_1">
-				        <p></p>
-				        <img src="./images/M2_1_2.jpg" alt="Method2_1">
-				        <p></p>
+				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
+						<div class="container-al1 text-left col-sm-offset-4">
+							<b>ШАГ 1.</b> Задать x<sup>0</sup>,  &epsilon;<sub>1</sub> > 0, &epsilon;<sub>2</sub> > 0, M - предельное число итераций. <br> Найти градиент <span id="method8_step_1" class="katex"></span> и матрицу Гессе H(x). <br>
+				    		<b>ШАГ 2.</b> Положить k = 0. <br>
+				    		<b>ШАГ 3.</b> Вычислить <span id="method8_step_3" class="katex"></span>. <br>
+				    		<b>ШАГ 4.</b> Проверить выполнение критерия окончания <span id="method8_step_4" class="katex"></span>: <br>
+				    		<div class="container-al111">
+				    			<ol>
+				    				<li align=left> если неравенство выполнено, расчет окончен и x* = x<sup>k</sup>;
+				    				<li align=left> в противном случае перейти к шагу 5.
+				    			</ol>
+				    		</div>
+				    		<b>ШАГ 5.</b> Проверить выполнение неравенства k >= M. <br>
+				    		<div class="container-al111">
+				    			<ol>
+				    				<li align=left> если неравенство выполнено, расчет окончен и x* = x<sup>k</sup>;
+				    				<li align=left> если нет, перейти к шагу 6.
+				    			</ol>
+				    		</div>
+				    		<b>ШАГ 6.</b> Вычислить матрицу H(x<sup>k</sup>).<br>
+				    		<b>ШАГ 7.</b> Вычислить матрицу H<sup>-1</sup>(x<sup>k</sup>). <br>
+				    		<b>ШАГ 8.</b> Проверить выполнение условия H<sup>-1</sup>(x<sup>k</sup>) > 0: <br>
+				    		<div class="container-al111">
+				    			<ol>
+				    				<li align=left> если H<sup>-1</sup>(x<sup>k</sup>) > 0, то перейти к шагу 9;
+				    				<li align=left> если нет, то перейти к шагу 10, положив <span id="method8_step_8" class="katex"></span>.
+				    			</ol>
+				    		</div>
+				    		<b>ШАГ 9.</b> Определить <span id="method8_step_9" class="katex"></span>. <br>
+				    		<b>ШАГ 10.</b> Найти точку <span id="method8_step_10_1" class="katex"></span>, положив t<sub>k</sub> = 1, если <span id="method8_step_10_2" class="katex"></span>, <br> или выбрав t<sub>k</sub> из условия <span id="method8_step_10_3" class="katex"></span>, если <span id="method8_step_10_4" class="katex"></span>. <br>
+				    		<b>ШАГ 11.</b> Проверить выполнение условий <br> <span id="method8_step_11" class="katex"></span> <br>
+				    		<div class="container-al111">
+				    			<ol>
+				    				<li align=left> если оба условия выполнены при текущем значении k и k = k-1, <br> то расчет окончен, x* = x<sup>k+1</sup>;
+				    				<li align=left> в противном случае положить k = k+1 и перейти к шагу 3.
+				    			</ol>
+				    		</div>
+						</div>
+				        <br>
+						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
 						<form class="form-horizontal" name="main_form">
 							<div class="form-group">
@@ -922,8 +958,47 @@
 				<div id="collapseNine" class="panel-collapse collapse">
 					<!-- Содержимое 2 панели -->
 				    <div class="panel-body">
-				    	<img src="./images/M2_2.jpg" alt="Method2_2">
-				        <p></p>
+				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
+						<div class="container-al1 text-left col-sm-offset-4">
+							<b>ШАГ 1.</b> Задать x<sup>0</sup>,  &epsilon;<sub>1</sub> > 0, &epsilon;<sub>2</sub> > 0, M - предельное число итераций. <br> Найти градиент <span id="method9_step_1" class="katex"></span> и матрицу Гессе H(x). <br>
+				    		<b>ШАГ 2.</b> Положить k = 0. <br>
+				    		<b>ШАГ 3.</b> Вычислить <span id="method9_step_3" class="katex"></span>. <br>
+				    		<b>ШАГ 4.</b> Проверить выполнение условия <span id="method9_step_4" class="katex"></span>: <br>
+				    		<div class="container-al111">
+				    			<ol>
+				    				<li align=left> если неравенство выполнено, то расчет закончен и x* = x<sup>k</sup>;
+				    				<li align=left> если нет, то перейти к шагу 5.
+				    			</ol>
+				    		</div>
+				    		<b>ШАГ 5.</b> Проверить выполнение условия k >= M: <br>
+				    		<div class="container-al111">
+				    			<ol>
+				    				<li align=left> если неравенство выполнено, расчет окончен, x* = x<sup>k</sup>;
+				    				<li align=left> если нет, перейти к шагу 6.
+				    			</ol>
+				    		</div>
+				    		<b>ШАГ 6.</b> Вычислить матрицу H(x<sup>k</sup>).<br>
+				    		<b>ШАГ 7.</b> Вычислить матрицу H<sup>-1</sup>(x<sup>k</sup>). <br>
+				    		<b>ШАГ 8.</b> Проверить выполнение условия H<sup>-1</sup>(x<sup>k</sup>) > 0: <br>
+				    		<div class="container-al111">
+				    			<ol>
+				    				<li align=left> если условие выполняется, то найти <span id="method9_step_8_1" class="katex"></span>;
+				    				<li align=left> если нет, то положить <span id="method9_step_8_2" class="katex"></span>.
+				    			</ol>
+				    		</div>
+				    		<b>ШАГ 9.</b> Определить <span id="method9_step_9" class="katex"></span>. <br>
+				    		<b>ШАГ 10.</b> Найти шаг t*<sub>k</sub> из условия <span id="method9_step_10" class="katex"></span>. <br>
+				    		<b>ШАГ 11.</b> Вычислить <span id="method9_step_11" class="katex"></span>. <br>
+				    		<b>ШАГ 12.</b> Проверить выполнение неравенств <br> <span id="method9_step_12" class="katex"></span>: <br>
+				    		<div class="container-al111">
+				    			<ol>
+				    				<li align=left> если оба условия выполнены при текущем значении k и k = k-1, <br> то расчет окончен, x* = x<sup>k+1</sup>;
+				    				<li align=left> в противном случае положить k = k+1 и перейти к шагу 3.
+				    			</ol>
+				    		</div>
+						</div>
+				        <br>
+						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
 						<form class="form-horizontal" name="main_form">
 							<div class="form-group">
@@ -995,10 +1070,42 @@
 				<div id="collapseTen" class="panel-collapse collapse">
 					<!-- Содержимое 3 панели -->
 				    <div class="panel-body">
-				    	<img src="./images/M2_3_1.jpg" alt="Method2_3">
-				        <p></p>
-				        <img src="./images/M2_3_2.jpg" alt="Method2_3">
-				        <p></p>
+				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
+						<div class="container-al1 text-left col-sm-offset-4">
+							<b>ШАГ 1.</b> Задать x<sup>0</sup>,  &epsilon;<sub>1</sub> > 0, M - предельное число итераций. <br> Найти градиент <span id="method10_step_1" class="katex"></span> и матрицу Гессе H(x). <br>
+				    		<b>ШАГ 2.</b> Положить k = 0, &mu;<sup>k</sup> = &mu;<sup>0</sup>. <br>
+				    		<b>ШАГ 3.</b> Вычислить <span id="method10_step_3" class="katex"></span>. <br>
+				    		<b>ШАГ 4.</b> Проверить выполнение условия <span id="method10_step_4" class="katex"></span>: <br>
+				    		<div class="container-al111">
+				    			<ol>
+				    				<li align=left> если неравенство выполнено, то расчет окончен, x* = x<sup>k</sup>;
+				    				<li align=left> если нет, то перейти к шагу 5.
+				    			</ol>
+				    		</div>
+				    		<b>ШАГ 5.</b> Проверить выполнение условия k >= M: <br>
+				    		<div class="container-al111">
+				    			<ol>
+				    				<li align=left> если неравенство выполнено, расчет окончен, x* = x<sup>k</sup>;
+				    				<li align=left> если нет, перейти к шагу 6.
+				    			</ol>
+				    		</div>
+				    		<b>ШАГ 6.</b> Вычислить H(x<sup>k</sup>).<br>
+				    		<b>ШАГ 7.</b> Вычислить <span id="method10_step_7" class="katex"></span>. <br>
+				    		<b>ШАГ 8.</b> Вычислить <span id="method10_step_8" class="katex"></span>. <br>
+				    		<b>ШАГ 9.</b> Вычислить <span id="method10_step_9" class="katex"></span>. <br>
+				    		<b>ШАГ 10.</b> Вычислить <span id="method10_step_10" class="katex"></span>. <br>
+				    		<b>ШАГ 11.</b> Проверить выполнение условия <span id="method10_step_11" class="katex"></span>: <br>
+				    		<div class="container-al111">
+				    			<ol>
+				    				<li align=left> если неравенство выполняется, то перейти к шагу 12;
+				    				<li align=left> если нет, перейти к шагу 13.
+				    			</ol>
+				    		</div>
+				    		<b>ШАГ 12.</b> Положить <span id="method10_step_12" class="katex"></span> и перейти к шагу 3. <br>
+				    		<b>ШАГ 13.</b> Положить <span id="method10_step_13" class="katex"></span> и перейти к шагу 7. <br>	
+						</div>
+				        <br>
+						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
 						<form class="form-horizontal" name="main_form">
 							<div class="form-group">
