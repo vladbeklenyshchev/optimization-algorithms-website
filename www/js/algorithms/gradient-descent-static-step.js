@@ -24,7 +24,7 @@ var calcGradientDescentWithStaticStep = function(x0, eps1, eps2, M) {
 
 		do {
 			next_item = [0,0]
-			next_item = action(item, grad_val, tk);
+			next_item = actionGradientDescent(item, grad_val, tk);
 			condition = ((f_x(next_item[0], next_item[1]) - f_x(item[0], item[1])) > 0);
 			if(condition) {
 				tk = tk / 2.0;
@@ -48,9 +48,9 @@ var calcGradientDescentWithStaticStep = function(x0, eps1, eps2, M) {
 };
 
 // perform next iteration for the method
-var action = function(x, grad, alpha) {
+var actionGradientDescent = function(x, grad, alpha) {
 	var y = [0, 0];
 	y[0] = x[0] - alpha * grad[0];
 	y[1] = x[1] - alpha * grad[1];
 	return y;
-};
+}

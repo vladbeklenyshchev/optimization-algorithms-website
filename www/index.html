@@ -11,14 +11,20 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
   	<script src="./js/bootstrap.min.js"></script>
   	<!-- script for katex generator -->
-  	<script async src = "./js/katex-algorithms-generator.js"></script>
+  	
   	<!-- scripts with methods -->
+  	<script defer src = "./js/katex-algorithms-generator.js"></script>
   	<script src = "./js/algorithms/gradient-descent-static-step.js"></script>
   	<script src = "./js/algorithms/method-of-steepest-gradient-descent.js"></script>
   	<script src = "./js/algorithms/coordinate-descent-method.js"></script>
   	<script src = "./js/algorithms/gauss-seidel-method.js"></script>
   	<script src = "./js/algorithms/nonlinear-conjugate-gradient.js"></script>
   	<script src = "./js/algorithms/method-devidon-fletcher-powell.js"></script>
+  	<script src = "./js/algorithms/second-order-newton-method.js"></script>
+  	<script src = "./js/algorithms/second-order-newton-raphson-method.js"></script>
+  	<script src = "./js/algorithms/second-order-marquardt-method.js"></script>
+  	<script src = "./js/algorithms/math-functions.js"></script>
+  	
   	<!-- Add slyles -->
   	<style>
 		.bg-1 { 
@@ -122,7 +128,7 @@
 						<!-- Форма для ввода информации для вычислений -->
 						<br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-first-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -155,8 +161,24 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
-									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_1(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal1">Вычислить</button>
+										<script>
+											function calculateViaFirstMethod(){
+												//debugger;
+												var form = document.getElementById('form-for-first-method');
+
+												var elements = form.getElementsByClassName('form-control');
+									
+												var result = calcGradientDescentWithStaticStep([+elements[0].value, +elements[1].value], +elements[2].value, +elements[3].value, +elements[4].value)
+												
+												var modalWindow = document.getElementById('myModal1');
+
+												var outputs = modalWindow.getElementsByClassName('form-control');
+												outputs[0].value = result;
+												outputs[1].value = f_x(result[0], result[1]);
+											}
+										</script>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal1" onclick="calculateViaFirstMethod()">Вычислить</button>
+
 									<!-- Modal -->
 									<div class="modal fade" id="myModal1" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -167,7 +189,11 @@
 										          	<h4 class="text-info">Решение методом градиентного спуска с постоянным шагом</h4>
 										        </div>
 										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -272,8 +298,12 @@
 										          	<button type="button" class="close" data-dismiss="modal">×</button>
 										          	<h4 class="text-info">Решение методом найскорейшего градиентного спуска</h4>
 										        </div>
-										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										         <div class="modal-body">
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -389,8 +419,12 @@
 										          	<button type="button" class="close" data-dismiss="modal">×</button>
 										          	<h4 class="text-info">Решение методом покоординатного спуска</h4>
 										        </div>
-										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										         <div class="modal-body">
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -500,8 +534,12 @@
 										          	<button type="button" class="close" data-dismiss="modal">×</button>
 										          	<h4 class="text-info">Решение методом Гаусса-Зейделя</h4>
 										        </div>
-										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										         <div class="modal-body">
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -605,8 +643,12 @@
 										          	<button type="button" class="close" data-dismiss="modal">×</button>
 										          	<h4 class="text-info">Решение методом Флетчера-Ривса</h4>
 										        </div>
-										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										         <div class="modal-body">
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -712,8 +754,12 @@
 										          	<button type="button" class="close" data-dismiss="modal">×</button>
 										          	<h4 class="text-info">Решение методом Дэвидона-Флетчера-Пауэлла</h4>
 										        </div>
-										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										         <div class="modal-body">
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -816,7 +862,11 @@
 										          	<h4 class="text-info">Решение методом кубической интерполяции</h4>
 										        </div>
 										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -932,8 +982,12 @@
 										          	<button type="button" class="close" data-dismiss="modal">×</button>
 										          	<h4 class="text-info">Решение методом Ньютона</h4>
 										        </div>
-										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										         <div class="modal-body">
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -1045,7 +1099,11 @@
 										          	<h4 class="text-info">Решение методом Ньютона-Рафсона</h4>
 										        </div>
 										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -1151,8 +1209,12 @@
 										          	<button type="button" class="close" data-dismiss="modal">×</button>
 										          	<h4 class="text-info">Решение методом Марквардта</h4>
 										        </div>
-										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										         <div class="modal-body">
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
