@@ -88,8 +88,6 @@
 				default:
 					break;
 			}
-			result = calcGradientDescentWithStaticStep([+elements[0].value, +elements[1].value], 
-				+elements[2].value, +elements[3].value, +elements[4].value)
 			
 			// output
 			var modalWindow = document.getElementById(modalName);
@@ -817,113 +815,6 @@
 										          	<h4 class="text-info">Решение методом Дэвидона-Флетчера-Пауэлла</h4>
 										        </div>
 										         <div class="modal-body">
-										        	<p class="text-info">Точка</p> 
-										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
-										        	<br>
-										          	<p class="text-info">Значение функции в точке</p>
-										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
-										        </div>
-										        <div class="modal-footer">
-										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-										        </div>
-										    </div>     
-										</div>
-									</div>
-								</div>
-							</div>
-						</form>
-				    </div>
-				</div>
-			</div>
-			<!-- 7 панель -->
-			<div class="panel bg-3 panel-default">
-				<!-- Заголовок 7 панели -->
-				<div class="panel-heading">
-				    <h4 class="panel-title">
-				    <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">Метод кубической интерполяции</a>
-				    </h4>
-				</div>
-				<div id="collapseSeven" class="panel-collapse collapse">
-					<!-- Содержимое 7 панели -->
-				    <div class="panel-body">
-				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
-						<div class="container-al1 text-left col-sm-offset-4">
-							<b>ШАГ 1.</b> Задать начальную точку x<sup>0</sup>, величину шага &Delta; > 0 и малые положительные числа &epsilon;<sub>1</sub> и &epsilon;<sub>2</sub>.<br>
-				    		<b>ШАГ 2.</b> Вычислить производную f'(x<sup>0</sup>). <br>
-				    		<b>ШАГ 3.</b> Проверить знак производной в точке x<sup>0</sup>:<br>
-				    		<div class="container-al111">
-				    			<ol>
-				    				<li align=left> если f'(x<sup>0</sup>) < 0, вычислить x<sup>k+1</sup> = x<sup>k</sup> + 2<sup>k</sup>&Delta;, k = 0, 1, ..., вплоть до точки x<sup>M</sup>, <br> в которой f'(x<sup>M-1</sup>)f'(x<sup>M</sup>) <= 0;
-				    				<li align=left> если f'(x<sup>0</sup>) > 0, вычислить x<sup>k+1</sup> = x<sup>k</sup> - 2<sup>k</sup>&Delta;, k = 0, 1, ..., вплоть до точки x<sup>M</sup>, <br> в которой f'(x<sup>M-1</sup>)f'(x<sup>M</sup>) <= 0.
-				    			</ol>
-				    		</div>
-				    		<b>ШАГ 4.</b> Положить x<sub>1</sub> = x<sup>M-1</sup>, x<sub>2</sub> = x<sup>M</sup> и вычислить f(x<sub>1</sub>) = f<sub>1</sub>, f'(x<sub>1</sub>) = f'<sub>1</sub>, f(x<sub>2</sub>) = f<sub>2</sub>, f'(x<sub>2</sub>) = f'<sub>2</sub>. <br>
-				    		<b>ШАГ 5.</b> Найти точку минимума кубического интерполяционного полинома по формуле <span id="method7_step_5_1" class="katex"></span>, <br>
-				    		где <span id="method7_step_5_2_1" class="katex"></span>; <span id="method7_step_5_2_2" class="katex"></span>; <span id="method7_step_5_2_3" class="katex"></span> <br>
-				    		и значение <span id="method7_step_5_3" class="katex"></span>. <br>
-				    		<b>ШАГ 6.</b> Проверить условие убывания:<br>
-				    		<div class="container-al111">
-				    			<ol>
-				    				<li align=left> если <span id="method7_step_6_1" class="katex"></span>, перейти к шагу 7;
-				    				<li align=left> если <span id="method7_step_6_2_1" class="katex"></span>, вычислять <span id="method7_step_6_2_2" class="katex"></span> по формуле <span id="method7_step_6_2_3" class="katex"></span> до тех пор, <br> пока не будет выполнено неравенство <span id="method7_step_6_2_4" class="katex"></span>.
-				    			</ol>
-				    		</div>
-				    		<b>ШАГ 7.</b> Проверить выполнение условий окончания: <br><span id="method7_step_7" class="katex"></span>:<br>
-				    		<div class="container-al111">
-				    			<ol>
-				    				<li align=left> если оба условия выполнены, процедура закончена и <span id="method7_step_7_1" class="katex"></span>;
-				    				<li align=left> если хотя бы одно из условий не выполнено, положить либо <span id="method7_step_7_2_1" class="katex"></span>, если <br> <span id="method7_step_7_2_2" class="katex"></span>, либо <span id="method7_step_7_2_3" class="katex"></span>, если <span id="method7_step_7_2_4" class="katex"></span>. Перейти к шагу 5.
-				    			</ol>
-				    		</div>
-						</div>
-				        <br>
-						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
-						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
-							<div class="form-group">
-				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
-								<div class="col-sm-3">
-									<input type="text" class="form-control" size="10" name="x0" value="0.5" onFocus="this.value=''" onBlur="if (this.value==''){this.value='0.5'}">
-								</div>
-							</div>
-							<div class="form-group">
-				  				<label for="text" class="col-sm-5 control-label">Начальная точка Y0 = </label>
-								<div class="col-sm-3">
-									<input type="text" class="form-control" size="10" name="y0" value="1" onFocus="this.value=''" onBlur="if (this.value==''){this.value='1'}">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="text" class="col-sm-5 control-label">Малое положительное число E1 = </label>
-								<div class="col-sm-3">
-									<input type="text" class="form-control" size="10" name="e1" value="0.1" onFocus="this.value=''" onBlur="if (this.value==''){this.value='0.1'}">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="text" class="col-sm-5 control-label">Малое положительное число E2 = </label>
-								<div class="col-sm-3">
-									<input type="text" class="form-control" size="10" name="e2" value="0.15" onFocus="this.value=''" onBlur="if (this.value==''){this.value='0.15'}">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="text" class="col-sm-5 control-label">Предельное число итераций М = </label>
-								<div class="col-sm-3">
-									<input type="text" class="form-control" size="10" name="m" value="10" onFocus="this.value=''" onBlur="if (this.value==''){this.value='10'}">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-offset-1 col-sm-10">
-									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_7(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal7">Вычислить</button>
-									<!-- Modal -->
-									<div class="modal fade" id="myModal7" role="dialog" style="display: none;">
-										<div class="modal-dialog">   
-										<!-- Modal content-->
-										    <div class="modal-content">
-										       	<div class="modal-header">
-										          	<button type="button" class="close" data-dismiss="modal">×</button>
-										          	<h4 class="text-info">Решение методом кубической интерполяции</h4>
-										        </div>
-										        <div class="modal-body">
 										        	<p class="text-info">Точка</p> 
 										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
 										        	<br>
