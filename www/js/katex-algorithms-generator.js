@@ -141,55 +141,10 @@ katex.render(formula, document.getElementById('method6_step_12'));
 formula = '\\begin{Vmatrix} x^{k+1} - x^{k} \\end{Vmatrix} < \\epsilon _2 ,' + 
 '\\begin{vmatrix} f(x^{k+1}) - f(x^{k}) \\end{vmatrix} < \\epsilon _2';
 katex.render(formula, document.getElementById('method6_step_13'));
-//METHOD_7
-formula = '\\bar{x} = \\Bigg\\{ \\begin{matrix} x_2, \\mu < 0 \\\\ x_2 - \\mu (x_2 - x_1), 0 \\le \\mu \\le 1\\\\ x_1, \\mu > 1, \\end{matrix}';
-katex.render(formula, document.getElementById('method7_step_5_1'));
 
-formula = '\\mu = \\frac{f\'_2 + w - z}{f\'_2 - f\'_1 +2w}';
-katex.render(formula, document.getElementById('method7_step_5_2_1'));
 
-formula = 'z = \\frac{3(f_1 - f_2)}{x_2 - x_1} + f\'_1 + f\'_2';
-katex.render(formula, document.getElementById('method7_step_5_2_2'));
 
-formula = 'w = \\Bigg\\{ \\begin{matrix} (z^2 - f\'_1f\'_2)^{\\frac{1}{2}}, x_1 < x_2 \\\\ -(z^2 - f\'_1f\'_2)^{\\frac{1}{2}}, x_1 > x_2  \\end{matrix}';
-katex.render(formula, document.getElementById('method7_step_5_2_3'));
 
-formula = 'f(\\bar{x})';
-katex.render(formula, document.getElementById('method7_step_5_3'));
-
-formula = 'f(\\bar{x}) < f(x_1)';
-katex.render(formula, document.getElementById('method7_step_6_1'));
-
-formula = 'f(\\bar{x}) \\ge f(x_1)';
-katex.render(formula, document.getElementById('method7_step_6_2_1'));
-
-formula = '\\bar{x}';
-katex.render(formula, document.getElementById('method7_step_6_2_2'));
-
-formula = '\\bar{x} = \\bar{x} - \\frac{1}{2}(\\bar{x} - x_1)';
-katex.render(formula, document.getElementById('method7_step_6_2_3'));
-
-formula = 'f(\\bar{x}) \\le f(x_1)';
-katex.render(formula, document.getElementById('method7_step_6_2_4'));
-
-formula = '\\begin{vmatrix} f\'(\\bar{x}) \\end{vmatrix} \\le \\epsilon_1,' + 
-' \\begin{vmatrix} \\frac{\\bar{x} - x_1}{\\bar{x}} \\end{vmatrix} \\le \\epsilon_2';
-katex.render(formula, document.getElementById('method7_step_7'));
-
-formula = 'x* \\equiv \\bar{x}';
-katex.render(formula, document.getElementById('method7_step_7_1'));
-
-formula = 'x_1 = \\bar{x}, x_2 = x_1';
-katex.render(formula, document.getElementById('method7_step_7_2_1'));
-
-formula = 'f\'(\\bar{x})f\'(x_1) < 0';
-katex.render(formula, document.getElementById('method7_step_7_2_2'));
-
-formula = 'x_1 = \\bar{x}, x_2 = x_2';
-katex.render(formula, document.getElementById('method7_step_7_2_3'));
-
-formula = 'f\'(\\bar{x})f\'(x_2) < 0';
-katex.render(formula, document.getElementById('method7_step_7_2_4'));
 //METHOD_8
 formula = '\\nabla{f(x)}';
 katex.render(formula, document.getElementById('method8_step_1'));
