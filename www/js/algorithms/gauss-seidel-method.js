@@ -55,7 +55,7 @@
                                 x1[1] = x0[1] - grad[1] * t * e[1];
 		        		    } else if (k == 1) {
                                 e = [0, 1];
-                                t = stepGaussSeidel(x0, grad, e_vect);
+                                t = stepGaussSeidel(x0, grad, e);
 		        			    x1 = [0, 0];
                                 x1[0] = x0[0] - grad[0] * t * e[0];
                                 x1[1] = x0[1] - grad[1] * t * e[1];
