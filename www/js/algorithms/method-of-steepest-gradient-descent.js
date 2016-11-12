@@ -2,15 +2,15 @@
 // МЕТОД НАИСКОРЕЙШЕГО ГРАДИЕНТНОГО СПУСКА
 
 // Главная функция
-	function method_2(obj)
+	function methodSteepestGradient(givenX0, eps1, eps2, M)
     {
     	// ЗАДАЕМ НАЧАЛЬНЫЕ ЗНАЧЕНИЯ
     	var x0 = new Array(2);  //вектор из html-формы
-        x0[0] = 0.5; //1 * obj.x0.value; // первая координата x из html-формы
-        x0[1] = 1; //1 * obj.y0.value; // первая координата y из html-формы
-    	var e1 = 0.1; //1 * obj.e1.value; // малое положительное число e1 из html-формы
-    	var e2 = 0.15; //1 * obj.e2.value; // малое положительное число e2 из html-формы
-    	var m = 10; //1 * obj.m.value; // предельное число итераций из html-формы
+        x0[0] = givenX0[0]; //1 * obj.x0.value; // первая координата x из html-формы
+        x0[1] = givenX0[1]; //1 * obj.y0.value; // первая координата y из html-формы
+    	var e1 = eps1; //1 * obj.e1.value; // малое положительное число e1 из html-формы
+    	var e2 = eps2; //1 * obj.e2.value; // малое положительное число e2 из html-формы
+    	var m = M; //1 * obj.m.value; // предельное число итераций из html-формы
     	var k = 0;
     	// Дополнительные переменные
     	var norm = 100;
