@@ -1,7 +1,7 @@
 "use strict";
 
 //test - calcSecondOrderNewtonRaphsonMethod([0.5, 1], 0.1, 0.15, 10)
-var calcSecondOrderNewtonRaphsonMethod = function(x0, eps1, eps2, M) {
+var methodSecondOrderNewtonRaphsonMethod = function(x0, eps1, eps2, M) {
 	var x = [x0];
 	var k = 0;
 	// matrix of gradient values [[ , ], [ , ]]

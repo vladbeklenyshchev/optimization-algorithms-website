@@ -1,7 +1,7 @@
 "use strict";
 
-//test - calcGradientDescentWithStaticStep([0.5, 1], 0.1, 0.15, 10)
-var calcGradientDescentWithStaticStep = function(x0, eps1, eps2, M) {
+//test - methodGradientDescentWithStaticStep([0.5, 1], 0.1, 0.15, 10)
+var methodGradientDescentWithStaticStep = function(x0, eps1, eps2, M) {
 	var x = [x0];
 	var k = 0;
 	var grad_val = [0,0];
