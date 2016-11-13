@@ -25,7 +25,7 @@
     		background-color: /*#2F4F4F*/#5cb85c; /* Green */
     		color: #ffffff; /*White*/
     		padding-top: 70px;
-    		padding-bottom: 300px;
+    		padding-bottom: 330px;
 		}
 		.bg-2 { 
     		background-color: /*#708090*/#474e5d; /* Dark Blue */
@@ -81,41 +81,40 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-				    		<b>ШАГ 1.</b> Задать x<sup>0</sup>, 0 < &epsilon; < 1, &epsilon;<sub>1</sub>, &epsilon;<sub>2</sub>, M - предельное число итераций.<br>
-				    		Найти градиент функции в произвольной точке 
-				    		<span id="method1_step_1" class="katex"></span>.<br>
-				    		<b>ШАГ 2.</b> Положить k = 0. <br>
+				    		<b>ШАГ 1.</b> Задать <span id="method1_step_1_1" class="katex"></span> предельное число итераций.<br>
+				    		Найти градиент функции в произвольной точке <span id="method1_step_1_2" class="katex"></span>.<br>
+				    		<b>ШАГ 2.</b> Положить <span id="method1_step_2" class="katex"></span>. <br>
 				    		<b>ШАГ 3.</b> Вычислить <span id="method1_step_3" class="katex"></span>.<br>
 				    		<b>ШАГ 4.</b> Проверить выполнение критерия окончания :
 				    		<div class="container-al11">
 				    			<ol>
-				    				<li align=left> если критерий выполнен, расчет закончен: x<sup>*</sup> = x<sup>k</sup>;<br>
+				    				<li align=left> если критерий выполнен, расчет закончен: <span id="method1_step_4_1" class="katex"></span>;<br>
 				    				<li align=left> если критерий не выполнен, то перейти к шагу 5.<br>
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 5.</b> Проверить выполнение неравенства k >= M :
+				    		<b>ШАГ 5.</b> Проверить выполнение неравенства <span id="method1_step_5" class="katex"></span> :
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если неравенство выполнено, расчет закончен: x<sup>*</sup> = x<sup>k</sup>;
+				    				<li align=left> если неравенство выполнено, расчет закончен: <span id="method1_step_5_1" class="katex"></span>;
 				    				<li align=left> если нет, то перейти к шагу 6.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 6.</b> Задать величину шага t<sub>k</sub><br>
+				    		<b>ШАГ 6.</b> Задать величину шага <span id="method1_step_6" class="katex"></span>. <br>
 				    		<b>ШАГ 7.</b> Вычислить <span id="method1_step_7" class="katex"></span>.<br>
 				    		<b>ШАГ 8.</b> Проверить выполнение условия:<br>
 				    		<span id="method1_step_8" class="katex"></span>:
 				    		<div class="container-al1111">
 				    			<ol>
 				    				<li align=left> если условие выполнено, то перейти к шагу 9;<br>
-				    				<li align=left> если условие не выполнено, то положить t<sub>k</sub> = t<sub>k</sub>/2 и перейти к шагу 7.<br>
+				    				<li align=left> если условие не выполнено, то положить <span id="method1_step_8_2" class="katex"></span> и перейти к шагу 7.<br>
 				    			</ol>
 				    		</div>
 				    		<b>ШАГ 9.</b> Проверить выполнение условий:<br>
 				    		<span id="method1_step_9" class="katex"></span>:
 				    		<div class="container-al11111">
 				    			<ol>
-				    				<li align=left> если оба условия выполнены при текущем значении k и k = k - 1, то расчет окончен, x<sup>*</sup> = x<sup>k+1</sup>;
-				    				<li align=left> если хотя бы одно из условий не выполнено, положить k = k + 1 и перейти к шагу 3.
+				    				<li align=left> если оба условия выполнены при текущем значении <span id="method1_step_9_1_1" class="katex"></span> и <span id="method1_step_9_1_2" class="katex"></span>, <br> то расчет окончен, <span id="method1_step_9_1_3" class="katex"></span>;
+				    				<li align=left> если хотя бы одно из условий не выполнено, положить <span id="method1_step_9_2" class="katex"></span> <br> и перейти к шагу 3.
 				    			</ol>
 				    		</div>
 						</div>
@@ -194,34 +193,33 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-						<b>ШАГ 1.</b> Задать x<sup>0</sup>, &epsilon;<sub>1</sub> > 0, &epsilon;<sub>2</sub> > 0, предельное число итераций M.<br>
-				    		Найти градиент функции в произвольной точке 
-				    		<span id="method2_step_1" class="katex"></span>.<br>
-				    		<b>ШАГ 2.</b> Положить k = 0. <br>
+						<b>ШАГ 1.</b> Задать <span id="method2_step_1_1" class="katex"></span> предельное число итераций M.<br>
+				    		Найти градиент функции в произвольной точке <span id="method2_step_1_2" class="katex"></span>.<br>
+				    		<b>ШАГ 2.</b> Положить <span id="method2_step_2" class="katex"></span>. <br>
 				    		<b>ШАГ 3.</b> Вычислить <span id="method2_step_3" class="katex"></span>.<br>
 				    		<b>ШАГ 4.</b> Проверить выполнение критерия окончания <span id="method2_step_4" class="katex"></span>:
 				    		<div class="container-al11">
 				    			<ol>
-				    				<li align=left> если критерий выполнен, расчет закончен: x<sup>*</sup> = x<sup>k</sup>;<br>
+				    				<li align=left> если критерий выполнен, расчет закончен: <span id="method2_step_4_1" class="katex"></span>;<br>
 				    				<li align=left> если критерий не выполнен, то перейти к шагу 5.<br>
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 5.</b> Проверить выполнение неравенства k >= M :
+				    		<b>ШАГ 5.</b> Проверить выполнение неравенства <span id="method2_step_5" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если неравенство выполнено, расчет закончен: x<sup>*</sup> = x<sup>k</sup>;
+				    				<li align=left> если неравенство выполнено, расчет закончен: <span id="method2_step_5_1" class="katex"></span>;
 				    				<li align=left> если нет, то перейти к шагу 6.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 6.</b> Вычислить величину шага t*<sub>k</sub> из условия<br>
-				    		<span id="method2_step_6" class="katex"></span>.<br>
+				    		<b>ШАГ 6.</b> Вычислить величину шага <span id="method2_step_6_1" class="katex"></span> из условия<br>
+				    		<span id="method2_step_6_2" class="katex"></span>.<br>
 				    		<b>ШАГ 7.</b> Вычислить <span id="method2_step_7" class="katex"></span>.<br>
 				    		<b>ШАГ 8.</b> Проверить выполнение условия:<br>
 				    		<span id="method2_step_8" class="katex"></span>:
 				    		<div class="container-al1111">
 				    			<ol>
-				    				<li align=left> если оба условия выполнены при текущем значении k и k=k-1, то расчет окончен, x<sup>*</sup> = x<sup>k+1</sup>;<br>
-				    				<li align=left> если хотя бы одно из условий не выполнено, то положить k=k+1 и перейти к шагу 3.<br>
+				    				<li align=left> если оба условия выполнены при текущем значении <span id="method2_step_8_1_1" class="katex"></span> и <span id="method2_step_8_1_2" class="katex"></span>, <br> то расчет окончен, <span id="method2_step_8_1_3" class="katex"></span>;<br>
+				    				<li align=left> если хотя бы одно из условий не выполнено, то положить <span id="method2_step_8_2" class="katex"></span> <br> и перейти к шагу 3.<br>
 				    			</ol>
 				    		</div>
 						</div>
@@ -300,45 +298,45 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-							<b>ШАГ 1.</b> Задать x<sup>0</sup>, &epsilon; > 0, &epsilon;<sub>1</sub> > 0, &epsilon;<sub>2</sub> > 0, предельное число M циклов счета, кратное n, <br>где n - размерность вектора x. Найти градиент <span id="method3_step_1" class="katex"></span>.<br>
-				    		<b>ШАГ 2.</b> Задать номер цикла j = 0. <br>
-				    		<b>ШАГ 3.</b> проверить условие j >= M:
+							<b>ШАГ 1.</b> Задать <span id="method3_step_1_1" class="katex"></span> предельное число M циклов счета, кратное n, <br>где n - размерность вектора x. Найти градиент <span id="method3_step_1_2" class="katex"></span>.<br>
+				    		<b>ШАГ 2.</b> Задать номер цикла <span id="method3_step_2" class="katex"></span>. <br>
+				    		<b>ШАГ 3.</b> проверить условие <span id="method3_step_3" class="katex"></span>:
 				    		<div class="container-al11">
 				    			<ol>
-				    				<li align=left> если j >= M, то x<sup>*</sup> = x<sup>jk</sup>, расчет окончен;<br>
+				    				<li align=left> если <span id="method3_step_3_1_1" class="katex"></span>, то <span id="method3_step_3_1" class="katex"></span>, расчет окончен;<br>
 				    				<li align=left> если нет, то перейти к шагу 4.<br>
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 4.</b> Задать k = 0. <br>
-				    		<b>ШАГ 5.</b> Проверить условие k <= n-1:
+				    		<b>ШАГ 4.</b> Задать <span id="method3_step_4" class="katex"></span>. <br>
+				    		<b>ШАГ 5.</b> Проверить условие <span id="method3_step_5" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если k <= n-1, то перейти к шагу 6;
-				    				<li align=left> если k = n, то положить j = j+1 и x<sup>j+1,k</sup> = x<sup>jn</sup> и перейти к шагу 3.
+				    				<li align=left> если <span id="method3_step_5_1" class="katex"></span>, то перейти к шагу 6;
+				    				<li align=left> если <span id="method3_step_5_2_1" class="katex"></span>, то положить <span id="method3_step_5_2_2" class="katex"></span> и <span id="method3_step_5_2_3" class="katex"></span> и перейти к шагу 3.
 				    			</ol>
 				    		</div>
 				    		<b>ШАГ 6.</b> Вычислить <span id="method3_step_6" class="katex"></span>.<br>
 				    		<b>ШАГ 7.</b> Проверить выполнение критерия окончания <span id="method3_step_7" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если критерий выполнен, x* = x<sup>jk</sup>, расчет окончен;
+				    				<li align=left> если критерий выполнен, <span id="method3_step_7_1" class="katex"></span>, расчет окончен;
 				    				<li align=left> если нет, то перейти к шагу 8.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 8.</b> Задать t<sub>k</sub>. <br>
+				    		<b>ШАГ 8.</b> Задать <span id="method3_step_8" class="katex"></span>. <br>
 				    		<b>ШАГ 9.</b> Вычислить точку <span id="method3_step_9" class="katex"></span>. <br>
 				    		<b>ШАГ 10.</b> Проверить выполнение условия <span id="method3_step_10_1" class="katex"></span> <br> (или <span id="method3_step_10_2" class="katex"></span>).
 				    		<div class="container-al111">
 				    			<ol>
 				    				<li align=left> если условие выполнено, то перейти к шагу 11;
-				    				<li align=left> если нет, то положить t<sub>k</sub> = t<sub>k</sub> / 2 перейти к шагу 9.
+				    				<li align=left> если нет, то положить <span id="method3_step_10_2_2" class="katex"></span> перейти к шагу 9.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 11.</b> Проверить выполнение условий <span id="method3_step_11" class="katex"></span>:
+				    		<b>ШАГ 11.</b> Проверить выполнение условий <br> <span id="method3_step_11" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если в двух последовательных циклах с номерами j и j-1 оба условия выполняются, <br>то расчет в точке x<sup>jk+1</sup> окончен и x* = x<sup>jk+1</sup>;
-				    				<li align=left> если хотя бы одно из условий не выполнено, положить k = k + 1 и перейти к шагу 5.
+				    				<li align=left> если в двух последовательных циклах с номерами <span id="method3_step_11_1_1" class="katex"></span> и <span id="method3_step_11_1_2" class="katex"></span> <br> оба условия выполняются, то расчет в точке <span id="method3_step_11_1_3" class="katex"></span> окончен и <span id="method3_step_11_1_4" class="katex"></span>;
+				    				<li align=left> если хотя бы одно из условий не выполнено, положить <span id="method3_step_11_2" class="katex"></span> <br> и перейти к шагу 5.
 				    			</ol>
 				    		</div>
 						</div>
@@ -417,39 +415,39 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-							<b>ШАГ 1.</b> Задать x<sup>0</sup>, &epsilon;<sub>1</sub> > 0, &epsilon;<sub>2</sub> > 0, предельное число M циклов счета, кратное n, <br>где n - размерность вектора x. Найти градиент <span id="method4_step_1" class="katex"></span>.<br>
-				    		<b>ШАГ 2.</b> Задать номер цикла j = 0. <br>
-				    		<b>ШАГ 3.</b> проверить условие j >= M:
+							<b>ШАГ 1.</b> Задать <span id="method4_step_1_1" class="katex"></span> предельное число M циклов счета, кратное n, <br>где n - размерность вектора x. Найти градиент <span id="method4_step_1_2" class="katex"></span>.<br>
+				    		<b>ШАГ 2.</b> Задать номер цикла <span id="method4_step_2" class="katex"></span>. <br>
+				    		<b>ШАГ 3.</b> проверить условие <span id="method4_step_3" class="katex"></span>:
 				    		<div class="container-al11">
 				    			<ol>
-				    				<li align=left> если j >= M, то расчет окончен x<sup>*</sup> = x<sup>jk</sup>;<br>
-				    				<li align=left> если j < M, то перейти к шагу 4.<br>
+				    				<li align=left> если <span id="method4_step_3_1_1" class="katex"></span> то расчет окончен <span id="method4_step_3_1_2" class="katex"></span>;<br>
+				    				<li align=left> если <span id="method4_step_3_2" class="katex"></span>, то перейти к шагу 4.<br>
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 4.</b> Задать k = 0. <br>
-				    		<b>ШАГ 5.</b> Проверить условие k <= n-1:
+				    		<b>ШАГ 4.</b> Задать <span id="method4_step_4" class="katex"></span>. <br>
+				    		<b>ШАГ 5.</b> Проверить условие <span id="method4_step_5" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если k <= n-1, то перейти к шагу 6;
-				    				<li align=left> если k = n, то положить j = j+1 и x<sup>j+1,k</sup> = x<sup>jn</sup> и перейти к шагу 3.
+				    				<li align=left> если <span id="method4_step_5_1" class="katex"></span>, то перейти к шагу 6;
+				    				<li align=left> если <span id="method4_step_5_2_1" class="katex"></span>, то положить <span id="method4_step_5_2_2" class="katex"></span> и <span id="method4_step_5_2_3" class="katex"></span> и перейти к шагу 3.
 				    			</ol>
 				    		</div>
 				    		<b>ШАГ 6.</b> Вычислить <span id="method4_step_6" class="katex"></span>.<br>
 				    		<b>ШАГ 7.</b> Проверить выполнение условия <span id="method4_step_7" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если критерий выполнен, x* = x<sup>jk</sup>, расчет окончен;
+				    				<li align=left> если критерий выполнен, <span id="method4_step_7_1" class="katex"></span>, расчет окончен;
 				    				<li align=left> если нет, то перейти к шагу 8.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 8.</b> Вычислить t*<sub>k</sub> из условия <br>
+				    		<b>ШАГ 8.</b> Вычислить <span id="method4_step_8_0" class="katex"></span> из условия <br>
 				    		<span id="method4_step_8" class="katex"></span>.<br>
 				    		<b>ШАГ 9.</b> Вычислить  <span id="method4_step_9" class="katex"></span>. <br>
-				    		<b>ШАГ 10.</b> Проверить выполнение условий <span id="method4_step_10" class="katex"></span>:
+				    		<b>ШАГ 10.</b> Проверить выполнение условий <br> <span id="method4_step_10" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если оба условия выполнены в двух последовательных циклах с номерами j и j-1,<br> то расчет окончен, найдена точка x* = x<sup>jk+1</sup>;
-				    				<li align=left> если не выполняется хотя бы одно условие, положить k = k + 1 и перейти к шагу 5.
+				    				<li align=left> если оба условия выполнены в двух последовательных циклах <br> с номерами <span id="method4_step_10_1_1" class="katex"></span> и <span id="method4_step_10_1_2" class="katex"></span>, то расчет окончен, найдена точка <span id="method4_step_10_1_3" class="katex"></span>
+				    				<li align=left> если не выполняется хотя бы одно условие, положить <span id="method4_step_10_2" class="katex"></span> <br> и перейти к шагу 5.
 				    			</ol>
 				    		</div>
 						</div>
@@ -528,33 +526,33 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-							<b>ШАГ 1.</b> Задать x<sup>0</sup>, &epsilon;<sub>1</sub> > 0, &epsilon;<sub>2</sub> > 0, M - предельное число итераций. Найти градиент <span id="method5_step_1" class="katex"></span>.<br>
-				    		<b>ШАГ 2.</b> Положить k = 0. <br>
+							<b>ШАГ 1.</b> Задать <span id="method5_step_1_1" class="katex"></span> предельное число итераций. Найти градиент <span id="method5_step_1_2" class="katex"></span>.<br>
+				    		<b>ШАГ 2.</b> Положить <span id="method5_step_2" class="katex"></span>. <br>
 				    		<b>ШАГ 3.</b> Вычислить <span id="method5_step_3" class="katex"></span>.<br>
 				    		<b>ШАГ 4.</b> Проверить выполнение критерия окончания <span id="method5_step_4" class="katex"></span>:<br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если критерий выполняется, x* = x<sup>k</sup>, расчет окончен;
+				    				<li align=left> если критерий выполняется, <span id="method5_step_4_1" class="katex"></span>, расчет окончен;
 				    				<li align=left> если нет, то перейти к шагу 5.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 5.</b> Проверить условие k >= M:
+				    		<b>ШАГ 5.</b> Проверить условие <span id="method5_step_5" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если неравенство выполняется, то расчет окончен x* = x<sup>k</sup>;
-				    				<li align=left> если нет, то при k = 0 перейти к шагу 6, а при k >= 1 перейти к шагу 7.
+				    				<li align=left> если неравенство выполняется, то расчет окончен <span id="method5_step_5_1" class="katex"></span>;
+				    				<li align=left> если нет, то при <span id="method5_step_5_2_1" class="katex"></span> перейти к шагу 6, а при <span id="method5_step_5_2_2" class="katex"></span> перейти к шагу 7.
 				    			</ol>
 				    		</div>
 				    		<b>ШАГ 6.</b> Определить <span id="method5_step_6" class="katex"></span>.<br>
 				    		<b>ШАГ 7.</b> Определить <br> <span id="method5_step_7" class="katex"></span>.<br>
 				    		<b>ШАГ 8.</b> Определить <span id="method5_step_8" class="katex"></span>.<br>
-				    		<b>ШАГ 9.</b> Найти t*<sub>k</sub> из условия <span id="method5_step_9" class="katex"></span>. <br>
+				    		<b>ШАГ 9.</b> Найти <span id="method5_step_9_0" class="katex"></span> из условия <span id="method5_step_9" class="katex"></span>. <br>
 				    		<b>ШАГ 10.</b> Вычислить <span id="method5_step_10" class="katex"></span>.<br>
 				    		<b>ШАГ 11.</b> Проверить выполнение условий <br> <span id="method5_step_11" class="katex"></span>.<br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> в случае выполнения обоих условий в двух последовательных итерациях <br> с номерами k и k-1 расчет окончен, найдена точка x* = x<sup>k+1</sup>;
-				    				<li align=left> если не выполняется хотя бы одно из условий, полагаем k = k + 1 <br> и переходим к шагу 3.
+				    				<li align=left> в случае выполнения обоих условий в двух последовательных итерациях <br> с номерами <span id="method5_step_11_1_1" class="katex"></span> и <span id="method5_step_11_1_2" class="katex"></span> расчет окончен, найдена точка <span id="method5_step_11_1_3" class="katex"></span>;
+				    				<li align=left> если не выполняется хотя бы одно из условий, полагаем <span id="method5_step_11_2" class="katex"></span> <br> и переходим к шагу 3.
 				    			</ol>
 				    		</div>
 						</div>
@@ -633,21 +631,21 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-							<b>ШАГ 1.</b> Задать x<sup>0</sup>, &epsilon;<sub>1</sub> > 0, &epsilon;<sub>2</sub> > 0, M - предельное число итераций. Найти градиент <span id="method6_step_1" class="katex"></span>.<br>
-				    		<b>ШАГ 2.</b> Положить k = 0, A<sup>0</sup> = E. <br>
+							<b>ШАГ 1.</b> Задать <span id="method6_step_1_1" class="katex"></span> предельное число итераций. <br> Найти градиент <span id="method6_step_1_2" class="katex"></span>.<br>
+				    		<b>ШАГ 2.</b> Положить <span id="method6_step_2" class="katex"></span>. <br>
 				    		<b>ШАГ 3.</b> Вычислить <span id="method6_step_3" class="katex"></span>.<br>
 				    		<b>ШАГ 4.</b> Проверить критерий окончания <span id="method6_step_4" class="katex"></span>:<br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если критерий выполнеy, то x* = x<sup>k</sup>, расчет закончен;
+				    				<li align=left> если критерий выполнеy, то <span id="method6_step_4_1" class="katex"></span>, расчет закончен;
 				    				<li align=left> если нет, то перейти к шагу 5.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 5.</b> Проверить условие k >= M:
+				    		<b>ШАГ 5.</b> Проверить условие <span id="method6_step_5" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если неравенство выполнено, то x* = x<sup>k</sup> и расчет закончен;
-				    				<li align=left> если нет, перейти при k = 0 к шагу 10, а при k >= 1 перейти к шагу 6.
+				    				<li align=left> если неравенство выполнено, то <span id="method6_step_5_1" class="katex"></span> и расчет закончен;
+				    				<li align=left> если нет, перейти при <span id="method6_step_5_2_1" class="katex"></span> к шагу 10, а при <span id="method6_step_5_2_2" class="katex"></span> перейти к шагу 6.
 				    			</ol>
 				    		</div>
 				    		<b>ШАГ 6.</b> Вычислить <span id="method6_step_6" class="katex"></span>.<br>
@@ -655,13 +653,13 @@
 				    		<b>ШАГ 8.</b> Вычислить <br> <span id="method6_step_8" class="katex"></span>.<br>
 				    		<b>ШАГ 9.</b> Вычислить <span id="method6_step_9" class="katex"></span>.<br>
 				    		<b>ШАГ 10.</b> Определить <span id="method6_step_10" class="katex"></span>.<br>
-				    		<b>ШАГ 11.</b> Вычислить t*<sub>k</sub> из условия <span id="method6_step_11" class="katex"></span>.<br>
+				    		<b>ШАГ 11.</b> Вычислить <span id="method6_step_11_0" class="katex"></span> из условия <br> <span id="method6_step_11" class="katex"></span>.<br>
 				    		<b>ШАГ 12.</b> Вычислить <span id="method6_step_12" class="katex"></span>.<br>
 				    		<b>ШАГ 13.</b> Проверить условия <br> <span id="method6_step_13" class="katex"></span>.<br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если оба неравенства выполняются в двух последовательных итерациях с номерами k и k-1, <br> то расчет окончен и x* = x<sup>k+1</sup>;
-				    				<li align=left> в противном случае положить k = k + 1 и перейти к шагу 3.
+				    				<li align=left> если оба неравенства выполняются в двух последовательных итерациях <br> с номерами <span id="method6_step_13_1_1" class="katex"></span> и <span id="method6_step_13_1_2" class="katex"></span>, то расчет окончен и <span id="method6_step_13_1_3" class="katex"></span>;
+				    				<li align=left> в противном случае положить <span id="method6_step_13_2" class="katex"></span> и перейти к шагу 3.
 				    			</ol>
 				    		</div>
 						</div>
@@ -740,16 +738,16 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-							<b>ШАГ 1.</b> Задать начальную точку x<sup>0</sup>, величину шага &Delta; > 0 и малые положительные числа &epsilon;<sub>1</sub> и &epsilon;<sub>2</sub>.<br>
-				    		<b>ШАГ 2.</b> Вычислить производную f'(x<sup>0</sup>). <br>
-				    		<b>ШАГ 3.</b> Проверить знак производной в точке x<sup>0</sup>:<br>
+							<b>ШАГ 1.</b> Задать начальную точку <span id="method7_step_1_1" class="katex"></span> величину шага <span id="method7_step_1_2" class="katex"></span> <br> и малые положительные числа <span id="method7_step_1_3" class="katex"></span> и <span id="method7_step_1_4" class="katex"></span>.<br>
+				    		<b>ШАГ 2.</b> Вычислить производную <span id="method7_step_2" class="katex"></span>. <br>
+				    		<b>ШАГ 3.</b> Проверить знак производной в точке <span id="method7_step_3" class="katex"></span>:<br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если f'(x<sup>0</sup>) < 0, вычислить x<sup>k+1</sup> = x<sup>k</sup> + 2<sup>k</sup>&Delta;, k = 0, 1, ..., вплоть до точки x<sup>M</sup>, <br> в которой f'(x<sup>M-1</sup>)f'(x<sup>M</sup>) <= 0;
-				    				<li align=left> если f'(x<sup>0</sup>) > 0, вычислить x<sup>k+1</sup> = x<sup>k</sup> - 2<sup>k</sup>&Delta;, k = 0, 1, ..., вплоть до точки x<sup>M</sup>, <br> в которой f'(x<sup>M-1</sup>)f'(x<sup>M</sup>) <= 0.
+				    				<li align=left> если <span id="method7_step_3_1_1" class="katex"></span>, вычислить <span id="method7_step_3_1_2" class="katex"></span> <br> вплоть до точки <span id="method7_step_3_1_3" class="katex"></span>, в которой <span id="method7_step_3_1_4" class="katex"></span>;
+				    				<li align=left> если <span id="method7_step_3_2_1" class="katex"></span>, вычислить <span id="method7_step_3_2_2" class="katex"></span> <br> вплоть до точки <span id="method7_step_3_2_3" class="katex"></span>, в которой <span id="method7_step_3_2_4" class="katex"></span>.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 4.</b> Положить x<sub>1</sub> = x<sup>M-1</sup>, x<sub>2</sub> = x<sup>M</sup> и вычислить f(x<sub>1</sub>) = f<sub>1</sub>, f'(x<sub>1</sub>) = f'<sub>1</sub>, f(x<sub>2</sub>) = f<sub>2</sub>, f'(x<sub>2</sub>) = f'<sub>2</sub>. <br>
+				    		<b>ШАГ 4.</b> Положить <span id="method7_step_4_1" class="katex"></span> и вычислить <br> <span id="method7_step_4_2" class="katex"></span>. <br>
 				    		<b>ШАГ 5.</b> Найти точку минимума кубического интерполяционного полинома по формуле <span id="method7_step_5_1" class="katex"></span>, <br>
 				    		где <span id="method7_step_5_2_1" class="katex"></span>; <span id="method7_step_5_2_2" class="katex"></span>; <span id="method7_step_5_2_3" class="katex"></span> <br>
 				    		и значение <span id="method7_step_5_3" class="katex"></span>. <br>
@@ -757,14 +755,14 @@
 				    		<div class="container-al111">
 				    			<ol>
 				    				<li align=left> если <span id="method7_step_6_1" class="katex"></span>, перейти к шагу 7;
-				    				<li align=left> если <span id="method7_step_6_2_1" class="katex"></span>, вычислять <span id="method7_step_6_2_2" class="katex"></span> по формуле <span id="method7_step_6_2_3" class="katex"></span> до тех пор, <br> пока не будет выполнено неравенство <span id="method7_step_6_2_4" class="katex"></span>.
+				    				<li align=left> если <span id="method7_step_6_2_1" class="katex"></span>, вычислять <span id="method7_step_6_2_2" class="katex"></span> по формуле <span id="method7_step_6_2_3" class="katex"></span> <br> до тех пор, пока не будет выполнено неравенство <span id="method7_step_6_2_4" class="katex"></span>.
 				    			</ol>
 				    		</div>
 				    		<b>ШАГ 7.</b> Проверить выполнение условий окончания: <br><span id="method7_step_7" class="katex"></span>:<br>
 				    		<div class="container-al111">
 				    			<ol>
 				    				<li align=left> если оба условия выполнены, процедура закончена и <span id="method7_step_7_1" class="katex"></span>;
-				    				<li align=left> если хотя бы одно из условий не выполнено, положить либо <span id="method7_step_7_2_1" class="katex"></span>, если <br> <span id="method7_step_7_2_2" class="katex"></span>, либо <span id="method7_step_7_2_3" class="katex"></span>, если <span id="method7_step_7_2_4" class="katex"></span>. Перейти к шагу 5.
+				    				<li align=left> если хотя бы одно из условий не выполнено, положить либо <span id="method7_step_7_2_1" class="katex"></span>, <br> если <span id="method7_step_7_2_2" class="katex"></span>, либо <span id="method7_step_7_2_3" class="katex"></span>, если <span id="method7_step_7_2_4" class="katex"></span>. <br> Перейти к шагу 5.
 				    			</ol>
 				    		</div>
 						</div>
