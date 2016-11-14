@@ -1,7 +1,7 @@
 "use strict";
 
-//test - calcCoordinateDescent([0.5, 1], 0.1, 0.15, 10)
-var calcCoordinateDescent = function(x0, eps1, eps2, M) {
+//test - methodCoordinateDescent([0.5, 1], 0.1, 0.15, 10)
+var methodCoordinateDescent = function(x0, eps1, eps2, M) {
 	var x = [x0];
 	var k = 0;
 	var grad_val = [0,0];
@@ -31,7 +31,7 @@ var calcCoordinateDescent = function(x0, eps1, eps2, M) {
 
 			do {
 				next_item = [0,0]
-				next_item = action(item, tk, k);
+				next_item = actionCoordinateDescent(item, tk, k);
 				
 				condition = ((f_x(next_item[0], next_item[1]) - 
 					f_x(item[0], item[1])) >= 0);
@@ -64,7 +64,7 @@ var calcCoordinateDescent = function(x0, eps1, eps2, M) {
 };
 
 // to perform next iteration for the method
-var action = function(x, alpha, k) {
+var actionCoordinateDescent  = function(x, alpha, k) {
 	var e = [];
 	var dif = 0;
 	

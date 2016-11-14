@@ -10,10 +10,8 @@
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
   	<script src="./js/bootstrap.min.js"></script>
-  	<!-- script for katex generator -->
   	
   	<!-- scripts with methods -->
-  	<script defer src = "./js/katex-algorithms-generator.js"></script>
   	<script src = "./js/algorithms/gradient-descent-static-step.js"></script>
   	<script src = "./js/algorithms/method-of-steepest-gradient-descent.js"></script>
   	<script src = "./js/algorithms/coordinate-descent-method.js"></script>
@@ -24,14 +22,16 @@
   	<script src = "./js/algorithms/second-order-newton-raphson-method.js"></script>
   	<script src = "./js/algorithms/second-order-marquardt-method.js"></script>
   	<script src = "./js/algorithms/math-functions.js"></script>
-  	
+  	<script src = "./js/get-data-via-method.js"></script>
+	<!-- script for katex generator -->
+  	<script defer src = "./js/katex-algorithms-generator.js"></script>
   	<!-- Add slyles -->
   	<style>
 		.bg-1 { 
     		background-color: /*#2F4F4F*/#5cb85c; /* Green */
     		color: #ffffff; /*White*/
     		padding-top: 70px;
-    		padding-bottom: 300px;
+    		padding-bottom: 330px;
 		}
 		.bg-2 { 
     		background-color: /*#708090*/#474e5d; /* Dark Blue */
@@ -87,41 +87,40 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-				    		<b>ШАГ 1.</b> Задать x<sup>0</sup>, 0 < &epsilon; < 1, &epsilon;<sub>1</sub>, &epsilon;<sub>2</sub>, M - предельное число итераций.<br>
-				    		Найти градиент функции в произвольной точке 
-				    		<span id="method1_step_1" class="katex"></span>.<br>
-				    		<b>ШАГ 2.</b> Положить k = 0. <br>
+				    		<b>ШАГ 1.</b> Задать <span id="method1_step_1_1" class="katex"></span> предельное число итераций.<br>
+				    		Найти градиент функции в произвольной точке <span id="method1_step_1_2" class="katex"></span>.<br>
+				    		<b>ШАГ 2.</b> Положить <span id="method1_step_2" class="katex"></span>. <br>
 				    		<b>ШАГ 3.</b> Вычислить <span id="method1_step_3" class="katex"></span>.<br>
 				    		<b>ШАГ 4.</b> Проверить выполнение критерия окончания :
 				    		<div class="container-al11">
 				    			<ol>
-				    				<li align=left> если критерий выполнен, расчет закончен: x<sup>*</sup> = x<sup>k</sup>;<br>
+				    				<li align=left> если критерий выполнен, расчет закончен: <span id="method1_step_4_1" class="katex"></span>;<br>
 				    				<li align=left> если критерий не выполнен, то перейти к шагу 5.<br>
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 5.</b> Проверить выполнение неравенства k >= M :
+				    		<b>ШАГ 5.</b> Проверить выполнение неравенства <span id="method1_step_5" class="katex"></span> :
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если неравенство выполнено, расчет закончен: x<sup>*</sup> = x<sup>k</sup>;
+				    				<li align=left> если неравенство выполнено, расчет закончен: <span id="method1_step_5_1" class="katex"></span>;
 				    				<li align=left> если нет, то перейти к шагу 6.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 6.</b> Задать величину шага t<sub>k</sub><br>
+				    		<b>ШАГ 6.</b> Задать величину шага <span id="method1_step_6" class="katex"></span>. <br>
 				    		<b>ШАГ 7.</b> Вычислить <span id="method1_step_7" class="katex"></span>.<br>
 				    		<b>ШАГ 8.</b> Проверить выполнение условия:<br>
 				    		<span id="method1_step_8" class="katex"></span>:
 				    		<div class="container-al1111">
 				    			<ol>
 				    				<li align=left> если условие выполнено, то перейти к шагу 9;<br>
-				    				<li align=left> если условие не выполнено, то положить t<sub>k</sub> = t<sub>k</sub>/2 и перейти к шагу 7.<br>
+				    				<li align=left> если условие не выполнено, то положить <span id="method1_step_8_2" class="katex"></span> и перейти к шагу 7.<br>
 				    			</ol>
 				    		</div>
 				    		<b>ШАГ 9.</b> Проверить выполнение условий:<br>
 				    		<span id="method1_step_9" class="katex"></span>:
 				    		<div class="container-al11111">
 				    			<ol>
-				    				<li align=left> если оба условия выполнены при текущем значении k и k = k - 1, то расчет окончен, x<sup>*</sup> = x<sup>k+1</sup>;
-				    				<li align=left> если хотя бы одно из условий не выполнено, положить k = k + 1 и перейти к шагу 3.
+				    				<li align=left> если оба условия выполнены при текущем значении <span id="method1_step_9_1_1" class="katex"></span> и <span id="method1_step_9_1_2" class="katex"></span>, <br> то расчет окончен, <span id="method1_step_9_1_3" class="katex"></span>;
+				    				<li align=left> если хотя бы одно из условий не выполнено, положить <span id="method1_step_9_2" class="katex"></span> <br> и перейти к шагу 3.
 				    			</ol>
 				    		</div>
 						</div>
@@ -161,23 +160,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
-										<script>
-											function calculateViaFirstMethod(){
-												//debugger;
-												var form = document.getElementById('form-for-first-method');
-
-												var elements = form.getElementsByClassName('form-control');
-									
-												var result = calcGradientDescentWithStaticStep([+elements[0].value, +elements[1].value], +elements[2].value, +elements[3].value, +elements[4].value)
-												
-												var modalWindow = document.getElementById('myModal1');
-
-												var outputs = modalWindow.getElementsByClassName('form-control');
-												outputs[0].value = result;
-												outputs[1].value = f_x(result[0], result[1]);
-											}
-										</script>
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal1" onclick="calculateViaFirstMethod()">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal1" onclick="getDataViaMethod('form-for-first-method', 'myModal1')">Вычислить</button>
 
 									<!-- Modal -->
 									<div class="modal fade" id="myModal1" role="dialog" style="display: none;">
@@ -190,10 +173,10 @@
 										        </div>
 										        <div class="modal-body">
 										        	<p class="text-info">Точка</p> 
-										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<input type="text" class="form-control" name="x_result" value="">
 										        	<br>
 										          	<p class="text-info">Значение функции в точке</p>
-										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -220,41 +203,40 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-						<b>ШАГ 1.</b> Задать x<sup>0</sup>, &epsilon;<sub>1</sub> > 0, &epsilon;<sub>2</sub> > 0, предельное число итераций M.<br>
-				    		Найти градиент функции в произвольной точке 
-				    		<span id="method2_step_1" class="katex"></span>.<br>
-				    		<b>ШАГ 2.</b> Положить k = 0. <br>
+						<b>ШАГ 1.</b> Задать <span id="method2_step_1_1" class="katex"></span> предельное число итераций M.<br>
+				    		Найти градиент функции в произвольной точке <span id="method2_step_1_2" class="katex"></span>.<br>
+				    		<b>ШАГ 2.</b> Положить <span id="method2_step_2" class="katex"></span>. <br>
 				    		<b>ШАГ 3.</b> Вычислить <span id="method2_step_3" class="katex"></span>.<br>
 				    		<b>ШАГ 4.</b> Проверить выполнение критерия окончания <span id="method2_step_4" class="katex"></span>:
 				    		<div class="container-al11">
 				    			<ol>
-				    				<li align=left> если критерий выполнен, расчет закончен: x<sup>*</sup> = x<sup>k</sup>;<br>
+				    				<li align=left> если критерий выполнен, расчет закончен: <span id="method2_step_4_1" class="katex"></span>;<br>
 				    				<li align=left> если критерий не выполнен, то перейти к шагу 5.<br>
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 5.</b> Проверить выполнение неравенства k >= M :
+				    		<b>ШАГ 5.</b> Проверить выполнение неравенства <span id="method2_step_5" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если неравенство выполнено, расчет закончен: x<sup>*</sup> = x<sup>k</sup>;
+				    				<li align=left> если неравенство выполнено, расчет закончен: <span id="method2_step_5_1" class="katex"></span>;
 				    				<li align=left> если нет, то перейти к шагу 6.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 6.</b> Вычислить величину шага t*<sub>k</sub> из условия<br>
-				    		<span id="method2_step_6" class="katex"></span>.<br>
+				    		<b>ШАГ 6.</b> Вычислить величину шага <span id="method2_step_6_1" class="katex"></span> из условия<br>
+				    		<span id="method2_step_6_2" class="katex"></span>.<br>
 				    		<b>ШАГ 7.</b> Вычислить <span id="method2_step_7" class="katex"></span>.<br>
 				    		<b>ШАГ 8.</b> Проверить выполнение условия:<br>
 				    		<span id="method2_step_8" class="katex"></span>:
 				    		<div class="container-al1111">
 				    			<ol>
-				    				<li align=left> если оба условия выполнены при текущем значении k и k=k-1, то расчет окончен, x<sup>*</sup> = x<sup>k+1</sup>;<br>
-				    				<li align=left> если хотя бы одно из условий не выполнено, то положить k=k+1 и перейти к шагу 3.<br>
+				    				<li align=left> если оба условия выполнены при текущем значении <span id="method2_step_8_1_1" class="katex"></span> и <span id="method2_step_8_1_2" class="katex"></span>, <br> то расчет окончен, <span id="method2_step_8_1_3" class="katex"></span>;<br>
+				    				<li align=left> если хотя бы одно из условий не выполнено, то положить <span id="method2_step_8_2" class="katex"></span> <br> и перейти к шагу 3.<br>
 				    			</ol>
 				    		</div>
 						</div>
 				        <br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-second-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -288,7 +270,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_2(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal2">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal2" 
+									onclick="getDataViaMethod('form-for-second-method', 'myModal2')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal2" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -300,10 +283,10 @@
 										        </div>
 										         <div class="modal-body">
 										        	<p class="text-info">Точка</p> 
-										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<input type="text" class="form-control" name="x_result" value="">
 										        	<br>
 										          	<p class="text-info">Значение функции в точке</p>
-										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -330,52 +313,52 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-							<b>ШАГ 1.</b> Задать x<sup>0</sup>, &epsilon; > 0, &epsilon;<sub>1</sub> > 0, &epsilon;<sub>2</sub> > 0, предельное число M циклов счета, кратное n, <br>где n - размерность вектора x. Найти градиент <span id="method3_step_1" class="katex"></span>.<br>
-				    		<b>ШАГ 2.</b> Задать номер цикла j = 0. <br>
-				    		<b>ШАГ 3.</b> проверить условие j >= M:
+							<b>ШАГ 1.</b> Задать <span id="method3_step_1_1" class="katex"></span> предельное число M циклов счета, кратное n, <br>где n - размерность вектора x. Найти градиент <span id="method3_step_1_2" class="katex"></span>.<br>
+				    		<b>ШАГ 2.</b> Задать номер цикла <span id="method3_step_2" class="katex"></span>. <br>
+				    		<b>ШАГ 3.</b> проверить условие <span id="method3_step_3" class="katex"></span>:
 				    		<div class="container-al11">
 				    			<ol>
-				    				<li align=left> если j >= M, то x<sup>*</sup> = x<sup>jk</sup>, расчет окончен;<br>
+				    				<li align=left> если <span id="method3_step_3_1_1" class="katex"></span>, то <span id="method3_step_3_1" class="katex"></span>, расчет окончен;<br>
 				    				<li align=left> если нет, то перейти к шагу 4.<br>
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 4.</b> Задать k = 0. <br>
-				    		<b>ШАГ 5.</b> Проверить условие k <= n-1:
+				    		<b>ШАГ 4.</b> Задать <span id="method3_step_4" class="katex"></span>. <br>
+				    		<b>ШАГ 5.</b> Проверить условие <span id="method3_step_5" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если k <= n-1, то перейти к шагу 6;
-				    				<li align=left> если k = n, то положить j = j+1 и x<sup>j+1,k</sup> = x<sup>jn</sup> и перейти к шагу 3.
+				    				<li align=left> если <span id="method3_step_5_1" class="katex"></span>, то перейти к шагу 6;
+				    				<li align=left> если <span id="method3_step_5_2_1" class="katex"></span>, то положить <span id="method3_step_5_2_2" class="katex"></span> и <span id="method3_step_5_2_3" class="katex"></span> и перейти к шагу 3.
 				    			</ol>
 				    		</div>
 				    		<b>ШАГ 6.</b> Вычислить <span id="method3_step_6" class="katex"></span>.<br>
 				    		<b>ШАГ 7.</b> Проверить выполнение критерия окончания <span id="method3_step_7" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если критерий выполнен, x* = x<sup>jk</sup>, расчет окончен;
+				    				<li align=left> если критерий выполнен, <span id="method3_step_7_1" class="katex"></span>, расчет окончен;
 				    				<li align=left> если нет, то перейти к шагу 8.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 8.</b> Задать t<sub>k</sub>. <br>
+				    		<b>ШАГ 8.</b> Задать <span id="method3_step_8" class="katex"></span>. <br>
 				    		<b>ШАГ 9.</b> Вычислить точку <span id="method3_step_9" class="katex"></span>. <br>
 				    		<b>ШАГ 10.</b> Проверить выполнение условия <span id="method3_step_10_1" class="katex"></span> <br> (или <span id="method3_step_10_2" class="katex"></span>).
 				    		<div class="container-al111">
 				    			<ol>
 				    				<li align=left> если условие выполнено, то перейти к шагу 11;
-				    				<li align=left> если нет, то положить t<sub>k</sub> = t<sub>k</sub> / 2 перейти к шагу 9.
+				    				<li align=left> если нет, то положить <span id="method3_step_10_2_2" class="katex"></span> перейти к шагу 9.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 11.</b> Проверить выполнение условий <span id="method3_step_11" class="katex"></span>:
+				    		<b>ШАГ 11.</b> Проверить выполнение условий <br> <span id="method3_step_11" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если в двух последовательных циклах с номерами j и j-1 оба условия выполняются, <br>то расчет в точке x<sup>jk+1</sup> окончен и x* = x<sup>jk+1</sup>;
-				    				<li align=left> если хотя бы одно из условий не выполнено, положить k = k + 1 и перейти к шагу 5.
+				    				<li align=left> если в двух последовательных циклах с номерами <span id="method3_step_11_1_1" class="katex"></span> и <span id="method3_step_11_1_2" class="katex"></span> <br> оба условия выполняются, то расчет в точке <span id="method3_step_11_1_3" class="katex"></span> окончен и <span id="method3_step_11_1_4" class="katex"></span>;
+				    				<li align=left> если хотя бы одно из условий не выполнено, положить <span id="method3_step_11_2" class="katex"></span> <br> и перейти к шагу 5.
 				    			</ol>
 				    		</div>
 						</div>
 				        <br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-third-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -409,7 +392,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_3(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal3">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal3" 
+									onclick="getDataViaMethod('form-for-third-method', 'myModal3')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal3" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -421,10 +405,10 @@
 										        </div>
 										         <div class="modal-body">
 										        	<p class="text-info">Точка</p> 
-										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<input type="text" class="form-control" name="x_result" value="">
 										        	<br>
 										          	<p class="text-info">Значение функции в точке</p>
-										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -451,46 +435,46 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-							<b>ШАГ 1.</b> Задать x<sup>0</sup>, &epsilon;<sub>1</sub> > 0, &epsilon;<sub>2</sub> > 0, предельное число M циклов счета, кратное n, <br>где n - размерность вектора x. Найти градиент <span id="method4_step_1" class="katex"></span>.<br>
-				    		<b>ШАГ 2.</b> Задать номер цикла j = 0. <br>
-				    		<b>ШАГ 3.</b> проверить условие j >= M:
+							<b>ШАГ 1.</b> Задать <span id="method4_step_1_1" class="katex"></span> предельное число M циклов счета, кратное n, <br>где n - размерность вектора x. Найти градиент <span id="method4_step_1_2" class="katex"></span>.<br>
+				    		<b>ШАГ 2.</b> Задать номер цикла <span id="method4_step_2" class="katex"></span>. <br>
+				    		<b>ШАГ 3.</b> проверить условие <span id="method4_step_3" class="katex"></span>:
 				    		<div class="container-al11">
 				    			<ol>
-				    				<li align=left> если j >= M, то расчет окончен x<sup>*</sup> = x<sup>jk</sup>;<br>
-				    				<li align=left> если j < M, то перейти к шагу 4.<br>
+				    				<li align=left> если <span id="method4_step_3_1_1" class="katex"></span> то расчет окончен <span id="method4_step_3_1_2" class="katex"></span>;<br>
+				    				<li align=left> если <span id="method4_step_3_2" class="katex"></span>, то перейти к шагу 4.<br>
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 4.</b> Задать k = 0. <br>
-				    		<b>ШАГ 5.</b> Проверить условие k <= n-1:
+				    		<b>ШАГ 4.</b> Задать <span id="method4_step_4" class="katex"></span>. <br>
+				    		<b>ШАГ 5.</b> Проверить условие <span id="method4_step_5" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если k <= n-1, то перейти к шагу 6;
-				    				<li align=left> если k = n, то положить j = j+1 и x<sup>j+1,k</sup> = x<sup>jn</sup> и перейти к шагу 3.
+				    				<li align=left> если <span id="method4_step_5_1" class="katex"></span>, то перейти к шагу 6;
+				    				<li align=left> если <span id="method4_step_5_2_1" class="katex"></span>, то положить <span id="method4_step_5_2_2" class="katex"></span> и <span id="method4_step_5_2_3" class="katex"></span> и перейти к шагу 3.
 				    			</ol>
 				    		</div>
 				    		<b>ШАГ 6.</b> Вычислить <span id="method4_step_6" class="katex"></span>.<br>
 				    		<b>ШАГ 7.</b> Проверить выполнение условия <span id="method4_step_7" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если критерий выполнен, x* = x<sup>jk</sup>, расчет окончен;
+				    				<li align=left> если критерий выполнен, <span id="method4_step_7_1" class="katex"></span>, расчет окончен;
 				    				<li align=left> если нет, то перейти к шагу 8.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 8.</b> Вычислить t*<sub>k</sub> из условия <br>
+				    		<b>ШАГ 8.</b> Вычислить <span id="method4_step_8_0" class="katex"></span> из условия <br>
 				    		<span id="method4_step_8" class="katex"></span>.<br>
 				    		<b>ШАГ 9.</b> Вычислить  <span id="method4_step_9" class="katex"></span>. <br>
-				    		<b>ШАГ 10.</b> Проверить выполнение условий <span id="method4_step_10" class="katex"></span>:
+				    		<b>ШАГ 10.</b> Проверить выполнение условий <br> <span id="method4_step_10" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если оба условия выполнены в двух последовательных циклах с номерами j и j-1,<br> то расчет окончен, найдена точка x* = x<sup>jk+1</sup>;
-				    				<li align=left> если не выполняется хотя бы одно условие, положить k = k + 1 и перейти к шагу 5.
+				    				<li align=left> если оба условия выполнены в двух последовательных циклах <br> с номерами <span id="method4_step_10_1_1" class="katex"></span> и <span id="method4_step_10_1_2" class="katex"></span>, то расчет окончен, найдена точка <span id="method4_step_10_1_3" class="katex"></span>
+				    				<li align=left> если не выполняется хотя бы одно условие, положить <span id="method4_step_10_2" class="katex"></span> <br> и перейти к шагу 5.
 				    			</ol>
 				    		</div>
 						</div>
 				        <br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-fourth-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -524,7 +508,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_4(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal4">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal4"
+									onclick="getDataViaMethod('form-for-fourth-method', 'myModal4')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal4" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -536,10 +521,10 @@
 										        </div>
 										         <div class="modal-body">
 										        	<p class="text-info">Точка</p> 
-										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<input type="text" class="form-control" name="x_result" value="">
 										        	<br>
 										          	<p class="text-info">Значение функции в точке</p>
-										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -566,40 +551,40 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-							<b>ШАГ 1.</b> Задать x<sup>0</sup>, &epsilon;<sub>1</sub> > 0, &epsilon;<sub>2</sub> > 0, M - предельное число итераций. Найти градиент <span id="method5_step_1" class="katex"></span>.<br>
-				    		<b>ШАГ 2.</b> Положить k = 0. <br>
+							<b>ШАГ 1.</b> Задать <span id="method5_step_1_1" class="katex"></span> предельное число итераций. Найти градиент <span id="method5_step_1_2" class="katex"></span>.<br>
+				    		<b>ШАГ 2.</b> Положить <span id="method5_step_2" class="katex"></span>. <br>
 				    		<b>ШАГ 3.</b> Вычислить <span id="method5_step_3" class="katex"></span>.<br>
 				    		<b>ШАГ 4.</b> Проверить выполнение критерия окончания <span id="method5_step_4" class="katex"></span>:<br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если критерий выполняется, x* = x<sup>k</sup>, расчет окончен;
+				    				<li align=left> если критерий выполняется, <span id="method5_step_4_1" class="katex"></span>, расчет окончен;
 				    				<li align=left> если нет, то перейти к шагу 5.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 5.</b> Проверить условие k >= M:
+				    		<b>ШАГ 5.</b> Проверить условие <span id="method5_step_5" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если неравенство выполняется, то расчет окончен x* = x<sup>k</sup>;
-				    				<li align=left> если нет, то при k = 0 перейти к шагу 6, а при k >= 1 перейти к шагу 7.
+				    				<li align=left> если неравенство выполняется, то расчет окончен <span id="method5_step_5_1" class="katex"></span>;
+				    				<li align=left> если нет, то при <span id="method5_step_5_2_1" class="katex"></span> перейти к шагу 6, а при <span id="method5_step_5_2_2" class="katex"></span> перейти к шагу 7.
 				    			</ol>
 				    		</div>
 				    		<b>ШАГ 6.</b> Определить <span id="method5_step_6" class="katex"></span>.<br>
 				    		<b>ШАГ 7.</b> Определить <br> <span id="method5_step_7" class="katex"></span>.<br>
 				    		<b>ШАГ 8.</b> Определить <span id="method5_step_8" class="katex"></span>.<br>
-				    		<b>ШАГ 9.</b> Найти t*<sub>k</sub> из условия <span id="method5_step_9" class="katex"></span>. <br>
+				    		<b>ШАГ 9.</b> Найти <span id="method5_step_9_0" class="katex"></span> из условия <span id="method5_step_9" class="katex"></span>. <br>
 				    		<b>ШАГ 10.</b> Вычислить <span id="method5_step_10" class="katex"></span>.<br>
 				    		<b>ШАГ 11.</b> Проверить выполнение условий <br> <span id="method5_step_11" class="katex"></span>.<br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> в случае выполнения обоих условий в двух последовательных итерациях <br> с номерами k и k-1 расчет окончен, найдена точка x* = x<sup>k+1</sup>;
-				    				<li align=left> если не выполняется хотя бы одно из условий, полагаем k = k + 1 <br> и переходим к шагу 3.
+				    				<li align=left> в случае выполнения обоих условий в двух последовательных итерациях <br> с номерами <span id="method5_step_11_1_1" class="katex"></span> и <span id="method5_step_11_1_2" class="katex"></span> расчет окончен, найдена точка <span id="method5_step_11_1_3" class="katex"></span>;
+				    				<li align=left> если не выполняется хотя бы одно из условий, полагаем <span id="method5_step_11_2" class="katex"></span> <br> и переходим к шагу 3.
 				    			</ol>
 				    		</div>
 						</div>
 				        <br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-fifth-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -633,7 +618,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_5(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal5">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal5"
+									onclick="getDataViaMethod('form-for-fifth-method', 'myModal5')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal5" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -645,10 +631,10 @@
 										        </div>
 										         <div class="modal-body">
 										        	<p class="text-info">Точка</p> 
-										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<input type="text" class="form-control" name="x_result" value="">
 										        	<br>
 										          	<p class="text-info">Значение функции в точке</p>
-										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -675,21 +661,21 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-							<b>ШАГ 1.</b> Задать x<sup>0</sup>, &epsilon;<sub>1</sub> > 0, &epsilon;<sub>2</sub> > 0, M - предельное число итераций. Найти градиент <span id="method6_step_1" class="katex"></span>.<br>
-				    		<b>ШАГ 2.</b> Положить k = 0, A<sup>0</sup> = E. <br>
+							<b>ШАГ 1.</b> Задать <span id="method6_step_1_1" class="katex"></span> предельное число итераций. <br> Найти градиент <span id="method6_step_1_2" class="katex"></span>.<br>
+				    		<b>ШАГ 2.</b> Положить <span id="method6_step_2" class="katex"></span>. <br>
 				    		<b>ШАГ 3.</b> Вычислить <span id="method6_step_3" class="katex"></span>.<br>
 				    		<b>ШАГ 4.</b> Проверить критерий окончания <span id="method6_step_4" class="katex"></span>:<br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если критерий выполнеy, то x* = x<sup>k</sup>, расчет закончен;
+				    				<li align=left> если критерий выполнеy, то <span id="method6_step_4_1" class="katex"></span>, расчет закончен;
 				    				<li align=left> если нет, то перейти к шагу 5.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 5.</b> Проверить условие k >= M:
+				    		<b>ШАГ 5.</b> Проверить условие <span id="method6_step_5" class="katex"></span>:
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если неравенство выполнено, то x* = x<sup>k</sup> и расчет закончен;
-				    				<li align=left> если нет, перейти при k = 0 к шагу 10, а при k >= 1 перейти к шагу 6.
+				    				<li align=left> если неравенство выполнено, то <span id="method6_step_5_1" class="katex"></span> и расчет закончен;
+				    				<li align=left> если нет, перейти при <span id="method6_step_5_2_1" class="katex"></span> к шагу 10, а при <span id="method6_step_5_2_2" class="katex"></span> перейти к шагу 6.
 				    			</ol>
 				    		</div>
 				    		<b>ШАГ 6.</b> Вычислить <span id="method6_step_6" class="katex"></span>.<br>
@@ -697,20 +683,20 @@
 				    		<b>ШАГ 8.</b> Вычислить <br> <span id="method6_step_8" class="katex"></span>.<br>
 				    		<b>ШАГ 9.</b> Вычислить <span id="method6_step_9" class="katex"></span>.<br>
 				    		<b>ШАГ 10.</b> Определить <span id="method6_step_10" class="katex"></span>.<br>
-				    		<b>ШАГ 11.</b> Вычислить t*<sub>k</sub> из условия <span id="method6_step_11" class="katex"></span>.<br>
+				    		<b>ШАГ 11.</b> Вычислить <span id="method6_step_11_0" class="katex"></span> из условия <br> <span id="method6_step_11" class="katex"></span>.<br>
 				    		<b>ШАГ 12.</b> Вычислить <span id="method6_step_12" class="katex"></span>.<br>
 				    		<b>ШАГ 13.</b> Проверить условия <br> <span id="method6_step_13" class="katex"></span>.<br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если оба неравенства выполняются в двух последовательных итерациях с номерами k и k-1, <br> то расчет окончен и x* = x<sup>k+1</sup>;
-				    				<li align=left> в противном случае положить k = k + 1 и перейти к шагу 3.
+				    				<li align=left> если оба неравенства выполняются в двух последовательных итерациях <br> с номерами <span id="method6_step_13_1_1" class="katex"></span> и <span id="method6_step_13_1_2" class="katex"></span>, то расчет окончен и <span id="method6_step_13_1_3" class="katex"></span>;
+				    				<li align=left> в противном случае положить <span id="method6_step_13_2" class="katex"></span> и перейти к шагу 3.
 				    			</ol>
 				    		</div>
 						</div>
 				        <br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-sixth-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -744,7 +730,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_6(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal6">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal6"
+									onclick="getDataViaMethod('form-for-sixth-method', 'myModal6')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal6" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -756,10 +743,10 @@
 										        </div>
 										         <div class="modal-body">
 										        	<p class="text-info">Точка</p> 
-										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<input type="text" class="form-control" name="x_result" value="">
 										        	<br>
 										          	<p class="text-info">Значение функции в точке</p>
-										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -786,16 +773,16 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-							<b>ШАГ 1.</b> Задать начальную точку x<sup>0</sup>, величину шага &Delta; > 0 и малые положительные числа &epsilon;<sub>1</sub> и &epsilon;<sub>2</sub>.<br>
-				    		<b>ШАГ 2.</b> Вычислить производную f'(x<sup>0</sup>). <br>
-				    		<b>ШАГ 3.</b> Проверить знак производной в точке x<sup>0</sup>:<br>
+							<b>ШАГ 1.</b> Задать начальную точку <span id="method7_step_1_1" class="katex"></span> величину шага <span id="method7_step_1_2" class="katex"></span> <br> и малые положительные числа <span id="method7_step_1_3" class="katex"></span> и <span id="method7_step_1_4" class="katex"></span>.<br>
+				    		<b>ШАГ 2.</b> Вычислить производную <span id="method7_step_2" class="katex"></span>. <br>
+				    		<b>ШАГ 3.</b> Проверить знак производной в точке <span id="method7_step_3" class="katex"></span>:<br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если f'(x<sup>0</sup>) < 0, вычислить x<sup>k+1</sup> = x<sup>k</sup> + 2<sup>k</sup>&Delta;, k = 0, 1, ..., вплоть до точки x<sup>M</sup>, <br> в которой f'(x<sup>M-1</sup>)f'(x<sup>M</sup>) <= 0;
-				    				<li align=left> если f'(x<sup>0</sup>) > 0, вычислить x<sup>k+1</sup> = x<sup>k</sup> - 2<sup>k</sup>&Delta;, k = 0, 1, ..., вплоть до точки x<sup>M</sup>, <br> в которой f'(x<sup>M-1</sup>)f'(x<sup>M</sup>) <= 0.
+				    				<li align=left> если <span id="method7_step_3_1_1" class="katex"></span>, вычислить <span id="method7_step_3_1_2" class="katex"></span> <br> вплоть до точки <span id="method7_step_3_1_3" class="katex"></span>, в которой <span id="method7_step_3_1_4" class="katex"></span>;
+				    				<li align=left> если <span id="method7_step_3_2_1" class="katex"></span>, вычислить <span id="method7_step_3_2_2" class="katex"></span> <br> вплоть до точки <span id="method7_step_3_2_3" class="katex"></span>, в которой <span id="method7_step_3_2_4" class="katex"></span>.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 4.</b> Положить x<sub>1</sub> = x<sup>M-1</sup>, x<sub>2</sub> = x<sup>M</sup> и вычислить f(x<sub>1</sub>) = f<sub>1</sub>, f'(x<sub>1</sub>) = f'<sub>1</sub>, f(x<sub>2</sub>) = f<sub>2</sub>, f'(x<sub>2</sub>) = f'<sub>2</sub>. <br>
+				    		<b>ШАГ 4.</b> Положить <span id="method7_step_4_1" class="katex"></span> и вычислить <br> <span id="method7_step_4_2" class="katex"></span>. <br>
 				    		<b>ШАГ 5.</b> Найти точку минимума кубического интерполяционного полинома по формуле <span id="method7_step_5_1" class="katex"></span>, <br>
 				    		где <span id="method7_step_5_2_1" class="katex"></span>; <span id="method7_step_5_2_2" class="katex"></span>; <span id="method7_step_5_2_3" class="katex"></span> <br>
 				    		и значение <span id="method7_step_5_3" class="katex"></span>. <br>
@@ -803,14 +790,14 @@
 				    		<div class="container-al111">
 				    			<ol>
 				    				<li align=left> если <span id="method7_step_6_1" class="katex"></span>, перейти к шагу 7;
-				    				<li align=left> если <span id="method7_step_6_2_1" class="katex"></span>, вычислять <span id="method7_step_6_2_2" class="katex"></span> по формуле <span id="method7_step_6_2_3" class="katex"></span> до тех пор, <br> пока не будет выполнено неравенство <span id="method7_step_6_2_4" class="katex"></span>.
+				    				<li align=left> если <span id="method7_step_6_2_1" class="katex"></span>, вычислять <span id="method7_step_6_2_2" class="katex"></span> по формуле <span id="method7_step_6_2_3" class="katex"></span> <br> до тех пор, пока не будет выполнено неравенство <span id="method7_step_6_2_4" class="katex"></span>.
 				    			</ol>
 				    		</div>
 				    		<b>ШАГ 7.</b> Проверить выполнение условий окончания: <br><span id="method7_step_7" class="katex"></span>:<br>
 				    		<div class="container-al111">
 				    			<ol>
 				    				<li align=left> если оба условия выполнены, процедура закончена и <span id="method7_step_7_1" class="katex"></span>;
-				    				<li align=left> если хотя бы одно из условий не выполнено, положить либо <span id="method7_step_7_2_1" class="katex"></span>, если <br> <span id="method7_step_7_2_2" class="katex"></span>, либо <span id="method7_step_7_2_3" class="katex"></span>, если <span id="method7_step_7_2_4" class="katex"></span>. Перейти к шагу 5.
+				    				<li align=left> если хотя бы одно из условий не выполнено, положить либо <span id="method7_step_7_2_1" class="katex"></span>, <br> если <span id="method7_step_7_2_2" class="katex"></span>, либо <span id="method7_step_7_2_3" class="katex"></span>, если <span id="method7_step_7_2_4" class="katex"></span>. <br> Перейти к шагу 5.
 				    			</ol>
 				    		</div>
 						</div>
@@ -862,11 +849,7 @@
 										          	<h4 class="text-info">Решение методом кубической интерполяции</h4>
 										        </div>
 										        <div class="modal-body">
-										        	<p class="text-info">Точка</p> 
-										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
-										        	<br>
-										          	<p class="text-info">Значение функции в точке</p>
-										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
+										          	<p class="text-info">Значение функции в точке = </p>
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -899,46 +882,46 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-							<b>ШАГ 1.</b> Задать x<sup>0</sup>,  &epsilon;<sub>1</sub> > 0, &epsilon;<sub>2</sub> > 0, M - предельное число итераций. <br> Найти градиент <span id="method8_step_1" class="katex"></span> и матрицу Гессе H(x). <br>
-				    		<b>ШАГ 2.</b> Положить k = 0. <br>
+							<b>ШАГ 1.</b> Задать <span id="method8_step_1_1" class="katex"></span> предельное число итераций. <br> Найти градиент <span id="method8_step_1_2" class="katex"></span> и матрицу Гессе <span id="method8_step_1_3" class="katex"></span>. <br>
+				    		<b>ШАГ 2.</b> Положить <span id="method8_step_2" class="katex"></span>. <br>
 				    		<b>ШАГ 3.</b> Вычислить <span id="method8_step_3" class="katex"></span>. <br>
 				    		<b>ШАГ 4.</b> Проверить выполнение критерия окончания <span id="method8_step_4" class="katex"></span>: <br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если неравенство выполнено, расчет окончен и x* = x<sup>k</sup>;
+				    				<li align=left> если неравенство выполнено, расчет окончен и <span id="method8_step_4_1" class="katex"></span>;
 				    				<li align=left> в противном случае перейти к шагу 5.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 5.</b> Проверить выполнение неравенства k >= M. <br>
+				    		<b>ШАГ 5.</b> Проверить выполнение неравенства <span id="method8_step_5" class="katex"></span>. <br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если неравенство выполнено, расчет окончен и x* = x<sup>k</sup>;
+				    				<li align=left> если неравенство выполнено, расчет окончен и <span id="method8_step_5_1" class="katex"></span>;
 				    				<li align=left> если нет, перейти к шагу 6.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 6.</b> Вычислить матрицу H(x<sup>k</sup>).<br>
-				    		<b>ШАГ 7.</b> Вычислить матрицу H<sup>-1</sup>(x<sup>k</sup>). <br>
-				    		<b>ШАГ 8.</b> Проверить выполнение условия H<sup>-1</sup>(x<sup>k</sup>) > 0: <br>
+				    		<b>ШАГ 6.</b> Вычислить матрицу <span id="method8_step_6" class="katex"></span>.<br>
+				    		<b>ШАГ 7.</b> Вычислить матрицу <span id="method8_step_7" class="katex"></span>. <br>
+				    		<b>ШАГ 8.</b> Проверить выполнение условия <span id="method8_step_8" class="katex"></span>: <br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если H<sup>-1</sup>(x<sup>k</sup>) > 0, то перейти к шагу 9;
-				    				<li align=left> если нет, то перейти к шагу 10, положив <span id="method8_step_8" class="katex"></span>.
+				    				<li align=left> если <span id="method8_step_8_1" class="katex"></span>, то перейти к шагу 9;
+				    				<li align=left> если нет, то перейти к шагу 10, положив <span id="method8_step_8_2" class="katex"></span>.
 				    			</ol>
 				    		</div>
 				    		<b>ШАГ 9.</b> Определить <span id="method8_step_9" class="katex"></span>. <br>
-				    		<b>ШАГ 10.</b> Найти точку <span id="method8_step_10_1" class="katex"></span>, положив t<sub>k</sub> = 1, если <span id="method8_step_10_2" class="katex"></span>, <br> или выбрав t<sub>k</sub> из условия <span id="method8_step_10_3" class="katex"></span>, если <span id="method8_step_10_4" class="katex"></span>. <br>
+				    		<b>ШАГ 10.</b> Найти точку <span id="method8_step_10_1" class="katex"></span>, положив <span id="method8_step_10_1_1" class="katex"></span>, <br> если <span id="method8_step_10_2" class="katex"></span>,  или выбрав <span id="method8_step_10_2_1" class="katex"></span> <br> из условия <span id="method8_step_10_3" class="katex"></span>, если <span id="method8_step_10_4" class="katex"></span>. <br>
 				    		<b>ШАГ 11.</b> Проверить выполнение условий <br> <span id="method8_step_11" class="katex"></span> <br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если оба условия выполнены при текущем значении k и k = k-1, <br> то расчет окончен, x* = x<sup>k+1</sup>;
-				    				<li align=left> в противном случае положить k = k+1 и перейти к шагу 3.
+				    				<li align=left> если оба условия выполнены при текущем значении <span id="method8_step_11_1_1" class="katex"></span> и <span id="method8_step_11_1_2" class="katex"></span>, <br> то расчет окончен, <span id="method8_step_11_1_3" class="katex"></span>;
+				    				<li align=left> в противном случае положить <span id="method8_step_11_2" class="katex"></span> и перейти к шагу 3.
 				    			</ol>
 				    		</div>
 						</div>
 				        <br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-eighth-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -972,7 +955,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_8(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal8">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal8"
+									onclick="getDataViaMethod('form-for-eighth-method', 'myModal8')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal8" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -984,10 +968,10 @@
 										        </div>
 										         <div class="modal-body">
 										        	<p class="text-info">Точка</p> 
-										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<input type="text" class="form-control" name="x_result" value="">
 										        	<br>
 										          	<p class="text-info">Значение функции в точке</p>
-										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -1014,26 +998,26 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-							<b>ШАГ 1.</b> Задать x<sup>0</sup>,  &epsilon;<sub>1</sub> > 0, &epsilon;<sub>2</sub> > 0, M - предельное число итераций. <br> Найти градиент <span id="method9_step_1" class="katex"></span> и матрицу Гессе H(x). <br>
-				    		<b>ШАГ 2.</b> Положить k = 0. <br>
+							<b>ШАГ 1.</b> Задать <span id="method9_step_1_1" class="katex"></span> предельное число итераций. <br> Найти градиент <span id="method9_step_1_2" class="katex"></span> и матрицу Гессе <span id="method9_step_1_3" class="katex"></span>. <br>
+				    		<b>ШАГ 2.</b> Положить <span id="method9_step_2" class="katex"></span>. <br>
 				    		<b>ШАГ 3.</b> Вычислить <span id="method9_step_3" class="katex"></span>. <br>
 				    		<b>ШАГ 4.</b> Проверить выполнение условия <span id="method9_step_4" class="katex"></span>: <br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если неравенство выполнено, то расчет закончен и x* = x<sup>k</sup>;
+				    				<li align=left> если неравенство выполнено, то расчет закончен и <span id="method9_step_4_1" class="katex"></span>;
 				    				<li align=left> если нет, то перейти к шагу 5.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 5.</b> Проверить выполнение условия k >= M: <br>
+				    		<b>ШАГ 5.</b> Проверить выполнение условия <span id="method9_step_5" class="katex"></span>: <br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если неравенство выполнено, расчет окончен, x* = x<sup>k</sup>;
+				    				<li align=left> если неравенство выполнено, расчет окончен, <span id="method9_step_5_1" class="katex"></span>;
 				    				<li align=left> если нет, перейти к шагу 6.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 6.</b> Вычислить матрицу H(x<sup>k</sup>).<br>
-				    		<b>ШАГ 7.</b> Вычислить матрицу H<sup>-1</sup>(x<sup>k</sup>). <br>
-				    		<b>ШАГ 8.</b> Проверить выполнение условия H<sup>-1</sup>(x<sup>k</sup>) > 0: <br>
+				    		<b>ШАГ 6.</b> Вычислить матрицу <span id="method9_step_6" class="katex"></span>.<br>
+				    		<b>ШАГ 7.</b> Вычислить матрицу <span id="method9_step_7" class="katex"></span>. <br>
+				    		<b>ШАГ 8.</b> Проверить выполнение условия <span id="method9_step_8" class="katex"></span>: <br>
 				    		<div class="container-al111">
 				    			<ol>
 				    				<li align=left> если условие выполняется, то найти <span id="method9_step_8_1" class="katex"></span>;
@@ -1041,20 +1025,20 @@
 				    			</ol>
 				    		</div>
 				    		<b>ШАГ 9.</b> Определить <span id="method9_step_9" class="katex"></span>. <br>
-				    		<b>ШАГ 10.</b> Найти шаг t*<sub>k</sub> из условия <span id="method9_step_10" class="katex"></span>. <br>
+				    		<b>ШАГ 10.</b> Найти шаг <span id="method9_step_10_0" class="katex"></span> из условия <span id="method9_step_10" class="katex"></span>. <br>
 				    		<b>ШАГ 11.</b> Вычислить <span id="method9_step_11" class="katex"></span>. <br>
 				    		<b>ШАГ 12.</b> Проверить выполнение неравенств <br> <span id="method9_step_12" class="katex"></span>: <br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если оба условия выполнены при текущем значении k и k = k-1, <br> то расчет окончен, x* = x<sup>k+1</sup>;
-				    				<li align=left> в противном случае положить k = k+1 и перейти к шагу 3.
+				    				<li align=left> если оба условия выполнены при текущем значении <span id="method9_step_12_1_1" class="katex"></span> и <span id="method9_step_12_1_2" class="katex"></span>, <br> то расчет окончен, <span id="method9_step_12_1_3" class="katex"></span>;
+				    				<li align=left> в противном случае положить <span id="method9_step_12_2" class="katex"></span> и перейти к шагу 3.
 				    			</ol>
 				    		</div>
 						</div>
 				        <br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-nineth-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -1088,7 +1072,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_9(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal9">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal9"
+									onclick="getDataViaMethod('form-for-nineth-method', 'myModal9')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal9" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -1100,10 +1085,10 @@
 										        </div>
 										        <div class="modal-body">
 										        	<p class="text-info">Точка</p> 
-										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<input type="text" class="form-control" name="x_result" value="">
 										        	<br>
 										          	<p class="text-info">Значение функции в точке</p>
-										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -1130,24 +1115,24 @@
 				    <div class="panel-body">
 				    <h4><ins>АЛГОРИТМ МЕТОДА</ins></h4>
 						<div class="container-al1 text-left col-sm-offset-4">
-							<b>ШАГ 1.</b> Задать x<sup>0</sup>,  &epsilon;<sub>1</sub> > 0, M - предельное число итераций. <br> Найти градиент <span id="method10_step_1" class="katex"></span> и матрицу Гессе H(x). <br>
-				    		<b>ШАГ 2.</b> Положить k = 0, &mu;<sup>k</sup> = &mu;<sup>0</sup>. <br>
+							<b>ШАГ 1.</b> Задать <span id="method10_step_1_1" class="katex"></span> предельное число итераций. <br> Найти градиент <span id="method10_step_1_2" class="katex"></span> и матрицу Гессе <span id="method10_step_1_3" class="katex"></span>. <br>
+				    		<b>ШАГ 2.</b> Положить <span id="method10_step_2" class="katex"></span>. <br>
 				    		<b>ШАГ 3.</b> Вычислить <span id="method10_step_3" class="katex"></span>. <br>
 				    		<b>ШАГ 4.</b> Проверить выполнение условия <span id="method10_step_4" class="katex"></span>: <br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если неравенство выполнено, то расчет окончен, x* = x<sup>k</sup>;
+				    				<li align=left> если неравенство выполнено, то расчет окончен, <span id="method10_step_4_1" class="katex"></span>;
 				    				<li align=left> если нет, то перейти к шагу 5.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 5.</b> Проверить выполнение условия k >= M: <br>
+				    		<b>ШАГ 5.</b> Проверить выполнение условия <span id="method10_step_5" class="katex"></span>: <br>
 				    		<div class="container-al111">
 				    			<ol>
-				    				<li align=left> если неравенство выполнено, расчет окончен, x* = x<sup>k</sup>;
+				    				<li align=left> если неравенство выполнено, расчет окончен, <span id="method10_step_5_1" class="katex"></span>;
 				    				<li align=left> если нет, перейти к шагу 6.
 				    			</ol>
 				    		</div>
-				    		<b>ШАГ 6.</b> Вычислить H(x<sup>k</sup>).<br>
+				    		<b>ШАГ 6.</b> Вычислить <span id="method10_step_6" class="katex"></span>.<br>
 				    		<b>ШАГ 7.</b> Вычислить <span id="method10_step_7" class="katex"></span>. <br>
 				    		<b>ШАГ 8.</b> Вычислить <span id="method10_step_8" class="katex"></span>. <br>
 				    		<b>ШАГ 9.</b> Вычислить <span id="method10_step_9" class="katex"></span>. <br>
@@ -1165,7 +1150,7 @@
 				        <br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-tenth-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -1185,12 +1170,6 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="text" class="col-sm-5 control-label">Малое положительное число E2 = </label>
-								<div class="col-sm-3">
-									<input type="text" class="form-control" size="10" name="e2" value="0.15" onFocus="this.value=''" onBlur="if (this.value==''){this.value='0.15'}">
-								</div>
-							</div>
-							<div class="form-group">
 								<label for="text" class="col-sm-5 control-label">Предельное число итераций М = </label>
 								<div class="col-sm-3">
 									<input type="text" class="form-control" size="10" name="m" value="10" onFocus="this.value=''" onBlur="if (this.value==''){this.value='10'}">
@@ -1199,7 +1178,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_10(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal10">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal10"
+									onclick="getDataViaMethod('form-for-tenth-method', 'myModal10')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal10" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -1211,10 +1191,10 @@
 										        </div>
 										         <div class="modal-body">
 										        	<p class="text-info">Точка</p> 
-										        	<input type="text" class="form-control" name="x_result" value="" onFocus="this.value=''">
+										        	<input type="text" class="form-control" name="x_result" value="">
 										        	<br>
 										          	<p class="text-info">Значение функции в точке</p>
-										          	<input type="text" class="form-control" name="y_result" value="" onFocus="this.value=''">
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
