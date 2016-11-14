@@ -2,15 +2,15 @@
 // МЕТОД ДЭВИДОНА-ФЛЕТЧЕРА-ПАУЭЛЛА
 
 // Главная функция
-function method_6(obj)
+function methodDevidsonFletcherPowell(givenX0, eps1, eps2, M)
         {
             // ЗАДАЕМ НАЧАЛЬНЫЕ ЗНАЧЕНИЯ
     	    var x0 = new Array(2);  //вектор из html-формы
-            x0[0] = 0.5; //1 * obj.x0.value; // первая координата x из html-формы
-        	x0[1] = 1; //1 * obj.y0.value; // первая координата y из html-формы
-    		var e1 = 0.1; //1 * obj.e1.value; // малое положительное число e1 из html-формы
-    		var e2 = 0.15; //1 * obj.e2.value; // малое положительное число e2 из html-формы
-    		var m = 10; //1 * obj.m.value; // предельное число итераций из html-формы
+            x0[0] = givenX0[0]; //1 * obj.x0.value; // первая координата x из html-формы
+        	x0[1] = givenX0[1]; //1 * obj.y0.value; // первая координата y из html-формы
+    		var e1 = eps1; //1 * obj.e1.value; // малое положительное число e1 из html-формы
+    		var e2 = eps2; //1 * obj.e2.value; // малое положительное число e2 из html-формы
+    		var m = M; //1 * obj.m.value; // предельное число итераций из html-формы
     		var k = 0; // Номер итерации внутри цикла
 			var a = [[1, 0], [0, 1]]; // Единичная начальная матрица А
 			var a1 = [[1, 0], [0, 1]]; // Новая матрица А, которая вычисляется страшной формулой
@@ -97,12 +97,12 @@ function method_6(obj)
 		        			x0 = [0, 0];
 		        			x0[0] = x1[0];
 		        			x0[1] = x1[1];
-		        			t = step(x0, grad, k, d);
+		        			t = stepDevidsonFletcherPowell(x0, grad, k, d);
 		        			x1 = [0, 0];
                         	x1[0] = x0[0] - d[0] * t;
                         	x1[1] = x0[1] - d[1] * t;
 		        		} else {
-		        			t = step(x0, grad, k, d);
+		        			t = stepDevidsonFletcherPowell(x0, grad, k, d);
 		        			x1 = [0, 0];
                         	x1[0] = x0[0] - grad[0] * t;
                         	x1[1] = x0[1] - grad[1] * t;
@@ -170,7 +170,7 @@ function method_6(obj)
 			return difference;
 		}
 
-		function step(x, grad, k, d){
+		function stepDevidsonFletcherPowell(x, grad, k, d){
             var step = 0; 
             if (k == 0) {
                 step = (4 * x[0] * grad[0] +

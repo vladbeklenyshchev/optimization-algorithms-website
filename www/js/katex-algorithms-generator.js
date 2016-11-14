@@ -439,14 +439,8 @@ katex.render(formula, document.getElementById('method7_step_4_2'));
 formula = '\\bar{x} = \\Bigg\\{ \\begin{matrix} x_2, \\mu < 0 \\\\ x_2 - \\mu (x_2 - x_1), 0 \\le \\mu \\le 1\\\\ x_1, \\mu > 1, \\end{matrix}';
 katex.render(formula, document.getElementById('method7_step_5_1'));
 
-formula = '\\mu = \\frac{f\'_2 + w - z}{f\'_2 - f\'_1 +2w}';
-katex.render(formula, document.getElementById('method7_step_5_2_1'));
 
-formula = 'z = \\frac{3(f_1 - f_2)}{x_2 - x_1} + f\'_1 + f\'_2';
-katex.render(formula, document.getElementById('method7_step_5_2_2'));
 
-formula = 'w = \\Bigg\\{ \\begin{matrix} (z^2 - f\'_1f\'_2)^{\\frac{1}{2}}, x_1 < x_2 \\\\ -(z^2 - f\'_1f\'_2)^{\\frac{1}{2}}, x_1 > x_2  \\end{matrix}';
-katex.render(formula, document.getElementById('method7_step_5_2_3'));
 
 formula = 'f(\\bar{x})';
 katex.render(formula, document.getElementById('method7_step_5_3'));
