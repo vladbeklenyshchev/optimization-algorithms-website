@@ -97,7 +97,7 @@ function methodDevidsonFletcherPowell(givenX0, eps1, eps2, M)
 		        			x0 = [0, 0];
 		        			x0[0] = x1[0];
 		        			x0[1] = x1[1];
-		        			t = - step(x0, grad, k, d);
+		        			t = - stepDevidsonFletcherPowell(x0, grad, k, d);
 		        			x1 = [0, 0];
                         	x1[0] = x0[0] + d[0] * t;
                         	x1[1] = x0[1] + d[1] * t;
