@@ -1,9 +1,7 @@
-// ALGORITHM
-// МЕТОД ГАУССА-ЗЕЙДЕЛЯ
+"use strict";
 
 // Главная функция
-		function methodGaussSeidel(givenX0, eps1, eps2, M)
-        {
+		var methodGaussSeidel = function(x0, eps1, eps2, M) {
             // ЗАДАЕМ НАЧАЛЬНЫЕ ЗНАЧЕНИЯ
     	    var x0 = new Array(2);  //вектор из html-формы
             x0[0] = givenX0[0]; //1 * obj.x0.value; // первая координата x из html-формы
@@ -97,7 +95,7 @@
 	            }	
             }
             // alert("точка минимума = [" + result[1].toFixed(5)+", " + result[1].toFixed(5) +"], значение функции в этой точке " + result_function.toFixed(5));
-        }
+        };
 
 		function stepGaussSeidel(x, grad, e){
             var step = 0;
