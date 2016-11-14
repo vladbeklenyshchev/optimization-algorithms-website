@@ -1,7 +1,7 @@
 "use strict";
 
 //test - methodSecondOrderMarquardtMethod([0.5, 1], 0.1, 0.15, 10)
-var methodSecondOrderMarquardtMethod = function(x0, eps1, eps2, M) {
+var methodSecondOrderMarquardtMethod = function(x0, eps1, M) {
 	// eps2 is not take part in this method
 	var x = [x0];
 	var k = 0;

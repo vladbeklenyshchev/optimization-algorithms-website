@@ -20,7 +20,7 @@
   	<script src = "./js/algorithms/method-devidon-fletcher-powell.js"></script>
   	<script src = "./js/algorithms/second-order-newton-method.js"></script>
   	<script src = "./js/algorithms/second-order-newton-raphson-method.js"></script>
-  	<script src = "./js/algorithms/second-order-marquardt-method.js"></script>
+  	<script defer src = "./js/algorithms/second-order-marquardt-method.js"></script>
   	<script src = "./js/algorithms/math-functions.js"></script>
   	<script src = "./js/get-data-via-method.js"></script>
 	<!-- script for katex generator -->
@@ -801,7 +801,7 @@
 				        <br>
 						<h4>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-seventh-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -835,7 +835,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_7(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal7">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal7" 
+									onclick="getDataViaMethod('form-for-seventh-method', 'myModal7')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal7" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -846,7 +847,11 @@
 										          	<h4 class="text-info">Решение методом кубической интерполяции</h4>
 										        </div>
 										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
