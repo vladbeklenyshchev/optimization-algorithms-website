@@ -35,7 +35,7 @@ var methodDevidsonFletcherPowell = function(x0, eps1, eps2, M) {
 	            	grad = grad_f_x(x0[0], x0[1]);
 	            	// Вычисляем норму в точке Х0
 		            norm = 0;
-		        	norm = norm1(grad[0], grad[1]);
+		        	norm = norm3(grad[0], grad[1]);
 		        	// ПРОВЕРЯЕМ УСЛОВИЕ norm1 (grad) < e1
 		        	if (norm < e1) {
 		                result = [0, 0];
@@ -50,7 +50,7 @@ var methodDevidsonFletcherPowell = function(x0, eps1, eps2, M) {
 	            			grad2 = grad_f_x(x1[0], x1[1]);
 	            			// Вычисляем норму в точке Х1
 					        norm = 0;
-					        norm = norm1(grad2[0], grad2[1]);
+					        norm = norm3(grad2[0], grad2[1]);
 					        // ПРОВЕРЯЕМ УСЛОВИЕ norm1 (grad) < e1
 					        if (norm > e1) {
 					        	delta_g[0] = grad2[0] - grad[0];
@@ -95,10 +95,24 @@ var methodDevidsonFletcherPowell = function(x0, eps1, eps2, M) {
 		        			x0 = [0, 0];
 		        			x0[0] = x1[0];
 		        			x0[1] = x1[1];
-		        			t = stepDevidsonFletcherPowell(x0, grad, k, d);
+		        			t = - stepDevidsonFletcherPowell(x0, grad, k, d);
 		        			x1 = [0, 0];
-                        	x1[0] = x0[0] - d[0] * t;
-                        	x1[1] = x0[1] - d[1] * t;
+                        	x1[0] = x0[0] + d[0] * t;
+                        	x1[1] = x0[1] + d[1] * t;
+                        	grad = [0, 0];  //градиенты в точке Х0
+	            			grad = grad_f_x(x1[0], x1[1]);
+	            			// Вычисляем норму в точке Х0
+		            		norm = 0;
+		        			norm = norm3(grad[0], grad[1]);
+		        			// ПРОВЕРЯЕМ УСЛОВИЕ norm1 (grad) < e1
+		        			if (norm < e1) {
+		                		result = [0, 0];
+		        				result[0] = x1[0];
+		        				result[1] = x1[1];
+		                		result_function = 0;
+		        				result_function = f_x(result[0], result[1]);
+		        				return result;
+		        			}
 		        		} else {
 		        			t = stepDevidsonFletcherPowell(x0, grad, k, d);
 		        			x1 = [0, 0];
@@ -142,7 +156,7 @@ var methodDevidsonFletcherPowell = function(x0, eps1, eps2, M) {
 		    for (var i = 0; i < B_l; i++) {
 		    	C[i] = 0;
 		    	for (var j = 0; j < B_l; j++) {
-		    		C[i] += A[i][j] * B[i];
+		    		C[i] += A[j][i] * B[j];
 		    	}
 		    }
 		    return C;
@@ -229,4 +243,16 @@ var methodDevidsonFletcherPowell = function(x0, eps1, eps2, M) {
         	temp_2_2[1] = (delta_g[0] * a[0][1]) + (delta_g[1] * a[1][1]);
         	temp_2 = (delta_g[0] * temp_2_2[0]) + (delta_g[1] * temp_2_2[1])
         	return temp_2;
+        }
+
+        function norm1(x, y)
+        {
+            var n = Math.abs(y - x);
+            return n;
+        }
+
+        function norm3(x, y)
+        {
+            var n = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+            return n;
         }
