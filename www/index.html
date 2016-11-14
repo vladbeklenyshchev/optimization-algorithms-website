@@ -10,8 +10,7 @@
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
   	<script src="./js/bootstrap.min.js"></script>
-  	<!-- script for katex generator -->
-  	<script async src = "./js/katex-algorithms-generator.js"></script>
+  	
   	<!-- scripts with methods -->
   	<script src = "./js/algorithms/gradient-descent-static-step.js"></script>
   	<script src = "./js/algorithms/method-of-steepest-gradient-descent.js"></script>
@@ -19,6 +18,13 @@
   	<script src = "./js/algorithms/gauss-seidel-method.js"></script>
   	<script src = "./js/algorithms/nonlinear-conjugate-gradient.js"></script>
   	<script src = "./js/algorithms/method-devidon-fletcher-powell.js"></script>
+  	<script src = "./js/algorithms/second-order-newton-method.js"></script>
+  	<script src = "./js/algorithms/second-order-newton-raphson-method.js"></script>
+  	<script src = "./js/algorithms/second-order-marquardt-method.js"></script>
+  	<script src = "./js/algorithms/math-functions.js"></script>
+  	<script src = "./js/get-data-via-method.js"></script>
+	<!-- script for katex generator -->
+  	<script defer src = "./js/katex-algorithms-generator.js"></script>
   	<!-- Add slyles -->
   	<style>
 		.bg-1 { 
@@ -121,7 +127,7 @@
 						<!-- Форма для ввода информации для вычислений -->
 						<br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-first-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -154,8 +160,8 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
-									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_1(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal1">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal1" onclick="getDataViaMethod('form-for-first-method', 'myModal1')">Вычислить</button>
+
 									<!-- Modal -->
 									<div class="modal fade" id="myModal1" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -166,7 +172,11 @@
 										          	<h4 class="text-info">Решение методом градиентного спуска с постоянным шагом</h4>
 										        </div>
 										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -226,7 +236,7 @@
 				        <br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-second-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -260,7 +270,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_2(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal2">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal2" 
+									onclick="getDataViaMethod('form-for-second-method', 'myModal2')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal2" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -270,8 +281,12 @@
 										          	<button type="button" class="close" data-dismiss="modal">×</button>
 										          	<h4 class="text-info">Решение методом найскорейшего градиентного спуска</h4>
 										        </div>
-										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										         <div class="modal-body">
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -343,7 +358,7 @@
 				        <br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-third-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -377,7 +392,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_3(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal3">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal3" 
+									onclick="getDataViaMethod('form-for-third-method', 'myModal3')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal3" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -387,8 +403,12 @@
 										          	<button type="button" class="close" data-dismiss="modal">×</button>
 										          	<h4 class="text-info">Решение методом покоординатного спуска</h4>
 										        </div>
-										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										         <div class="modal-body">
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -454,7 +474,7 @@
 				        <br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-fourth-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -488,7 +508,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_4(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal4">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal4"
+									onclick="getDataViaMethod('form-for-fourth-method', 'myModal4')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal4" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -498,8 +519,12 @@
 										          	<button type="button" class="close" data-dismiss="modal">×</button>
 										          	<h4 class="text-info">Решение методом Гаусса-Зейделя</h4>
 										        </div>
-										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										         <div class="modal-body">
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -559,7 +584,7 @@
 				        <br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-fifth-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -593,7 +618,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_5(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal5">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal5"
+									onclick="getDataViaMethod('form-for-fifth-method', 'myModal5')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal5" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -603,8 +629,12 @@
 										          	<button type="button" class="close" data-dismiss="modal">×</button>
 										          	<h4 class="text-info">Решение методом Флетчера-Ривса</h4>
 										        </div>
-										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										         <div class="modal-body">
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -666,7 +696,7 @@
 				        <br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-sixth-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -700,7 +730,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_6(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal6">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal6"
+									onclick="getDataViaMethod('form-for-sixth-method', 'myModal6')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal6" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -710,8 +741,12 @@
 										          	<button type="button" class="close" data-dismiss="modal">×</button>
 										          	<h4 class="text-info">Решение методом Дэвидона-Флетчера-Пауэлла</h4>
 										        </div>
-										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										         <div class="modal-body">
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -886,7 +921,7 @@
 				        <br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-eighth-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -920,7 +955,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_8(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal8">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal8"
+									onclick="getDataViaMethod('form-for-eighth-method', 'myModal8')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal8" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -930,8 +966,12 @@
 										          	<button type="button" class="close" data-dismiss="modal">×</button>
 										          	<h4 class="text-info">Решение методом Ньютона</h4>
 										        </div>
-										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										         <div class="modal-body">
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -998,7 +1038,7 @@
 				        <br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-nineth-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -1032,7 +1072,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_9(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal9">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal9"
+									onclick="getDataViaMethod('form-for-nineth-method', 'myModal9')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal9" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -1043,7 +1084,11 @@
 										          	<h4 class="text-info">Решение методом Ньютона-Рафсона</h4>
 										        </div>
 										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -1105,7 +1150,7 @@
 				        <br>
 						<h4><ins>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</ins></h4>
 						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form">
+						<form class="form-horizontal" name="main_form" id="form-for-tenth-method">
 							<div class="form-group">
 				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
 								<div class="col-sm-3">
@@ -1133,7 +1178,8 @@
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
 									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_10(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal10">Вычислить</button>
+									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal10"
+									onclick="getDataViaMethod('form-for-tenth-method', 'myModal10')">Вычислить</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal10" role="dialog" style="display: none;">
 										<div class="modal-dialog">   
@@ -1143,8 +1189,12 @@
 										          	<button type="button" class="close" data-dismiss="modal">×</button>
 										          	<h4 class="text-info">Решение методом Марквардта</h4>
 										        </div>
-										        <div class="modal-body">
-										          	<p class="text-info">Значение функции в точке = </p>
+										         <div class="modal-body">
+										        	<p class="text-info">Точка</p> 
+										        	<input type="text" class="form-control" name="x_result" value="">
+										        	<br>
+										          	<p class="text-info">Значение функции в точке</p>
+										          	<input type="text" class="form-control" name="y_result" value="">
 										        </div>
 										        <div class="modal-footer">
 										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
