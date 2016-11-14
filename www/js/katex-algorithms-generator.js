@@ -1,5 +1,5 @@
 //METHOD_1
-var formula = 'x^0, 0 < \\epsilon < 1, \\epsilon_1, \\epsilon_2, M - ';
+var formula = 'x^0, 0 < \\epsilon < 1, \\epsilon_1 > 0, \\epsilon_2 > 0, M - ';
 katex.render(formula, document.getElementById('method1_step_1_1'));
 
 formula = '\\nabla{f(x)} = \\begin{pmatrix}' +  
@@ -309,7 +309,7 @@ katex.render(formula, document.getElementById('method5_step_11'));
 formula = 'k';
 katex.render(formula, document.getElementById('method5_step_11_1_1'));
 
-formula = 'k - k';
+formula = 'k - 1';
 katex.render(formula, document.getElementById('method5_step_11_1_2'));
 
 formula = 'x^{*} = x^{k + 1}';
