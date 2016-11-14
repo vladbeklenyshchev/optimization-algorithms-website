@@ -485,8 +485,17 @@ katex.render(formula, document.getElementById('method7_step_7_2_3'));
 formula = 'f\'(\\bar{x})f\'(x_2) < 0';
 katex.render(formula, document.getElementById('method7_step_7_2_4'));
 //METHOD_8
+formula = 'x^0, \\epsilon_1 > 0, \\epsilon_2 > 0, M - ';
+katex.render(formula, document.getElementById('method8_step_1_1'));
+
 formula = '\\nabla{f(x)}';
-katex.render(formula, document.getElementById('method8_step_1'));
+katex.render(formula, document.getElementById('method8_step_1_2'));
+
+formula = 'H(x)';
+katex.render(formula, document.getElementById('method8_step_1_3'));
+
+formula = 'k = 0';
+katex.render(formula, document.getElementById('method8_step_2'));
 
 formula = '\\nabla{f(x^k)}';
 katex.render(formula, document.getElementById('method8_step_3'));
@@ -494,8 +503,29 @@ katex.render(formula, document.getElementById('method8_step_3'));
 formula = '\\begin{Vmatrix} \\nabla{f(x^k)} \\end{Vmatrix} \\le \\epsilon _1';
 katex.render(formula, document.getElementById('method8_step_4'));
 
-formula = 'd^k = -\\nabla{f(x^k)}';
+formula = 'x^{*} = x^{k}';
+katex.render(formula, document.getElementById('method8_step_4_1'));
+
+formula = 'k \\ge M';
+katex.render(formula, document.getElementById('method8_step_5'));
+
+formula = 'x^{*} = x^{k}';
+katex.render(formula, document.getElementById('method8_step_5_1'));
+
+formula = 'H(x^{k})';
+katex.render(formula, document.getElementById('method8_step_6'));
+
+formula = 'H^{-1}(x^{k})';
+katex.render(formula, document.getElementById('method8_step_7'));
+
+formula = 'H^{-1}(x^{k}) > 0';
 katex.render(formula, document.getElementById('method8_step_8'));
+
+formula = 'H^{-1}(x^{k}) > 0';
+katex.render(formula, document.getElementById('method8_step_8_1'));
+
+formula = 'd^k = -\\nabla{f(x^k)}';
+katex.render(formula, document.getElementById('method8_step_8_2'));
 
 formula = 'd^k = -H^{-1}(x^k) \\nabla{f(x^k)}';
 katex.render(formula, document.getElementById('method8_step_9'));
@@ -503,8 +533,14 @@ katex.render(formula, document.getElementById('method8_step_9'));
 formula = 'x^{k+1} = x^k + t_k d^k';
 katex.render(formula, document.getElementById('method8_step_10_1'));
 
+formula = 't_k = 1';
+katex.render(formula, document.getElementById('method8_step_10_1_1'));
+
 formula = 'd^k = -H^{-1}(x^k) \\nabla{f(x^k)}';
 katex.render(formula, document.getElementById('method8_step_10_2'));
+
+formula = 't_k';
+katex.render(formula, document.getElementById('method8_step_10_2_1'));
 
 formula = 'f(x^{k+1}) < f(x^k)';
 katex.render(formula, document.getElementById('method8_step_10_3'));
@@ -515,15 +551,54 @@ katex.render(formula, document.getElementById('method8_step_10_4'));
 formula = '\\begin{Vmatrix} x^{k+1} - x^{k} \\end{Vmatrix} < \\epsilon _2 ,' + 
 '\\begin{vmatrix} f(x^{k+1}) - f(x^{k}) \\end{vmatrix} < \\epsilon _2';
 katex.render(formula, document.getElementById('method8_step_11'));
+
+formula = 'k';
+katex.render(formula, document.getElementById('method8_step_11_1_1'));
+
+formula = 'k = k - 1';
+katex.render(formula, document.getElementById('method8_step_11_1_2'));
+
+formula = 'x^{*} = x^{k+1}';
+katex.render(formula, document.getElementById('method8_step_11_1_3'));
+
+formula = 'k = k + 1';
+katex.render(formula, document.getElementById('method8_step_11_2'));
 //METHOD_9
+formula = 'x^0, \\epsilon_1 > 0, \\epsilon_2 > 0, M - ';
+katex.render(formula, document.getElementById('method9_step_1_1'));
+
 formula = '\\nabla{f(x)}';
-katex.render(formula, document.getElementById('method9_step_1'));
+katex.render(formula, document.getElementById('method9_step_1_2'));
+
+formula = 'H(x)';
+katex.render(formula, document.getElementById('method9_step_1_3'));
+
+formula = 'k = 0';
+katex.render(formula, document.getElementById('method9_step_2'));
 
 formula = '\\nabla{f(x^k)}';
 katex.render(formula, document.getElementById('method9_step_3'));
 
 formula = '\\begin{Vmatrix} \\nabla{f(x^k)} \\end{Vmatrix} \\le \\epsilon _1';
 katex.render(formula, document.getElementById('method9_step_4'));
+
+formula = 'x^{*} = x^{k}';
+katex.render(formula, document.getElementById('method9_step_4_1'));
+
+formula = 'k \\ge M';
+katex.render(formula, document.getElementById('method9_step_5'));
+
+formula = 'x^{*} = x^{k}';
+katex.render(formula, document.getElementById('method9_step_5_1'));
+
+formula = 'H(x^{k})';
+katex.render(formula, document.getElementById('method9_step_6'));
+
+formula = 'H^{-1}(x^{k})';
+katex.render(formula, document.getElementById('method9_step_7'));
+
+formula = 'H^{-1}(x^{k}) > 0';
+katex.render(formula, document.getElementById('method9_step_8'));
 
 formula = 'd^k = -H^{-1}(x^k) \\nabla{f(x^k)}';
 katex.render(formula, document.getElementById('method9_step_8_1'));
@@ -534,24 +609,60 @@ katex.render(formula, document.getElementById('method9_step_8_2'));
 formula = 'x^{k+1} = x^k + t_k d^k';
 katex.render(formula, document.getElementById('method9_step_9'));
 
+formula = 't^{*}_k';
+katex.render(formula, document.getElementById('method9_step_10_0'));
+
 formula = 'x^{k+1} = x^k + t_k d^k';
 katex.render(formula, document.getElementById('method9_step_10'));
 
-formula = 'x^{k+1} = x^k + t*_k d^k';
+formula = 'x^{k+1} = x^k + t^{*}_k d^k';
 katex.render(formula, document.getElementById('method9_step_11'));
 
 formula = '\\begin{Vmatrix} x^{k+1} - x^{k} \\end{Vmatrix} < \\epsilon _2 ,' + 
 '\\begin{vmatrix} f(x^{k+1}) - f(x^{k}) \\end{vmatrix} < \\epsilon _2';
 katex.render(formula, document.getElementById('method9_step_12'));
+
+formula = 'k';
+katex.render(formula, document.getElementById('method9_step_12_1_1'));
+
+formula = 'k = k - 1';
+katex.render(formula, document.getElementById('method9_step_12_1_2'));
+
+formula = 'x^{*} = x^{k+1}';
+katex.render(formula, document.getElementById('method9_step_12_1_3'));
+
+formula = 'k = k + 1';
+katex.render(formula, document.getElementById('method9_step_12_2'));
 //METHOD_10
+formula = 'x^0, \\epsilon_1 > 0, M - ';
+katex.render(formula, document.getElementById('method10_step_1_1'));
+
 formula = '\\nabla{f(x)}';
-katex.render(formula, document.getElementById('method10_step_1'));
+katex.render(formula, document.getElementById('method10_step_1_2'));
+
+formula = 'H(x)';
+katex.render(formula, document.getElementById('method10_step_1_3'));
+
+formula = 'k = 0, \\mu^{k} = \\mu^{0}';
+katex.render(formula, document.getElementById('method10_step_2'));
 
 formula = '\\nabla{f(x^k)}';
 katex.render(formula, document.getElementById('method10_step_3'));
 
 formula = '\\begin{Vmatrix} \\nabla{f(x^k)} \\end{Vmatrix} \\le \\epsilon _1';
 katex.render(formula, document.getElementById('method10_step_4'));
+
+formula = 'x^{*} = x^{k}';
+katex.render(formula, document.getElementById('method10_step_4_1'));
+
+formula = 'k \\ge M';
+katex.render(formula, document.getElementById('method10_step_5'));
+
+formula = 'x^{*} = x^{k}';
+katex.render(formula, document.getElementById('method10_step_5_1'));
+
+formula = 'H(x^k)';
+katex.render(formula, document.getElementById('method10_step_6'));
 
 formula = 'H(x^k) + \\mu^k E';
 katex.render(formula, document.getElementById('method10_step_7'));
