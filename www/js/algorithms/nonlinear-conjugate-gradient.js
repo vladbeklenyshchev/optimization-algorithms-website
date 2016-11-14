@@ -1,7 +1,7 @@
 "use strict";
 
-//test - calcNonlinearConjugateGradient([0.5, 1], 0.1, 0.15, 10)
-var calcNonlinearConjugateGradient = function(x0, eps1, eps2, M) {
+//test - methodNonlinearConjugateGradient([0.5, 1], 0.1, 0.15, 10)
+var methodNonlinearConjugateGradient = function(x0, eps1, eps2, M) {
 	var x = [x0];
 	var k = 0;
 	// matrix of gradient values [[ , ], [ , ]]
@@ -18,11 +18,13 @@ var calcNonlinearConjugateGradient = function(x0, eps1, eps2, M) {
 		} else if(k >= M) {
 			return x[k];
 		} else if(k == 0){
-			var result = action(x[k], grad_values[k], k, [0,0], 0);
+			var result = actionNonlinearConjugateGradient(x[k],
+			 grad_values[k], k, [0,0], 0);
 			d.push(result[0]);
 			x.push(result[1]);
 		} else {
-			var result = action(x[k], grad_values[k], k, d[k-1], 
+			var result = actionNonlinearConjugateGradient(x[k],
+			 grad_values[k], k, d[k-1], 
 				getBeta(grad_values[k], grad_values[k-1]));
 			d.push(result[0]);
 			x.push(result[1]);
@@ -36,7 +38,7 @@ var calcNonlinearConjugateGradient = function(x0, eps1, eps2, M) {
 };
 
 // to perform next iteration for the method
-var action = function(x, grad, k, dPrev, beta) {
+function actionNonlinearConjugateGradient(x, grad, k, dPrev, beta) {
 	var dNew = [], xNew = [];
 	var t = 0;
 	// array for d values
