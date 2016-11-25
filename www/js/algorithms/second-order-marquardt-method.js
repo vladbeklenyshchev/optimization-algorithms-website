@@ -22,9 +22,9 @@ var methodSecondOrderMarquardtMethod = function(x0, eps1, M) {
 		}
 		do {
 			var newM = [[0, 0], [0, 0]];
-			for (var i = 0; i < hessian.length; i++) {
-				for (var j = 0; j < hessian.length; j++) {
-					newM[i][j] = hessian[i][j] + mu * Ematrix[i][j];
+			for (var i = 0; i < hessian().length; i++) {
+				for (var j = 0; j < hessian().length; j++) {
+					newM[i][j] = hessian()[i][j] + mu * Ematrix[i][j];
 				}
 			}
 

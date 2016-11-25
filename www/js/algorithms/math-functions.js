@@ -28,7 +28,9 @@ var grad_f_x = function(x1, x2) {
 	return arr_grad;
 };
 
-var hessian = [[2 * a, b], [b, 2 * c]];
+var hessian = function() {
+	return [[2 * a, b], [b, 2 * c]];
+};
 
 var quadraticDeterminant = function(x1, x2) {
 	return (x1[0] * x2[1] - x1[1] * x2[0]);
