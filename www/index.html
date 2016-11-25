@@ -71,15 +71,24 @@
 		
 		<form class= "form-inline" id="inputFunctionForm">
 			<div class="input-group input-group-lg">
-			<span class="input-group-addon">f(x, y) =</span>
-  			<input type="text" class="form-control" id="inputFunction" 
-  			placeholder="a x^2 + b x y + c y^2">
+				<span class="input-group-addon">f(x, y) =</span>
+  				<input type="text" class="form-control" id="inputFunction" 
+  				placeholder="a x^2 + b x y + c y^2">
 			</div>	
 		</form>
+		
 		<script>
 			$(function() {
 				$("#inputFunction").mask("9 x^2 + 9 x y + 9 y^2", {
-					completed: function() {alert(this.val()); }
+					completed: function() {
+						alert(this.val()); 
+						var sInput = this.val();
+						var slpitedString = sInput.split(' + ');
+						var a = slpitedString[0][0];
+						var b = slpitedString[1][0];
+						var c = slpitedString[2][0];
+						init(a, b, c);
+					}
 				});
 			});
 		</script>

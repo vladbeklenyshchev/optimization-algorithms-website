@@ -1,5 +1,16 @@
 "use strict";
 
+// arguments by default
+var a = 2;
+var b = 1;
+var c = 1;
+
+function init(arg1, arg2, arg3) {
+	a = arg1;
+	b = arg2;
+	c = arg3;
+}
+
 var abs = function(a) {
 	if(a < 0) {
 		return -a;
@@ -9,17 +20,17 @@ var abs = function(a) {
 };
 
 var f_x = function(x1, x2) {
-	return 2 * x1 * x1 + x1 * x2 + x2 * x2;
+	return a * x1 * x1 + b * x1 * x2 + c * x2 * x2;
 };
 
 var grad_f_x = function(x1, x2) {
 	var arr_grad = [0,0];
-	arr_grad[0] = 4 * x1 + x2;
-	arr_grad[1] = x1 + 2 * x2;
+	arr_grad[0] = 2 * a * x1 + b * x2;
+	arr_grad[1] = b * x1 + 2 * c * x2;
 	return arr_grad;
 };
 
-var hessian = [[4, 1], [1, 2]];
+var hessian = [[2 * a, b], [b, 2 * c]];
 
 var quadraticDeterminant = function(x1, x2) {
 	return (x1[0] * x2[1] - x1[1] * x2[0]);
@@ -60,7 +71,8 @@ var mulMatrixOnVector = function (M, v) {
 };
 
 function getAppropriateStepValue(x, y, k) {
-    return (Math.pow(4*x + y, 2) + Math.pow(x + 2*y, 2) ) / 
-    (4*Math.pow(4*x + y, 2) + 2*(4*x + y)*(x + 2*y) + 
-    	2* Math.pow(x + 2*y, 2));
+    return (Math.pow(grad_f_x(x, y)[0], 2) + Math.pow(grad_f_x(x, y)[1], 2) ) / 
+    (2 * a *Math.pow(grad_f_x(x, y)[0], 2) 
+    	+ 2 * grad_f_x(x, y)[0] * grad_f_x(x, y)[1] + 
+    	2 * c * Math.pow(grad_f_x(x, y)[1], 2));
 };
