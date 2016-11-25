@@ -28,6 +28,37 @@
 	<!-- script for katex generator -->
 	<script src="./js/jquery.maskedinput.min.js"></script>
   	<script defer src = "./js/katex-algorithms-generator.js"></script>
+  	<script type="text/javascript">
+			jQuery(function($) {
+			  
+			  // Function which adds the 'animated' class to any '.animatable' in view
+			  var doAnimations = function() {
+			    
+			    // Calc current offset and get all animatables
+			    var offset = $(window).scrollTop() + $(window).height(),
+			        $animatables = $('.animatable');
+			    
+			    // Unbind scroll handler if we have no animatables
+			    if ($animatables.size() == 0) {
+			      $(window).off('scroll', doAnimations);
+			    }
+			    
+			    // Check all animatables and animate them if necessary
+					$animatables.each(function(i) {
+			       var $animatable = $(this);
+						if (($animatable.offset().top + $animatable.height() - 20) < offset) {
+			        $animatable.removeClass('animatable').addClass('animated');
+						}
+			    });
+
+				};
+			  
+			  // Hook doAnimations on scroll, and trigger a scroll
+				$(window).on('scroll', doAnimations);
+			  $(window).trigger('scroll');
+
+			});
+  	</script>
   	<script>
   		// initialize by default (a=2, b=1, c=1)
   		init();
@@ -62,17 +93,327 @@
     		padding-top: 5px;
     		padding-bottom: 20px;
 		}
+		.bg-6 { 
+    		background-color: #708090; /* Dark Blue */
+    		color: #ffffff;
+		}
 		a:link {
 			text-decoration: none;
 		}
+
+		.animatable {
+		  /* initially hide animatable objects */
+		  visibility: hidden;
+		  
+		  /* initially pause animatable objects their animations */
+		  -webkit-animation-play-state: paused;   
+		  -moz-animation-play-state: paused;     
+		  -ms-animation-play-state: paused;
+		  -o-animation-play-state: paused;   
+		  animation-play-state: paused; 
+		}
+
+		/* show objects being animated */
+		.animated {
+		  visibility: visible;
+		  
+		  -webkit-animation-fill-mode: both;
+		  -moz-animation-fill-mode: both;
+		  -ms-animation-fill-mode: both;
+		  -o-animation-fill-mode: both;
+		  animation-fill-mode: both;
+		  
+		  -webkit-animation-duration: 1s;
+		  -moz-animation-duration: 1s;
+		  -ms-animation-duration: 1s;
+		  -o-animation-duration: 1s;
+		  animation-duration: 1s;
+
+		  -webkit-animation-play-state: running;
+		  -moz-animation-play-state: running;
+		  -ms-animation-play-state: running;
+		  -o-animation-play-state: running;
+		  animation-play-state: running;
+		}
+
+		@-webkit-keyframes bounceInLeft {
+			0% {
+				opacity: 0;
+				-webkit-transform: translateX(-2000px);
+			}
+			60% {
+				-webkit-transform: translateX(20px);
+			}
+
+			80% {
+				-webkit-transform: translateX(-5px);
+			}
+
+			100% {
+				opacity: 1;
+				-webkit-transform: translateX(0);
+			}
+		}
+
+		@-moz-keyframes bounceInLeft {
+			0% {
+				opacity: 0;
+				-moz-transform: translateX(-2000px);
+			}
+
+			60% {
+				-moz-transform: translateX(20px);
+			}
+
+			80% {
+				-moz-transform: translateX(-5px);
+			}
+
+			100% {
+				opacity: 1;
+				-moz-transform: translateX(0);
+			}
+		}
+
+		@-o-keyframes bounceInLeft {
+			0% {
+				opacity: 0;
+				-o-transform: translateX(-2000px);
+			}
+
+			60% {
+				opacity: 1;
+				-o-transform: translateX(20px);
+			}
+
+			80% {
+				-o-transform: translateX(-5px);
+			}
+
+			100% {
+				opacity: 1;
+				-o-transform: translateX(0);
+			}
+		}
+
+		@keyframes bounceInLeft {
+			0% {
+				opacity: 0;
+				transform: translateX(-2000px);
+			}
+
+			60% {
+				transform: translateX(20px);
+			}
+
+			80% {
+				transform: translateX(-5px);
+			}
+
+			100% {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+
+		@-webkit-keyframes bounceInRight {
+			0% {
+				opacity: 0;
+				-webkit-transform: translateX(2000px);
+			}
+
+			60% {
+				-webkit-transform: translateX(-20px);
+			}
+
+			80% {
+				-webkit-transform: translateX(5px);
+			}
+
+			100% {
+				opacity: 1;
+				-webkit-transform: translateX(0);
+			}
+		}
+
+		@-moz-keyframes bounceInRight {
+			0% {
+				opacity: 0;
+				-moz-transform: translateX(2000px);
+			}
+
+			60% {
+				-moz-transform: translateX(-20px);
+			}
+
+			80% {
+				-moz-transform: translateX(5px);
+			}
+
+			100% {
+				opacity: 1;
+				-moz-transform: translateX(0);
+			}
+		}
+
+		@-o-keyframes bounceInRight {
+			0% {
+				opacity: 0;
+				-o-transform: translateX(2000px);
+			}
+
+			60% {
+				-o-transform: translateX(-20px);
+			}
+
+			80% {
+				-o-transform: translateX(5px);
+			}
+
+			100% {
+				opacity: 1;
+				-o-transform: translateX(0);
+			}
+		}
+
+		@keyframes bounceInRight {
+			0% {
+				opacity: 0;
+				transform: translateX(2000px);
+			}
+
+			60% {
+				transform: translateX(-20px);
+			}
+
+			80% {
+				transform: translateX(5px);
+			}
+
+			100% {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+
+		@-webkit-keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			20% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		@-moz-keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			20% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		@-o-keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			20% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		@keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			60% {
+				opacity: 0;
+			}
+			20% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		.animated.bounceInLeft {
+			-webkit-animation-name: bounceInLeft;
+			-moz-animation-name: bounceInLeft;
+			-o-animation-name: bounceInLeft;
+			animation-name: bounceInLeft;
+		}
+
+		.animated.bounceInRight {
+			-webkit-animation-name: bounceInRight;
+			-moz-animation-name: bounceInRight;
+			-o-animation-name: bounceInRight;
+			animation-name: bounceInRight;
+		}
+
+		.animated.fadeIn {
+			-webkit-animation-name: fadeIn;
+			-moz-animation-name: fadeIn;
+			-o-animation-name: fadeIn;
+			animation-name: fadeIn;
+		}
+
+		.animated.animationDelay{
+			animation-delay:.4s;
+			-webkit-animation-delay:.4s;
+		}
+		.animated.animationDelayMed{
+			animation-delay:1.2s;
+			-webkit-animation-delay:1.2s;
+		}
+		.animated.animationDelayLong{
+			animation-delay:1.6s;
+			-webkit-animation-delay:1.6s;
+		}
+		#navbar {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        border: 2px solid #2f2f2f;
+        border-radius: 20px 5px;
+        width: 100%;
+        text-align: right;
+        background-color: #2f2f2f;
+      }
+      #navbar li { display: inline; }
+      #navbar a {
+        color: #fff;
+        padding: 5px 10px;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        width: 100px;
+      }
+      #navbar a:hover {
+        border-radius: 20px 5px;
+        background-color: #474e5d;
+      }
+      #authors {
+      	padding-right: 330px;
+      }
 	</style>
 </head>
 <body>
 	<!--Section_1 MAIN header+logo-->
 	<div class="container-fluid bg-1 text-center">
-  		<h1 id = "header1">Численные методы поиска безусловного экстремума</h1><br>
+  		<h1 id = "header1" class="animatable bounceInLeft" >Численные методы поиска безусловного экстремума</h1><br>
 		
-		<form class= "form-inline" id="inputFunctionForm">
+		<form class= "form-inline animatable bounceInRight" id="inputFunctionForm">
 			<div class="input-group input-group-lg">
 				<span class="input-group-addon">f(x, y)</span>
   				<input type="text" class="form-control" id="inputFunction" 
@@ -108,7 +449,7 @@
 		</script>
 		<br>
 		<br>
-		<img src="./images/mo_logo.png" class="img-thumbnail" alt="logo" id = "logo"><br>
+		<img src="./images/mo_logo.png" class="img-thumbnail animatable fadeIn" alt="logo" id = "logo"><br>
 	</div>
 	<!--Section_2 methods first-order-->
 	<div class="container-fluid bg-2 text-center">
@@ -1256,7 +1597,37 @@
   		</div>
 	</div>
 </body>
+<!--Section_4 Help(Documentation for website) and Authors-->
 <div class="container-fluid bg-4 text-center">
-	Copyright © 2016 Beklenyshchev Vladislav, Pilipenko Tatiana, DNU
+	<ul id="navbar">
+		<li id = "authors"> Copyright © 2016 Beklenyshchev Vladislav, Pilipenko Tatiana, DNU </li>
+      	<li><a href="help" data-toggle="modal" data-target="#myModalhelp">Help</a></li>
+      	<!-- Modal -->
+		<div class="modal fade" id="myModalhelp" role="dialog" style="display: none;">
+			<div class="modal-dialog">   
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<center><h4 class="text-info">Documentation for website</h4></center>
+					</div>
+					<div class="modal-body">
+						<center><p class="text-info">We implemented:</p></center>
+						<p class="text-info" align="left" > - website design using Bootstrap framework; <br>
+						- first- and second methods of optimization for function 2 * x ^2 + x * y + y^2 using JavaScript;<br>
+						- algorithms of methods via Katex framework that allows us to generate TeX expressions on the website.</p></center>
+						<ul id="description">
+							<li>  </li>
+							<li>  </li>
+							<li>  </li>
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+					</div>
+				</div>     
+			</div>
+		</div>
+    </ul>
 </div>
 </html>
