@@ -26,23 +26,28 @@
   	<script src = "./js/algorithms/math-functions.js"></script>
   	<script src = "./js/get-data-via-method.js"></script>
 	<!-- script for katex generator -->
+	<script src="./js/jquery.maskedinput.min.js"></script>
   	<script defer src = "./js/katex-algorithms-generator.js"></script>
+  	<script>
+  		// initialize by default (a=2, b=1, c=1)
+  		init();
+  	</script>
   	<!-- Add slyles -->
   	<style>
 		.bg-1 { 
-    		background-color: /*#2F4F4F*/#5cb85c; /* Green */
-    		color: #ffffff; /*White*/
+    		background-color: #5cb85c; /* Green */
+    		color: #ffffff;
     		padding-top: 70px;
     		padding-bottom: 330px;
 		}
 		.bg-2 { 
-    		background-color: /*#708090*/#474e5d; /* Dark Blue */
+    		background-color: #474e5d;
     		color: #ffffff;
     		padding-top: 10px;
     		padding-bottom: 10px;
 		}
 		.bg-3 { 
-    		background-color: #708090; /* Dark Blue */
+    		background-color: #708090;
     		color: #ffffff;
 		}
 		.bg-4 { 
@@ -52,7 +57,7 @@
     		padding-bottom: 10px;
 		}
 		.bg-5 { 
-    		background-color: /*#708090*/#474e5d; /* Dark Blue */
+    		background-color: #474e5d;
     		color: #ffffff;
     		padding-top: 5px;
     		padding-bottom: 20px;
@@ -66,7 +71,43 @@
 	<!--Section_1 MAIN header+logo-->
 	<div class="container-fluid bg-1 text-center">
   		<h1 id = "header1">Численные методы поиска безусловного экстремума</h1><br>
-		<h3 id = "header2">для функции f(x, y) = 2x<sup>2</sup> + xy + y<sup>2</sup></h3><br><br>
+		
+		<form class= "form-inline" id="inputFunctionForm">
+			<div class="input-group input-group-lg">
+				<span class="input-group-addon">f(x, y)</span>
+  				<input type="text" class="form-control" id="inputFunction" 
+  				placeholder="a x^2 + b x y + c y^2">
+			</div>	
+		</form>
+		
+		<script>
+			// use it or onSubmit = false
+			$('#inputFunctionForm').keydown(function(event){
+				if(event.keyCode == 13) {
+					// remove the focus from the input field when entered
+					$(function () {
+    					$('input').blur();
+					});
+				    event.preventDefault();
+				    return false;
+				}
+			});
+
+			$(function() {
+				$("#inputFunction").mask("9 x^2 + 9 x y + 9 y^2", {
+					completed: function() { 
+						var sInput = this.val();
+						var slpitedString = sInput.split(' + ');
+						var a = +slpitedString[0][0];
+						var b = +slpitedString[1][0];
+						var c = +slpitedString[2][0];
+						init(a, b, c);
+					}
+				});
+			});
+		</script>
+		<br>
+		<br>
 		<img src="./images/mo_logo.png" class="img-thumbnail" alt="logo" id = "logo"><br>
 	</div>
 	<!--Section_2 methods first-order-->
