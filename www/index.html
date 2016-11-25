@@ -29,13 +29,6 @@
 	<script src="./js/jquery.maskedinput.min.js"></script>
   	<script defer src = "./js/katex-algorithms-generator.js"></script>
   	<script type="text/javascript">
-  			// Trigger CSS animations on scroll.
-			// Detailed explanation can be found at http://www.bram.us/2013/11/20/scroll-animations/
-
-			// Looking for a version that also reverses the animation when
-			// elements scroll below the fold again?
-			// --> Check https://codepen.io/bramus/pen/vKpjNP
-
 			jQuery(function($) {
 			  
 			  // Function which adds the 'animated' class to any '.animatable' in view
@@ -391,11 +384,11 @@
         margin: 0;
         padding: 0;
         list-style-type: none;
-        border: 2px solid #474e5d;
+        border: 2px solid #2f2f2f;
         border-radius: 20px 5px;
         width: 100%;
         text-align: right;
-        background-color: #708090;
+        background-color: #2f2f2f;
       }
       #navbar li { display: inline; }
       #navbar a {
@@ -410,6 +403,9 @@
         border-radius: 20px 5px;
         background-color: #474e5d;
       }
+      #authors {
+      	padding-right: 330px;
+      }
 	</style>
 </head>
 <body>
@@ -417,7 +413,7 @@
 	<div class="container-fluid bg-1 text-center">
   		<h1 id = "header1" class="animatable bounceInLeft" >Численные методы поиска безусловного экстремума</h1><br>
 		
-		<form class= "form-inline" id="inputFunctionForm">
+		<form class= "form-inline animatable bounceInRight" id="inputFunctionForm">
 			<div class="input-group input-group-lg">
 				<span class="input-group-addon">f(x, y)</span>
   				<input type="text" class="form-control" id="inputFunction" 
@@ -1600,37 +1596,38 @@
 			</div>
   		</div>
 	</div>
-	<!--Section_4 Help Documentation for website-->
-	<div class="container-fluid bg-6 text-center">
-    	<ul id="navbar">
-      		<li><a href="help" data-toggle="modal" data-target="#myModalhelp">Help</a></li>
-      		<!-- Modal -->
-									<div class="modal fade" id="myModalhelp" role="dialog" style="display: none;">
-										<div class="modal-dialog">   
-										<!-- Modal content-->
-										    <div class="modal-content">
-										       	<div class="modal-header">
-										          	<button type="button" class="close" data-dismiss="modal">×</button>
-										          	<center><h4 class="text-info">Documentation for website</h4></center>
-										        </div>
-										        <div class="modal-body">
-										        	<center><p class="text-info">We implemented:</p></center>
-										        	<ul>
-										        		<li> website design using Bootstrap framework; </li>
-										        		<li> first- and second methods of optimization for function 2 * x ^2 + x * y + y^2 using JavaScript; </li>
-										        		<li> algorithms of methods via Katex framework that allows us to generate TeX expressions on the website. </li>
-										        	</ul>
-										        </div>
-										        <div class="modal-footer">
-										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-										        </div>
-										    </div>     
-										</div>
-									</div>
-    	</ul>
-	</div>
 </body>
+<!--Section_4 Help(Documentation for website) and Authors-->
 <div class="container-fluid bg-4 text-center">
-	Copyright © 2016 Beklenyshchev Vladislav, Pilipenko Tatiana, DNU
+	<ul id="navbar">
+		<li id = "authors"> Copyright © 2016 Beklenyshchev Vladislav, Pilipenko Tatiana, DNU </li>
+      	<li><a href="help" data-toggle="modal" data-target="#myModalhelp">Help</a></li>
+      	<!-- Modal -->
+		<div class="modal fade" id="myModalhelp" role="dialog" style="display: none;">
+			<div class="modal-dialog">   
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<center><h4 class="text-info">Documentation for website</h4></center>
+					</div>
+					<div class="modal-body">
+						<center><p class="text-info">We implemented:</p></center>
+						<p class="text-info" align="left" > - website design using Bootstrap framework; <br>
+						- first- and second methods of optimization for function 2 * x ^2 + x * y + y^2 using JavaScript;<br>
+						- algorithms of methods via Katex framework that allows us to generate TeX expressions on the website.</p></center>
+						<ul id="description">
+							<li>  </li>
+							<li>  </li>
+							<li>  </li>
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+					</div>
+				</div>     
+			</div>
+		</div>
+    </ul>
 </div>
 </html>
