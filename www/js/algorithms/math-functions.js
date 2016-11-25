@@ -1,11 +1,9 @@
 "use strict";
 
-// arguments by default
-var a = 2;
-var b = 1;
-var c = 1;
+// coefficients for function
+var a, b, c;
 
-function init(arg1, arg2, arg3) {
+function init(arg1 = 2, arg2 = 1, arg3 = 1) {
 	a = arg1;
 	b = arg2;
 	c = arg3;
