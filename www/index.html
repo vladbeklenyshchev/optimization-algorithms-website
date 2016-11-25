@@ -66,9 +66,6 @@
 
 			});
   	</script>
-  	<!-- <link href="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.css">
-	<script src="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.js"></script> -->
-	<!-- <script type="text/javascript">AOS.init({ duration: 1200 });</script> -->
   	<script>
   		// initialize by default (a=2, b=1, c=1)
   		init();
@@ -102,6 +99,10 @@
     		color: #ffffff;
     		padding-top: 5px;
     		padding-bottom: 20px;
+		}
+		.bg-6 { 
+    		background-color: #708090; /* Dark Blue */
+    		color: #ffffff;
 		}
 		a:link {
 			text-decoration: none;
@@ -386,6 +387,29 @@
 			animation-delay:1.6s;
 			-webkit-animation-delay:1.6s;
 		}
+		#navbar {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        border: 2px solid #474e5d;
+        border-radius: 20px 5px;
+        width: 100%;
+        text-align: right;
+        background-color: #708090;
+      }
+      #navbar li { display: inline; }
+      #navbar a {
+        color: #fff;
+        padding: 5px 10px;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        width: 100px;
+      }
+      #navbar a:hover {
+        border-radius: 20px 5px;
+        background-color: #474e5d;
+      }
 	</style>
 </head>
 <body>
@@ -1575,6 +1599,35 @@
 				</div>
 			</div>
   		</div>
+	</div>
+	<!--Section_4 Help Documentation for website-->
+	<div class="container-fluid bg-6 text-center">
+    	<ul id="navbar">
+      		<li><a href="help" data-toggle="modal" data-target="#myModalhelp">Help</a></li>
+      		<!-- Modal -->
+									<div class="modal fade" id="myModalhelp" role="dialog" style="display: none;">
+										<div class="modal-dialog">   
+										<!-- Modal content-->
+										    <div class="modal-content">
+										       	<div class="modal-header">
+										          	<button type="button" class="close" data-dismiss="modal">×</button>
+										          	<center><h4 class="text-info">Documentation for website</h4></center>
+										        </div>
+										        <div class="modal-body">
+										        	<center><p class="text-info">We implemented:</p></center>
+										        	<ul>
+										        		<li> website design using Bootstrap framework; </li>
+										        		<li> first- and second methods of optimization for function 2 * x ^2 + x * y + y^2 using JavaScript; </li>
+										        		<li> algorithms of methods via Katex framework that allows us to generate TeX expressions on the website. </li>
+										        	</ul>
+										        </div>
+										        <div class="modal-footer">
+										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+										        </div>
+										    </div>     
+										</div>
+									</div>
+    	</ul>
 	</div>
 </body>
 <div class="container-fluid bg-4 text-center">
