@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	<title>_Methods optimization_</title>
+	<title>Methods of optimization</title>
+	<link rel="shortcut icon" href="./images/icon.ico" type="image/x-icon">
 	<!-- Add Bootstrap CDN and a link to jQuery and put HTML elements inside a container. -->
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -100,6 +101,17 @@
 		a:link {
 			text-decoration: none;
 		}
+		p {
+			color: #ffffff;
+		}
+		#header4{
+			padding-bottom: 10px;
+			padding-top: 10px;
+		}
+		#header2{
+			margin-bottom: 10px;
+		}
+
 
 		.animatable {
 		  /* initially hide animatable objects */
@@ -1141,114 +1153,6 @@
 				    </div>
 				</div>
 			</div>
-			<!-- 7 панель -->
-			<div class="panel bg-3 panel-default">
-				<!-- Заголовок 7 панели -->
-				<div class="panel-heading">
-				    <h4 class="panel-title">
-				    <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">Метод кубической интерполяции</a>
-				    </h4>
-				</div>
-				<div id="collapseSeven" class="panel-collapse collapse">
-					<!-- Содержимое 7 панели -->
-				    <div class="panel-body">
-				    <h4>АЛГОРИТМ МЕТОДА</h4>
-						<div class="container-al1 text-left col-sm-offset-4">
-							<b>ШАГ 1.</b> Задать начальную точку <span id="method7_step_1_1" class="katex"></span> величину шага <span id="method7_step_1_2" class="katex"></span> <br> и малые положительные числа <span id="method7_step_1_3" class="katex"></span> и <span id="method7_step_1_4" class="katex"></span>.<br>
-				    		<b>ШАГ 2.</b> Вычислить производную <span id="method7_step_2" class="katex"></span>. <br>
-				    		<b>ШАГ 3.</b> Проверить знак производной в точке <span id="method7_step_3" class="katex"></span>:<br>
-				    		<div class="container-al111">
-				    			<ol>
-				    				<li align=left> если <span id="method7_step_3_1_1" class="katex"></span>, вычислить <span id="method7_step_3_1_2" class="katex"></span> <br> вплоть до точки <span id="method7_step_3_1_3" class="katex"></span>, в которой <span id="method7_step_3_1_4" class="katex"></span>;
-				    				<li align=left> если <span id="method7_step_3_2_1" class="katex"></span>, вычислить <span id="method7_step_3_2_2" class="katex"></span> <br> вплоть до точки <span id="method7_step_3_2_3" class="katex"></span>, в которой <span id="method7_step_3_2_4" class="katex"></span>.
-				    			</ol>
-				    		</div>
-				    		<b>ШАГ 4.</b> Положить <span id="method7_step_4_1" class="katex"></span> и вычислить <br> <span id="method7_step_4_2" class="katex"></span>. <br>
-				    		<b>ШАГ 5.</b> Найти точку минимума кубического интерполяционного полинома по формуле <br> <span id="method7_step_5_1" class="katex"></span>, 
-				    		где <span id="method7_step_5_2_1" class="katex"></span>; <span id="method7_step_5_2_2" class="katex"></span>; <br> <span id="method7_step_5_2_3" class="katex"></span> 
-				    		и значение <span id="method7_step_5_3" class="katex"></span>. <br>
-				    		<b>ШАГ 6.</b> Проверить условие убывания:<br>
-				    		<div class="container-al111">
-				    			<ol>
-				    				<li align=left> если <span id="method7_step_6_1" class="katex"></span>, перейти к шагу 7;
-				    				<li align=left> если <span id="method7_step_6_2_1" class="katex"></span>, вычислять <span id="method7_step_6_2_2" class="katex"></span> по формуле <span id="method7_step_6_2_3" class="katex"></span> <br> до тех пор, пока не будет выполнено неравенство <span id="method7_step_6_2_4" class="katex"></span>.
-				    			</ol>
-				    		</div>
-				    		<b>ШАГ 7.</b> Проверить выполнение условий окончания: <br><span id="method7_step_7" class="katex"></span>:<br>
-				    		<div class="container-al111">
-				    			<ol>
-				    				<li align=left> если оба условия выполнены, процедура закончена и <span id="method7_step_7_1" class="katex"></span>;
-				    				<li align=left> если хотя бы одно из условий не выполнено, положить либо <span id="method7_step_7_2_1" class="katex"></span>, <br> если <span id="method7_step_7_2_2" class="katex"></span>, либо <span id="method7_step_7_2_3" class="katex"></span>, если <span id="method7_step_7_2_4" class="katex"></span>. <br> Перейти к шагу 5.
-				    			</ol>
-				    		</div>
-						</div>
-				        <br>
-						<h4>ФОРМА ДЛЯ ВВОДА НАЧАЛЬНЫХ ЗНАЧЕНИЙ</h4>
-						<!-- Форма для ввода информации для вычислений -->
-						<form class="form-horizontal" name="main_form" id="form-for-seventh-method">
-							<div class="form-group">
-				  				<label for="text" class="col-sm-5 control-label">Начальная точка X0 = </label>
-								<div class="col-sm-3">
-									<input type="text" class="form-control" size="10" name="x0" value="0.5" onFocus="this.value=''" onBlur="if (this.value==''){this.value='0.5'}">
-								</div>
-							</div>
-							<div class="form-group">
-				  				<label for="text" class="col-sm-5 control-label">Начальная точка Y0 = </label>
-								<div class="col-sm-3">
-									<input type="text" class="form-control" size="10" name="y0" value="1" onFocus="this.value=''" onBlur="if (this.value==''){this.value='1'}">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="text" class="col-sm-5 control-label">Малое положительное число E1 = </label>
-								<div class="col-sm-3">
-									<input type="text" class="form-control" size="10" name="e1" value="0.1" onFocus="this.value=''" onBlur="if (this.value==''){this.value='0.1'}">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="text" class="col-sm-5 control-label">Малое положительное число E2 = </label>
-								<div class="col-sm-3">
-									<input type="text" class="form-control" size="10" name="e2" value="0.15" onFocus="this.value=''" onBlur="if (this.value==''){this.value='0.15'}">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="text" class="col-sm-5 control-label">Предельное число итераций М = </label>
-								<div class="col-sm-3">
-									<input type="text" class="form-control" size="10" name="m" value="10" onFocus="this.value=''" onBlur="if (this.value==''){this.value='10'}">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-offset-1 col-sm-10">
-									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_7(main_form);">-->
-									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal7" 
-									onclick="getDataViaMethod('form-for-seventh-method', 'myModal7')">Вычислить</button>
-									<!-- Modal -->
-									<div class="modal fade" id="myModal7" role="dialog" style="display: none;">
-										<div class="modal-dialog">   
-										<!-- Modal content-->
-										    <div class="modal-content">
-										       	<div class="modal-header">
-										          	<button type="button" class="close" data-dismiss="modal">×</button>
-										          	<h4 class="text-info">Решение методом кубической интерполяции</h4>
-										        </div>
-										        <div class="modal-body">
-										        	<p class="text-info">Точка</p> 
-										        	<input type="text" class="form-control" name="x_result" value="">
-										        	<br>
-										          	<p class="text-info">Значение функции в точке</p>
-										          	<input type="text" class="form-control" name="y_result" value="">
-										        </div>
-										        <div class="modal-footer">
-										          	<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-										        </div>
-										    </div>     
-										</div>
-									</div>
-								</div>
-							</div>
-						</form>
-				    </div>
-				</div>
-			</div>
   		</div>
 	</div>
 	<!--Section_3 methods second-order-->
@@ -1596,38 +1500,110 @@
 			</div>
   		</div>
 	</div>
-</body>
-<!--Section_4 Help(Documentation for website) and Authors-->
-<div class="container-fluid bg-4 text-center">
-	<ul id="navbar">
-		<li id = "authors"> Copyright © 2016 Beklenyshchev Vladislav, Pilipenko Tatiana, DNU </li>
-      	<li><a href="help" data-toggle="modal" data-target="#myModalhelp">Help</a></li>
-      	<!-- Modal -->
-		<div class="modal fade" id="myModalhelp" role="dialog" style="display: none;">
-			<div class="modal-dialog">   
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">×</button>
-						<center><h4 class="text-info">Documentation for website</h4></center>
-					</div>
-					<div class="modal-body">
-						<center><p class="text-info">We implemented:</p></center>
-						<p class="text-info" align="left" > - website design using Bootstrap framework; <br>
-						- first- and second methods of optimization for function 2 * x ^2 + x * y + y^2 using JavaScript;<br>
-						- algorithms of methods via Katex framework that allows us to generate TeX expressions on the website.</p></center>
-						<ul id="description">
-							<li>  </li>
-							<li>  </li>
-							<li>  </li>
+
+	<!--Section_4 Help(Documentation for website)-->
+	<div class="container-fluid bg-2 text-center">
+		<div class="panel-group" id="accordion3">
+			<div class="panel bg-3 panel-default">
+				<!-- Заголовок 1 панели -->
+				<div class="panel-heading">
+				    <h3 class="panel-title">
+				    <a data-toggle="collapse" data-parent="#accordion3" href="#help">Описание проекта</a>
+				    </h3>
+				</div>
+				<div id="help" class="panel-collapse collapse">
+					<!-- Содержимое 1 панели -->
+				    <div class="panel-body">
+				    <h4 class="text-info" style="color:#ffffff" align = left id="header4"><b>В проекте реализовано</b></h4>
+				    <p class="text-info" align="left" style="color:#ffffff">шесть алгоритмов для решения методами первого порядка</p>
+					<div class="container-al11">
+				    	<ul>
+				    		<li align = left> метод градиентного спуска с постоянным шагом; </li>
+							<li align = left> метод найскорейшего градиентного спуска;</li>
+							<li align = left> метод покоординатного спуска;</li>
+							<li align = left> метод Гаусса-Зейделя;</li>
+							<li align = left> метод Флетчера-Ривса;</li>
+							<li align = left> метод Дэвидона-Флетчера-Пауэлла;</li>
+				    	</ul>
+				    </div>
+				    <p class="text-info" align="left" style="color:#ffffff">и три алгоритма для решения методами второго порядка </p>
+				    <div class="container-al11">
+						<ul>
+							<li align = left> метод Ньютона;</li>
+							<li align = left> метод Ньютона-Рафсона;</li>
+							<li align = left> метод Марквардта;</li>
 						</ul>
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-					</div>
-				</div>     
+					<p class="text-info" align="left" style="color:#ffffff"> При реализации использовался такой источник: А. В. Пантелеев, Т. А. Летова "Методы опитимизаций в примерах и задачах", 2005г.</p>
+					<h4 class="text-info" style="color:#ffffff" align = left id="header4"><b>Использованные технологии и Фреймоворки</b></h4>
+					<div class="container-al11">
+				    	<ul type="square">
+				    		<li align = left> JS для реализации методов;</li>
+							<li align = left> Bootstrap для простоты создания адаптивного дизайна;</li>
+							<li align = left> библиотеку jQuery для создания визуальных эффектов;</li>
+							<li align = left> плагин на jQuery maskedinput для создания маски;</li>
+							<li align = left> Katex для рендеринга математических формул;</li>
+							<li align = left> UNKNOW для сборки нашего проекта;</li>
+							<li align = left> в качестве системы контроля версий использовалась Git система.</li>
+				    	</ul>
+				    </div>
+					<h4 class="text-info" style="color:#ffffff" align = left id="header4"><b>Роли</b></h4>
+					<div class="container-al11">
+						<ul>
+						 	<li align = left > <b>Бекленищев Владислав</b>
+						    <ul>
+						      	<li align = left>teamLead команды.</li>
+						      	<li align = left>файловая структура проекта;</li>
+						       	<li align = left>шесть численных методов поиска безусловного экстремума     
+						        <ul>
+						          	<li align = left>метод градиентного спуска с постоянным шагом;</li>
+						          	<li align = left>метод покоординатного спуска;</li>
+						          	<li align = left>метод Флетчера-Ривса;</li>
+						          	<li align = left>метод Ньютона;</li>
+						          	<li align = left>метод Ньютона-Рафсона;</li>
+						          	<li align = left>метод Марквардта;</li>
+						         </ul>
+						       	</li>          
+						      	<li align = left>связь между интерфейсом и методами (передача данных);</li>
+						      	<li align = left>форма ввода исходной функции (вместе с маской ввода);</li>
+						      	<li align = left> дизайн сайта
+						      	<ul>
+						          	<li align = left>логотип;</li>
+						          	<li align = left>цветовая палитра;</li>
+						          	<li align = left>написание документации сайта;</li>
+						         </ul>
+						      	</li>
+						    </ul>
+						  	</li>
+						 	<li align = left><b>Пилипенко Татьяна </b>
+						 	<ul>
+						       	<li align = left>дизайн сайта     
+						        <ul>
+						          	<li align = left>анимация headера;</li>
+						          	<li align = left>секции (аккордеоны) с методами, которые включают в себя алгоритм и форму для заполнения;</li>
+						          	<li align = left>документация;</li>
+						         </ul>
+						       	</li>         
+						      	<li align = left>алгоритмы методов в Katex;</li>
+						      		<li align = left>шесть численных методов поиска безусловного экстремума     
+						        <ul>
+						          	<li align = left>метод найскорейшего градиентного спуска;</li>
+						          	<li align = left>метод Гаусса-Зейделя;</li>
+						          	<li align = left>метод Дэвидона-Флетчера-Пауэлла;</li>
+						         </ul>
+						       	</li>
+						    </ul>
+						  	</li>
+						</ul>
+				    </div>	
+				</div>
 			</div>
 		</div>
-    </ul>
+	</div>	
+</body>
+<!--Section_5 Link to Repo and Authors-->
+<div class="container-fluid bg-4 text-center">
+	Link to the <a href="https://github.com/vladbeklenyshchev/optimization-algorithms-website"><b>REPOSITORY</b></a> <br>
+	Copyright © 2016 Beklenyshchev Vladislav, Pilipenko Tatiana, DNU
 </div>
 </html>
