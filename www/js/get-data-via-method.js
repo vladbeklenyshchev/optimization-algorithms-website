@@ -1,7 +1,7 @@
 function getDataViaMethod(formName, modalName){
 	var form = document.getElementById(formName);
 	var elements = form.getElementsByClassName('form-control');
-
+	var precision = 5;
 	var values = [];
 	// get double values from elements and convert them into Number
 	for (var i = 0; i < 5; i++) {
@@ -68,6 +68,8 @@ function getDataViaMethod(formName, modalName){
 	// output 
 	var modalWindow = document.getElementById(modalName); 
 	var outputs = modalWindow.getElementsByClassName('form-control'); 
-	outputs[0].value = result; 
-	outputs[1].value = f_x(result[0], result[1]); 
+	result[0] = result[0].toFixed(precision);
+	result[1] = result[1].toFixed(precision);
+	outputs[0].value = result;
+	outputs[1].value = (f_x(result[0], result[1])).toFixed(precision); 
 }

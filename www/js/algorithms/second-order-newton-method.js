@@ -18,7 +18,7 @@ var methodSecondOrderNewtonMethod = function(x0, eps1, eps2, M) {
 		} else if(k >= M) {
 			return x[k];
 		} else {
-			var invH = getInvertableMatrix(hessian[0], hessian[1]);
+			var invH = getInvertableMatrix(hessian()[0], hessian()[1]);
 			if (applySylvesterCriterionForQuadraticMatrix(invH[0], invH[1])) {
 				d.push(mulMatrixOnVector(invH,
 						[-grad_values[k][0], -grad_values[k][1]]

@@ -17,7 +17,7 @@ var methodSecondOrderNewtonRaphsonMethod = function(x0, eps1, eps2, M) {
 		} else if(k >= M) {
 			return x[k];
 		} else {
-			var invH = getInvertableMatrix(hessian[0], hessian[1]);
+			var invH = getInvertableMatrix(hessian()[0], hessian()[1]);
 
 			if (applySylvesterCriterionForQuadraticMatrix(invH[0], invH[1])) {
 				d.push(mulMatrixOnVector(invH,
@@ -31,7 +31,6 @@ var methodSecondOrderNewtonRaphsonMethod = function(x0, eps1, eps2, M) {
 			t = 1; 
 			x.push([x[k][0] + t * d[k][0], x[k][1] + t * d[k][1]]);
 		}
-		debugger;
 		k = k + 1;
 		if (norm2(x[k-1],x[k]) < eps2 && abs(f_x(x[k][0], x[k][1]) - 
 			f_x(x[k-1][0], x[k-1][1]) < eps2)) {

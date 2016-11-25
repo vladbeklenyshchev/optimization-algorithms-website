@@ -5,12 +5,14 @@
 	<!-- Add Bootstrap CDN and a link to jQuery and put HTML elements inside a container. -->
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+  	<!-- jquery for bootstrap framework -->
+  	<script src="./js/jquery.min.js"></script>
+  	<!-- bootstrap -->
   	<script src="./js/bootstrap.min.js"></script>
-  	
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<!-- katex -->
+  	<link rel="stylesheet" href="katex.min.css">
+	<script src="katex.min.js"></script>
   	<!-- scripts with methods -->
   	<script src = "./js/algorithms/gradient-descent-static-step.js"></script>
   	<script src = "./js/algorithms/method-of-steepest-gradient-descent.js"></script>
@@ -24,6 +26,7 @@
   	<script src = "./js/algorithms/math-functions.js"></script>
   	<script src = "./js/get-data-via-method.js"></script>
 	<!-- script for katex generator -->
+	<script src="./js/jquery.maskedinput.min.js"></script>
   	<script defer src = "./js/katex-algorithms-generator.js"></script>
   	<script type="text/javascript">
   			// Trigger CSS animations on scroll.
@@ -66,22 +69,26 @@
   	<!-- <link href="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.css">
 	<script src="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.js"></script> -->
 	<!-- <script type="text/javascript">AOS.init({ duration: 1200 });</script> -->
+  	<script>
+  		// initialize by default (a=2, b=1, c=1)
+  		init();
+  	</script>
   	<!-- Add slyles -->
   	<style>
 		.bg-1 { 
-    		background-color: /*#2F4F4F*/#5cb85c; /* Green */
-    		color: #ffffff; /*White*/
+    		background-color: #5cb85c; /* Green */
+    		color: #ffffff;
     		padding-top: 70px;
     		padding-bottom: 330px;
 		}
 		.bg-2 { 
-    		background-color: /*#708090*/#474e5d; /* Dark Blue */
+    		background-color: #474e5d;
     		color: #ffffff;
     		padding-top: 10px;
     		padding-bottom: 10px;
 		}
 		.bg-3 { 
-    		background-color: #708090; /* Dark Blue */
+    		background-color: #708090;
     		color: #ffffff;
 		}
 		.bg-4 { 
@@ -91,7 +98,7 @@
     		padding-bottom: 10px;
 		}
 		.bg-5 { 
-    		background-color: /*#708090*/#474e5d; /* Dark Blue */
+    		background-color: #474e5d;
     		color: #ffffff;
     		padding-top: 5px;
     		padding-bottom: 20px;
@@ -385,7 +392,43 @@
 	<!--Section_1 MAIN header+logo-->
 	<div class="container-fluid bg-1 text-center">
   		<h1 id = "header1" class="animatable bounceInLeft" >Численные методы поиска безусловного экстремума</h1><br>
-		<h3 id = "header2" class="animatable bounceInRight">для функции f(x, y) = 2x<sup>2</sup> + xy + y<sup>2</sup></h3><br><br>
+		
+		<form class= "form-inline" id="inputFunctionForm">
+			<div class="input-group input-group-lg">
+				<span class="input-group-addon">f(x, y)</span>
+  				<input type="text" class="form-control" id="inputFunction" 
+  				placeholder="a x^2 + b x y + c y^2">
+			</div>	
+		</form>
+		
+		<script>
+			// use it or onSubmit = false
+			$('#inputFunctionForm').keydown(function(event){
+				if(event.keyCode == 13) {
+					// remove the focus from the input field when entered
+					$(function () {
+    					$('input').blur();
+					});
+				    event.preventDefault();
+				    return false;
+				}
+			});
+
+			$(function() {
+				$("#inputFunction").mask("9 x^2 + 9 x y + 9 y^2", {
+					completed: function() { 
+						var sInput = this.val();
+						var slpitedString = sInput.split(' + ');
+						var a = +slpitedString[0][0];
+						var b = +slpitedString[1][0];
+						var c = +slpitedString[2][0];
+						init(a, b, c);
+					}
+				});
+			});
+		</script>
+		<br>
+		<br>
 		<img src="./images/mo_logo.png" class="img-thumbnail animatable fadeIn" alt="logo" id = "logo"><br>
 	</div>
 	<!--Section_2 methods first-order-->
@@ -1535,6 +1578,6 @@
 	</div>
 </body>
 <div class="container-fluid bg-4 text-center">
-	Copyright © 2016 Beklenyshchev Vladislav, Tatiana Pilipenko, DNU
+	Copyright © 2016 Beklenyshchev Vladislav, Pilipenko Tatiana, DNU
 </div>
 </html>
