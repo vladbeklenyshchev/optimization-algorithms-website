@@ -26,7 +26,9 @@
   	<script src = "./js/algorithms/math-functions.js"></script>
   	<script src = "./js/get-data-via-method.js"></script>
 	<!-- script for katex generator -->
+	<script src="./js/jquery.maskedinput.js"></script>
   	<script defer src = "./js/katex-algorithms-generator.js"></script>
+
   	<!-- Add slyles -->
   	<style>
 		.bg-1 { 
@@ -67,13 +69,20 @@
 	<div class="container-fluid bg-1 text-center">
   		<h1 id = "header1">Численные методы поиска безусловного экстремума</h1><br>
 		
-		<form class= "form-inline">
+		<form class= "form-inline" id="inputFunctionForm">
 			<div class="input-group input-group-lg">
 			<span class="input-group-addon">f(x, y) =</span>
   			<input type="text" class="form-control" id="inputFunction" 
-  			placeholder="a x^2 + b x y + c y ^2">
+  			placeholder="a x^2 + b x y + c y^2">
 			</div>	
 		</form>
+		<script>
+			$(function() {
+				$("#inputFunction").mask("9 x^2 + 9 x y + 9 y^2", {
+					completed: function() {alert(this.val()); }
+				});
+			});
+		</script>
 		<br>
 		<br>
 		<img src="./images/mo_logo.png" class="img-thumbnail" alt="logo" id = "logo"><br>
