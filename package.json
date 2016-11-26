@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/vladbeklenyshchev/optimization-algorithms-website#readme",
   "devDependencies": {
-    "gulp-uglify": "^2.0.0"
+    "gulp-uglify": "^2.0.0",
+    "pump": "^1.0.1"
   }
 }
