@@ -1,3 +1,4 @@
+'use strict';
 function getDataViaMethod(formName, modalName){
 	var form = document.getElementById(formName);
 	var elements = form.getElementsByClassName('form-control');
