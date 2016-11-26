@@ -23,7 +23,10 @@
   	<script src = "./js/get-data-via-method.js"></script>
   	<script src = "./js/animation.js"></script>
   	<script src = "./js/katex-algorithms-generator.js"></script>
+  	<script src = "./js/mask-handler.js"></script>
+  	<!-- endbuilding -->
   	<script>
+  		// our first function:
   		initArgs(2, 1, 1);
   	</script>
   	<!-- Add slyles -->
@@ -34,8 +37,8 @@
 <body>
 	<!--Section_1 MAIN header+logo-->
 	<div class="container-fluid bg-1 text-center">
-  		<h1 id = "header1" class="animatable bounceInLeft" >Численные методы поиска безусловного экстремума</h1><br>
-		
+  		<h1 id = "header1" class="animatable bounceInLeft" >Численные методы поиска безусловного экстремума</h1>
+  		<br>
 		<form class= "form-inline animatable bounceInRight" id="inputFunctionForm">
 			<div class="input-group input-group-lg">
 				<span class="input-group-addon">f(x, y)</span>
@@ -43,33 +46,6 @@
   				placeholder="a x^2 + b x y + c y^2">
 			</div>	
 		</form>
-		
-		<script>
-			// use it or onSubmit = false
-			$('#inputFunctionForm').keydown(function(event){
-				if(event.keyCode == 13) {
-					// remove the focus from the input field when entered
-					$(function () {
-    					$('input').blur();
-					});
-				    event.preventDefault();
-				    return false;
-				}
-			});
-
-			$(function() {
-				$("#inputFunction").mask("9 x^2 + 9 x y + 9 y^2", {
-					completed: function() { 
-						var sInput = this.val();
-						var slpitedString = sInput.split(' + ');
-						var a = +slpitedString[0][0];
-						var b = +slpitedString[1][0];
-						var c = +slpitedString[2][0];
-						initArgs(a, b, c);
-					}
-				});
-			});
-		</script>
 		<br>
 		<br>
 		<img src="./images/mo_logo.png" class="img-thumbnail animatable fadeIn" alt="logo" id = "logo"><br>
@@ -1123,84 +1099,85 @@
 				    </h3>
 				</div>
 				<div id="help" class="panel-collapse collapse">
+					<div class="container-al1 text-left col-sm-offset-4">
 					<!-- Содержимое 1 панели -->
-				    <div class="panel-body">
-				    <h4 class="text-info" style="color:#ffffff" align = left id="header4"><b>В проекте реализовано</b></h4>
-				    <p class="text-info" align="left" style="color:#ffffff">шесть алгоритмов для решения методами первого порядка</p>
+				    <!--<div class="panel-body">-->
+				    <h4 class="text-info"><b>В проекте реализовано</b></h4>
+				    <p class="text-info">Шесть алгоритмов для решения методами первого порядка</p>
 					<div class="container-al11">
 				    	<ul>
-				    		<li align = left> метод градиентного спуска с постоянным шагом; </li>
-							<li align = left> метод найскорейшего градиентного спуска;</li>
-							<li align = left> метод покоординатного спуска;</li>
-							<li align = left> метод Гаусса-Зейделя;</li>
-							<li align = left> метод Флетчера-Ривса;</li>
-							<li align = left> метод Дэвидона-Флетчера-Пауэлла;</li>
+				    		<li> метод градиентного спуска с постоянным шагом; </li>
+							<li> метод найскорейшего градиентного спуска;</li>
+							<li> метод покоординатного спуска;</li>
+							<li> метод Гаусса-Зейделя;</li>
+							<li> метод Флетчера-Ривса;</li>
+							<li> метод Дэвидона-Флетчера-Пауэлла;</li>
 				    	</ul>
 				    </div>
-				    <p class="text-info" align="left" style="color:#ffffff">и три алгоритма для решения методами второго порядка </p>
+				    <p class="text-info">Три алгоритма для решения методами второго порядка </p>
 				    <div class="container-al11">
 						<ul>
-							<li align = left> метод Ньютона;</li>
-							<li align = left> метод Ньютона-Рафсона;</li>
-							<li align = left> метод Марквардта;</li>
+							<li> метод Ньютона;</li>
+							<li> метод Ньютона-Рафсона;</li>
+							<li> метод Марквардта;</li>
 						</ul>
 					</div>
-					<p class="text-info" align="left" style="color:#ffffff"> При реализации использовался такой источник: А. В. Пантелеев, Т. А. Летова "Методы опитимизаций в примерах и задачах", 2005г.</p>
-					<h4 class="text-info" style="color:#ffffff" align = left id="header4"><b>Использованные технологии и Фреймоворки</b></h4>
+					<p class="text-info"> При реализации использовался такой источник: А. В. Пантелеев, Т. А. Летова "Методы опитимизаций в примерах и задачах", 2005г.</p>
+					<h4 class="text-info"><b>Использованные технологии и фреймворки</b></h4>
 					<div class="container-al11">
 				    	<ul type="square">
-				    		<li align = left> JS для реализации методов;</li>
-							<li align = left> Bootstrap для простоты создания адаптивного дизайна;</li>
-							<li align = left> библиотеку jQuery для создания визуальных эффектов;</li>
-							<li align = left> плагин на jQuery maskedinput для создания маски;</li>
-							<li align = left> Katex для рендеринга математических формул;</li>
-							<li align = left> UNKNOW для сборки нашего проекта;</li>
-							<li align = left> в качестве системы контроля версий использовалась Git система.</li>
+				    		<li> JS для реализации методов;</li>
+							<li> Bootstrap для простоты создания адаптивного дизайна;</li>
+							<li> библиотеку jQuery для создания визуальных эффектов;</li>
+							<li> плагин на jQuery maskedinput для создания маски для ввода функции;</li>
+							<li> Katex для рендеринга математических формул;</li>
+							<li> Gulp для сборки проекта;</li>
+							<li> в качестве системы контроля версий использовалась Git система.</li>
 				    	</ul>
 				    </div>
-					<h4 class="text-info" style="color:#ffffff" align = left id="header4"><b>Роли</b></h4>
+					<h4 class="text-info"><b>Роли</b></h4>
 					<div class="container-al11">
 						<ul>
-						 	<li align = left > <b>Бекленищев Владислав</b>
+						 	<li> <b>Бекленищев Владислав</b>
 						    <ul>
-						      	<li align = left>teamLead команды.</li>
-						      	<li align = left>файловая структура проекта;</li>
-						       	<li align = left>шесть численных методов поиска безусловного экстремума     
+						      	<li>TeamLead;</li>
+						      	<li>файловая структура проекта;</li>
+						       	<li>шесть численных методов поиска безусловного экстремума     
 						        <ul>
-						          	<li align = left>метод градиентного спуска с постоянным шагом;</li>
-						          	<li align = left>метод покоординатного спуска;</li>
-						          	<li align = left>метод Флетчера-Ривса;</li>
-						          	<li align = left>метод Ньютона;</li>
-						          	<li align = left>метод Ньютона-Рафсона;</li>
-						          	<li align = left>метод Марквардта;</li>
+						          	<li>метод градиентного спуска с постоянным шагом;</li>
+						          	<li>метод покоординатного спуска;</li>
+						          	<li>метод Флетчера-Ривса;</li>
+						          	<li>метод Ньютона;</li>
+						          	<li>метод Ньютона-Рафсона;</li>
+						          	<li>метод Марквардта;</li>
 						         </ul>
 						       	</li>          
-						      	<li align = left>связь между интерфейсом и методами (передача данных);</li>
-						      	<li align = left>форма ввода исходной функции (вместе с маской ввода);</li>
-						      	<li align = left> дизайн сайта
+						      	<li>связь между интерфейсом и методами (передача данных);</li>
+						      	<li>форма ввода исходной функции (вместе с маской ввода);</li>
+						      	<li> дизайн сайта
 						      	<ul>
-						          	<li align = left>логотип;</li>
-						          	<li align = left>цветовая палитра;</li>
-						          	<li align = left>написание документации сайта;</li>
+						          	<li>логотип;</li>
+						          	<li>цветовая палитра;</li>
+						          	<li>написание документации сайта;</li>
 						         </ul>
 						      	</li>
 						    </ul>
 						  	</li>
-						 	<li align = left><b>Пилипенко Татьяна </b>
+						 	<li><b>Пилипенко Татьяна </b>
 						 	<ul>
-						       	<li align = left>дизайн сайта     
+						       	<li>дизайн сайта     
 						        <ul>
-						          	<li align = left>анимация headера;</li>
-						          	<li align = left>секции (аккордеоны) с методами, которые включают в себя алгоритм и форму для заполнения;</li>
-						          	<li align = left>документация;</li>
+						          	<li>анимация хедера;</li>
+						          	<li>секции (аккордеоны) с методами, которые включают в себя алгоритм и форму для заполнения;</li>
+						          	<li>документация;</li>
 						         </ul>
 						       	</li>         
-						      	<li align = left>алгоритмы методов в Katex;</li>
-						      		<li align = left>шесть численных методов поиска безусловного экстремума     
+						      	<li>алгоритмы методов в Katex;</li>
+						      		<li>шесть численных методов поиска безусловного экстремума     
 						        <ul>
-						          	<li align = left>метод найскорейшего градиентного спуска;</li>
-						          	<li align = left>метод Гаусса-Зейделя;</li>
-						          	<li align = left>метод Дэвидона-Флетчера-Пауэлла;</li>
+						          	<li>метод найскорейшего градиентного спуска;</li>
+						          	<li>метод Гаусса-Зейделя;</li>
+						          	<li>метод Дэвидона-Флетчера-Пауэлла;</li>
 						         </ul>
 						       	</li>
 						    </ul>
@@ -1209,9 +1186,9 @@
 				    </div>	
 				</div>
 				</div>	
+		</div>
 	</div>
-	</div>
-	</div>
+</div>
 <!--Section_5 Link to Repo and Authors-->
 <div class="container-fluid bg-2 text-center" id="footer">
 	Link to the <a href="https://github.com/vladbeklenyshchev/optimization-algorithms-website"><b>REPOSITORY</b></a> <br>
