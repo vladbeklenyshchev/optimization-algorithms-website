@@ -39,11 +39,12 @@
 	<div class="container-fluid bg-1 text-center">
   		<h1 id = "header1" class="animatable bounceInLeft" >Численные методы поиска безусловного экстремума</h1>
   		<br>
-		<form class= "form-inline animatable bounceInRight" id="inputFunctionForm">
+		<form class= "form-inline animatable bounceInRight" id="inputFunctionForm"  onSubmit = 'return false;'>
 			<div class="input-group input-group-lg">
 				<span class="input-group-addon">f(x, y)</span>
   				<input type="text" class="form-control" id="inputFunction" 
-  				placeholder="a x^2 + b x y + c y^2">
+  				placeholder="a x^2 + b x y + c y^2" 
+  				onblur="this.value = '';">
 			</div>	
 		</form>
 		<br>
@@ -371,7 +372,6 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-1 col-sm-10">
-									<!--<input type="button" class="btn btn-success btn-lg" value="Вычислить" onClick="method_3(main_form);">-->
 									<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal3" 
 									onclick="getDataViaMethod('form-for-third-method', 'myModal3')">Вычислить</button>
 									<!-- Modal -->
@@ -1102,8 +1102,8 @@
 					<div class="container-al1 text-left col-sm-offset-4">
 					<!-- Содержимое 1 панели -->
 				    <!--<div class="panel-body">-->
-				    <h4 class="text-info"><b>В проекте реализовано</b></h4>
-				    <p class="text-info">Шесть алгоритмов для решения методами первого порядка</p>
+				    <h4><b>В проекте реализовано</b></h4>
+				    <p>Шесть алгоритмов для решения методами первого порядка</p>
 					<div class="container-al11">
 				    	<ul>
 				    		<li> метод градиентного спуска с постоянным шагом; </li>
@@ -1114,7 +1114,7 @@
 							<li> метод Дэвидона-Флетчера-Пауэлла;</li>
 				    	</ul>
 				    </div>
-				    <p class="text-info">Три алгоритма для решения методами второго порядка </p>
+				    <p>Три алгоритма для решения методами второго порядка </p>
 				    <div class="container-al11">
 						<ul>
 							<li> метод Ньютона;</li>
@@ -1122,8 +1122,8 @@
 							<li> метод Марквардта;</li>
 						</ul>
 					</div>
-					<p class="text-info"> При реализации использовался такой источник: А. В. Пантелеев, Т. А. Летова "Методы опитимизаций в примерах и задачах", 2005г.</p>
-					<h4 class="text-info"><b>Использованные технологии и фреймворки</b></h4>
+					<p> При реализации использовался такой источник: А. В. Пантелеев, Т. А. Летова "Методы опитимизаций в примерах и задачах", 2005г.</p>
+					<h4><b>Использованные технологии и фреймворки</b></h4>
 					<div class="container-al11">
 				    	<ul type="square">
 				    		<li> JS для реализации методов;</li>
@@ -1135,7 +1135,7 @@
 							<li> в качестве системы контроля версий использовалась Git система.</li>
 				    	</ul>
 				    </div>
-					<h4 class="text-info"><b>Роли</b></h4>
+					<h4><b>Роли</b></h4>
 					<div class="container-al11">
 						<ul>
 						 	<li> <b>Бекленищев Владислав</b>
