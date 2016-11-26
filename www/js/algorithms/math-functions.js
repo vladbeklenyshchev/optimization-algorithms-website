@@ -1,9 +1,7 @@
-"use strict";
-
-// coefficients for function
+'use strict';
 var a, b, c;
 
-function init(arg1 = 2, arg2 = 1, arg3 = 1) {
+function initArgs(arg1, arg2, arg3) {
 	a = arg1;
 	b = arg2;
 	c = arg3;

@@ -1,0 +1,26 @@
+{
+  "name": "optimization-algorithms-website",
+  "version": "1.0.0",
+  "description": "This website represents first- and second-order methods of optimization.\r You can calculate value for function 2 * x^2 + x * y + y^2 using 9 methods thaw we implemented in JavaScript.\r Also we have to say that website is a big laboratory work for our \"Web-programming\" discipline (5 course).",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladbeklenyshchev/optimization-algorithms-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vladbeklenyshchev/optimization-algorithms-website/issues"
+  },
+  "homepage": "https://github.com/vladbeklenyshchev/optimization-algorithms-website#readme",
+  "devDependencies": {
+    "gulp-uglify": "^2.0.0",
+    "pump": "^1.0.1"
+  }
+}
