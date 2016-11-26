@@ -4,6 +4,7 @@ var pump = require('pump');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 
+// we should run tasks one by one
 gulp.task('compress:js', function (cb) {
     pump([
     	gulp.src(['www/js/**/*.js', '!www/js/**/*.min.js']),
@@ -17,7 +18,8 @@ gulp.task('compress:js', function (cb) {
     );
 });
 
-//get everything including min files(js inclusively), images, styles and index
+// the next one:
+// add to dist other files
 gulp.task('get:notmins:notjs', function (cb) {
     pump([
         gulp.src(['!www/**/*.min.*', '!www/**/*.js', 'www/**/*.*']),
@@ -27,6 +29,8 @@ gulp.task('get:notmins:notjs', function (cb) {
     );
 });
 
+// and run this:
+// add to dist only min files
 gulp.task('get:mins', function (cb) {
     pump([
         gulp.src(['www/**/*.min.*']),
