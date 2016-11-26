@@ -39,12 +39,24 @@
 	<div class="container-fluid bg-1 text-center">
   		<h1 id = "header1" class="animatable bounceInLeft" >Численные методы поиска безусловного экстремума</h1>
   		<br>
+  		<script>
+  			// tooltips initialization
+  			$(function () {
+			  $('[data-toggle="tooltip"]').tooltip()
+			});
+			// popover initialization
+			$(function () {
+			  $('[data-toggle="popover"]').popover()
+			});
+  		</script>
 		<form class= "form-inline animatable bounceInRight" id="inputFunctionForm"  onSubmit = 'return false;'>
 			<div class="input-group input-group-lg">
-				<span class="input-group-addon">f(x, y)</span>
+				<span class="input-group-addon btn" data-container="body" data-toggle="popover" data-placement="bottom" 
+				data-content="Вы можете самостоятельно выбрать параметры функции функции f(x, y). Для этого введите значения a, b и c в поле справа.
+				После ввода корректных данных можно приступать к опитимизации. Если пропустить ввод, то значения будут считаться для функции по умолчанию: 2 x ^ 2 + 1 x y + 1 y ^ 2">f(x, y)</span>
   				<input type="text" class="form-control" id="inputFunction" 
-  				placeholder="a x^2 + b x y + c y^2" 
-  				onblur="this.value = '';">
+  				placeholder="a x ^ 2 + b x y + c y ^ 2">
+  				<span class="input-group-addon btn" onclick='acceptInput()'">ОК</span>
 			</div>	
 		</form>
 		<br>
