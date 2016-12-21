@@ -3,6 +3,7 @@ var uglify = require('gulp-uglify');
 var pump = require('pump');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
+var minifyCSS = require('gulp-minify-css');
 
 // we should run tasks one by one
 gulp.task('compress:js', function (cb) {
@@ -37,5 +38,17 @@ gulp.task('get:mins', function (cb) {
         gulp.dest('dist'),
         ],
         cb
+    );
+});
+
+// we should run tasks one by one
+gulp.task('compress:css', function (cb) {
+    pump([
+    	gulp.src(['www/css/**/*.css', '!www/css/**/*.min.css']),
+    	minifyCSS(),
+    	concat('styles.min.css'),
+    	gulp.dest('dist/css')
+    	],
+    	cb
     );
 });
